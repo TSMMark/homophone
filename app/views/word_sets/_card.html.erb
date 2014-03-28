@@ -1,0 +1,8 @@
+<div class="word-set-card">
+  <%= @word_set.id %>
+
+  <%= @word_set.visits %>
+  <%= link_to 'Show', @word_set %>
+  <%= link_to 'Edit', edit_word_set_path(@word_set) %>
+  <%= link_to 'Destroy', @word_set, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
