@@ -8,9 +8,9 @@ random homophone
 
 
 
-rails g scaffold homophone_set visits
+rails g scaffold homophone_set visits:integer
 
-rails g scaffold words text visits
+rails g scaffold words text visits:integer
 
 
 cache
