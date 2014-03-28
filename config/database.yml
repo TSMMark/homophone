@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: homophone_development
+  username: trendsettermm
+  pool: 5
+  password: 
+  host: localhost
+
+test:
+  adapter: postgresql
+  encoding: utf8
+  database: homophone_test
+  username: trendsettermm
+  pool: 5
+  password: 
+  host: localhost
