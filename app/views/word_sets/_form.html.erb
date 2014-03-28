@@ -11,10 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :visits %><br>
-    <%= f.number_field :visits %>
-  </div>
+  <% @word_set.words.find_each do |word| %>
+    <input type="text" name="word_set[words][]" value="<%= word.text %>"/>
+  <% end %>
+
+  <input type="text" name="word_set[words][]" value=""/>
+
   <div class="actions">
     <%= f.submit %>
   </div>

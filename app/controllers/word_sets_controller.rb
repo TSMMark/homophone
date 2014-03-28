@@ -24,6 +24,7 @@ class WordSetsController < ApplicationController
   # POST /word_sets
   # POST /word_sets.json
   def create
+    puts word_set_params.inspect
     @word_set = WordSet.new(word_set_params)
 
     respond_to do |format|
@@ -69,6 +70,8 @@ class WordSetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def word_set_params
-      params.require(:word_set).permit(:visits)
+      params.require(:word_set).permit(:visits, words: []).tap do |p|
+        p[:words].reject!(&:empty?)
+      end
     end
 end
