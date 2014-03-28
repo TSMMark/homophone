@@ -11,11 +11,14 @@
     </div>
   <% end %>
 
-  <% @word_set.words.find_each do |word| %>
-    <input type="text" name="word_set[words][]" value="<%= word.text %>"/>
-  <% end %>
-
-  <input type="text" name="word_set[words][]" value=""/>
+  <div data-infinite-inputs>
+    <% @word_set.words.find_each do |word| %>
+      <div data-infinite-inputs-row>
+        <input type="text" name="word_set[words][]" value="<%= word.text %>"/>
+      </div>
+    <% end %>
+    
+  </div>
 
   <div class="actions">
     <%= f.submit %>
