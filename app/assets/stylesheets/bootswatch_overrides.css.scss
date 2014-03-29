@@ -7,7 +7,7 @@ input[type=text] {
   @extend .form-control;
 }
 
-h1 {
+@include all-h-tags {
   @extend .clearfix;
   .btn {
     float:right;

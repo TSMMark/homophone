@@ -1,9 +1,21 @@
 <div class="container">
 
-  <h1>
-    <span>Listing <%= t("model.word_set").pluralize %></span>
-    <%= link_to 'New Word Set', new_word_set_path, class: "btn btn-info btn-lg btn-xs-full" %>
-  </h1>
+  <div class="row">
+    <div class="col-sm-9">
+      <h3>
+        <% if @query %>
+          Homophones that <%= describe_query(@query, @query_type) %>
+        <% else %>
+          Listing all Homophones
+        <% end %>
+      </h3>
+    </div>
+    <div class="col-sm-3">
+      <h3>
+        <%= link_to fa_icon("plus") + ' New Word Set', new_word_set_path, class: "btn btn-info btn-sm btn-xs-full" %>
+      </h3>
+    </div>
+  </div>
 
   <div class="card-set-container">
     <% ad_frequency = 3; ad_start = 2 %>
