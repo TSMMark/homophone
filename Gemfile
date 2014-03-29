@@ -34,3 +34,5 @@ gem "auto_strip_attributes", "~> 2.0"
 gem 'canonical-rails', github: 'jumph4x/canonical-rails'
 
 gem "font-awesome-rails", "~> 4.0"
+
+gem 'rails_serve_static_assets'
