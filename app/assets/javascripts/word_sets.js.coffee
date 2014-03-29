@@ -26,8 +26,3 @@ $ ->
 $ ->
   $("[data-toggle=popover]").popover
     trigger: "focus"
-  # $("[data-toggle=popover]").each ->
-  #   $this = $(this)
-  #   $this.on "click", ->
-  #     # $("[data-toggle=popover]").not($this).popover("hide")
-  #     $this.popover("show")
