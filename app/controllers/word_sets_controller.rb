@@ -4,7 +4,14 @@ class WordSetsController < ApplicationController
   # GET /word_sets
   # GET /word_sets.json
   def index
-    @word_sets = WordSet.all
+    @query = params[:q]
+    @query_type  = params[:type] || "include"
+
+    if @query
+      @word_sets = WordSet.search_for(@query, @query_type)
+    else
+      @word_sets = WordSet.all
+    end
   end
 
   # GET /word_sets/1
