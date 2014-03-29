@@ -11,16 +11,21 @@
     </div>
   <% end %>
 
+  <% make_one_input = Proc.new do |word=nil| %>
+    <div data-infinite-inputs-row class="">
+      <input type="text" name="word_set[words][]" value="<%= word.text if word %>"/>
+    </div>
+  <% end %>
+
   <div data-infinite-inputs>
-    <% @word_set.words.find_each do |word| %>
-      <div data-infinite-inputs-row>
-        <input type="text" name="word_set[words][]" value="<%= word.text %>"/>
-      </div>
+    <% if @word_set.words.count.zero? %>
+      <% make_one_input.call() %>
+    <% else %>
+      <% @word_set.words.find_each &make_one_input %>
     <% end %>
-    
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>

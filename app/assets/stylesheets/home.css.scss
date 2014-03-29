@@ -45,3 +45,9 @@
 #footer {
   @extend .blackboard-section;
 }
+
+#more-details {
+  background-image: image_url("patterns/retina_wood.png");
+  background-size: auto;
+  background-repeat: repeat;
+}

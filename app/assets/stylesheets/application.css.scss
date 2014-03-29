@@ -1,10 +1,14 @@
 @import "bootstrap_sass/bootstrap";
 @import "bootswatch_overrides";
 
+@import "scaffolds";
+
+@import "font-awesome";
+
 @import "home";
 
 @import "buttons";
+@import "icons";
 
-@import "scaffolds";
 @import "words";
 @import "word_sets";

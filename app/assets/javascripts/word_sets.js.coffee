@@ -16,3 +16,18 @@ $ ->
         appendInput()
 
     appendInput()
+
+# masonry on cards
+$ ->
+  $(".card-set-container").masonry
+    itemSelector: ".card",
+    gutter: 9
+
+$ ->
+  $("[data-toggle=popover]").popover
+    trigger: "focus"
+  # $("[data-toggle=popover]").each ->
+  #   $this = $(this)
+  #   $this.on "click", ->
+  #     # $("[data-toggle=popover]").not($this).popover("hide")
+  #     $this.popover("show")

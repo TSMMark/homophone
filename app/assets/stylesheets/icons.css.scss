@@ -1,0 +1,10 @@
+.btn-edit {
+  .fa-stack-2x {
+    color: darken($state-warning-bg, 25%);
+  }
+}
+.btn-delete {
+  .fa-stack-2x {
+    color: darken($state-danger-bg, 25%);
+  }
+}
