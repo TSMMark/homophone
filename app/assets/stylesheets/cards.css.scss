@@ -1,0 +1,33 @@
+.card {
+  margin: 0;
+  width:32%;
+  @media (max-width: $screen-md-max) {
+    width: 49%;
+  }
+  @media (max-width: $screen-xs-max) {
+    width:100%;
+  }
+  .btn.word-btn {
+    margin: 3px 0;
+    min-width: $word-btn-min-width;
+    padding-left: $word-btn-padding;
+    padding-right: $word-btn-padding;
+  }
+  .well {
+    margin-bottom: 9px;
+  }
+  &.card-partner {
+    .well {
+      padding: $ad-card-padding;
+      min-height: $ad-card-height;
+    }
+  }
+  .icon-container {
+    position: absolute;
+    top: 0;
+    right:0;
+    .btn-group > .btn {
+      margin: 0;
+    }
+  }
+}

@@ -7,6 +7,14 @@ input[type=text] {
   @extend .form-control;
 }
 
+h1 {
+  @extend .clearfix;
+  .btn {
+    float:right;
+    display: inline-block;
+  }
+}
+
 .navbar {
 
   margin-bottom: 0;
@@ -63,3 +71,4 @@ input[type=text] {
   right:12px;
   bottom: 3px;
 }
+

@@ -1,12 +1,19 @@
+.btn-xs-full,
+.btn-sm-full {
+  @media (max-width: $screen-xs-max) {
+    float: none !important;
+    position: relative;
+  }
+}
 .btn-xs-full {
   @media (max-width: $screen-xs-max) {
-    display: block;
+    display: block !important;
     margin: 16px 0;
   }
 }
 .btn-sm-full {
   @media (max-width: $screen-sm-max) {
-    display: block;
+    display: block !important;
     margin: 16px 0;
   }
 }

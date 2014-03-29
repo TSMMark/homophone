@@ -1,5 +1,9 @@
 <div class="container">
-  <h1>Listing <%= t("model.word_set").pluralize %></h1>
+
+  <h1>
+    <span>Listing <%= t("model.word_set").pluralize %></span>
+    <%= link_to 'New Word Set', new_word_set_path, class: "btn btn-info btn-lg btn-xs-full" %>
+  </h1>
 
   <div class="card-set-container">
     <% ad_frequency = 3; ad_start = 2 %>
@@ -11,5 +15,4 @@
     <% end %>
   </div>
 
-  <%= link_to 'New Word set', new_word_set_path %>
 </div>
