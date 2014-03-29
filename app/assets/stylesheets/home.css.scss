@@ -1,0 +1,47 @@
+.dark-background {
+  color: $text-color-inverse;
+
+  a {
+    color: $link-color-inverse;
+    &:visited{
+      color: $link-color-inverse;
+    }
+    &:hover {
+      color: $link-hover-color-inverse;
+    }
+  }
+}
+.blackboard-section {
+  @extend .dark-background;
+  background-image: image_url("fullwidth/blackboard.jpg");
+}
+
+.jumbotron {
+  margin-bottom: 0;
+}
+
+.block-section {
+  position: relative;
+  background-size: cover;
+  margin-top: 0;
+  padding: 60px 0;
+  border-top: 3px solid rgb(0, 0, 0);
+  border-bottom: 1px solid $gray-light;
+}
+
+.partner-section {
+  // background-image: image_url("fullwidth/students.jpg");
+  // background-size: cover;
+  min-height: 300px;
+}
+
+#above-fold {
+  margin-top: 0;
+  border-top: none;
+  background-image: image_url("fullwidth/applebook.jpg");
+}
+
+#what-is-a-homophone,
+#footer {
+  @extend .blackboard-section;
+}

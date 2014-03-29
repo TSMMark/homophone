@@ -1,0 +1,48 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-header">
+    <%= link_to t("site"), root_path, class: "navbar-brand" %>
+    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+
+  <div class="navbar-collapse collapse navbar-responsive-collapse" id="navbar-main">
+    
+    <ul class="nav navbar-nav">
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">About <span class="caret"></span></a>
+        <ul class="dropdown-menu" >
+          <li><a href="/about#what">What is a homophone?</a></li>
+          <li><a href="/about#more">More about homophones</a></li>
+          <li><a href="/about#examples">Homophone sentence examples</a></li>
+          <li><a href="/about#why">Why do homophones exist?</a></li>
+          <li><a href="/about#about">About the author</a></li>
+          <li><a href="/about#email">Email the author</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <form class="navbar-form navbar-right navbar-search-form" action="/search">
+      <div class="input-group">
+        <div class="input-group-btn">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span>Includes</span> <span class="caret"></span></button>
+          <ul class="dropdown-menu dropdown-right" role="menu">
+            <li><a href="#" data-value="include">Includes</a></li>
+            <li><a href="#" data-value="begin">Begins with</a></li>
+          </ul>
+          <input type="hidden" value="include" name="type" />
+        </div>
+
+        <input type="text" placeholder="Search" name="q">
+
+        <span class="input-group-btn">
+          <input type="submit" class="btn btn-default" value="Search" />
+        </span>
+      </div>
+    </form>
+
+  </div>
+
+</div>

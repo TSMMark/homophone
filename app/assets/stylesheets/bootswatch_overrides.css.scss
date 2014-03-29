@@ -1,3 +1,65 @@
+body {
+  padding-top: $navbar-actual-height;
+  background-image: image_url('patterns/lightpaperfibers.png');
+}
+
 input[type=text] {
   @extend .form-control;
+}
+
+.navbar {
+
+  margin-bottom: 0;
+  .navbar-collapse.in {
+    overflow: visible;
+  }
+  &.navbar-inverse {
+    @media (min-width: $screen-sm-min) {
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+      border-bottom-color: $gray-lighter;
+    }
+  }
+  @media (min-width: $screen-sm-min) {
+    .navbar-form {
+      margin-top:11px;
+    }
+  }
+
+  .navbar-toggle {
+    margin-top:12px;
+  }
+
+  @media (min-width: $screen-sm-min) {
+    .navbar-search-form {
+      padding-left: 0;
+      padding-right: 0;
+
+      .input-group {
+        width:325px;
+      }
+    }
+  }
+}
+
+.dropdown-menu {
+  &.dropdown-right {
+    right:inherit;
+    left:0px;
+  }
+  &.dropdown-left {
+    left:inherit;
+    right:0px;
+  }
+}
+
+#footer {
+}
+
+#tiny-options {
+  position: absolute;
+  font-size: 80%;
+  text-align: right;
+  right:12px;
+  bottom: 3px;
 }

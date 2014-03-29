@@ -1,0 +1,32 @@
+<section class="block-section" id="above-fold">
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Welcome to <%= t(:site) %></h1>
+      <% @preface = ["The Internet's only complete", "Your one-stop complete", "The world's only complete"].sample %>
+      <p><strong><%= @preface %> homophone list</strong>.</p>
+      <a class="btn btn-primary btn-lg btn-xs-full">Browse homophones</a>
+      <a class="btn btn-info btn-lg btn-xs-full">What's a homophone?!</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<%= render "ads/horizontal" %>
+
+<section class="block-section" id="what-is-a-homophone">
+  <div class="container">
+    <h1>What is a Homophone?</h1>
+    <h4>Homophones are words that sound alike but have different meanings and spellings.</h4>
+    <p>For example: "aye", "eye" and "I".</p>
+    <p><%= t(:site) %> is a handy compilation of homophones for anyone who is learning or simply curious about the English language! This resource is exceptionally useful for schools and offices as a reference for when spoken English word must be converted to written language.</p>
+  </div>
+</section>
+
+<%= render "ads/horizontal" %>
+
+<section class="block-section" id="more-details">
+  <div class="container">
+    <h1>Want to learn more?</h1>
+    <p>Extra stuff</p>
+  </div>
+</section>

@@ -25,7 +25,7 @@ $brand-danger:          #d9534f;
 // ## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-$body-bg:               #fff;
+$body-bg:               rgb(252, 251, 249);
 //** Global text color on `<body>`.
 $text-color:            $gray-dark;
 
@@ -33,6 +33,10 @@ $text-color:            $gray-dark;
 $link-color:            $brand-primary;
 //** Link hover color set via `darken()` function.
 $link-hover-color:      darken($link-color, 20%);
+
+$text-color-inverse:        $gray-lighter;
+$link-color-inverse:        $gray-lighter;
+$link-hover-color-inverse:  lighten($link-color-inverse, 20%);
 
 
 //== Typography
@@ -327,6 +331,7 @@ $container-lg:                 $container-large-desktop;
 
 // Basics of a navbar
 $navbar-height:                    50px;
+$navbar-actual-height:             65px;
 $navbar-margin-bottom:             $line-height-computed;
 $navbar-border-radius:             $border-radius-base;
 $navbar-padding-horizontal:        floor(($grid-gutter-width / 2));
@@ -457,7 +462,7 @@ $pager-disabled-color:                 $gray-light;
 
 $jumbotron-padding:              30px;
 $jumbotron-color:                inherit;
-$jumbotron-bg:                   darken($body-bg, 3%);
+$jumbotron-bg:                   rgba(darken($body-bg, 3%),0.75);
 $jumbotron-heading-color:        inherit;
 $jumbotron-font-size:            ceil(($font-size-base * 1.5));
 

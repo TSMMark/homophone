@@ -20,5 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  site: "Homophone.com"
+  
   model:
     word_set: "Word Set"

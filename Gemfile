@@ -29,3 +29,6 @@ gem 'spring',        group: :development
 gem 'better_errors', group: :development
 
 gem "auto_strip_attributes", "~> 2.0"
+
+# https://github.com/jumph4x/canonical-rails
+gem 'canonical-rails', github: 'jumph4x/canonical-rails'
