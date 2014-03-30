@@ -5,19 +5,18 @@ class WordSet < ActiveRecord::Base
 
   attr :current_query
 
+  scope :with_words, -> do
+    joins(:words)
+      .includes(:words)
+      .order("lower(words.text) ASC")
+  end
+
   module ClassMethods
     attr        :current_query
     attr_writer :current_query
 
     def search_for(string, type="include")
-      joins(:words).includes(:words)
-        .where("words.text ILIKE ?", ilike_string(string, type))
-        .order("lower(words.text) ASC")
-    end
-
-    def all_with_words
-      joins(:words).includes(:words)
-        .order("lower(words.text) ASC")
+      with_words.where("words.text ILIKE ?", ilike_string(string, type))
     end
 
   end

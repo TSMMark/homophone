@@ -11,7 +11,7 @@ class WordSetsController < ApplicationController
       WordSet.current_query = @query
       @word_sets = WordSet.search_for(@query, @query_type)
     else
-      @word_sets = WordSet.all_with_words
+      @word_sets = WordSet.with_words
     end
   end
 
@@ -70,7 +70,7 @@ class WordSetsController < ApplicationController
   end
 
   def card_ad_tools
-    @card_ad_tools ||=  Extensions::AdTools.new(
+    @card_ad_tools ||=  AdTools.new(
                           default_format: "horizontal",
                           format_sequence: %w(horizontal auto))
   end

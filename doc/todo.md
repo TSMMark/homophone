@@ -1,5 +1,10 @@
 
-Categories
+get started buttons on every homepage panel
+
+word-popup can click to view further definition info, etc
+
+top-right corner of card has button to inspect word_set
+
 
 newly added homophones
 popular homophones

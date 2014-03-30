@@ -3,7 +3,7 @@ module AdsHelper
   def serve_ad(ad_server=nil)
     # production check
     if Rails.env.production? || ENV['ADS']
-      ad_server ||= Extensions::AdTools.new
+      ad_server ||= AdTools.new
       content_tag(:ins, "", ad_server.request_ad_data)
     else
       content_tag(:div, "[ad placeholder]", style: "background-color:white; min-height: 60px;")

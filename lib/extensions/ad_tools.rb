@@ -1,4 +1,4 @@
-class Extensions::AdTools
+class AdTools
   # SEQUENCE = %w(horizontal auto) # example sequence
   DEFAULT_FORMAT  = "auto"
 
