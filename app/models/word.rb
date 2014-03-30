@@ -16,4 +16,7 @@ class Word < ActiveRecord::Base
   end
   extend ClassMethods
 
+  def <=>(another)
+    text.downcase <=> another.text.downcase
+  end
 end

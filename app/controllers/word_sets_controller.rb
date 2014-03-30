@@ -10,7 +10,7 @@ class WordSetsController < ApplicationController
     if @query
       @word_sets = WordSet.search_for(@query, @query_type)
     else
-      @word_sets = WordSet.all
+      @word_sets = WordSet.all_with_words
     end
   end
 
