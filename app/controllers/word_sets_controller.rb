@@ -8,6 +8,7 @@ class WordSetsController < ApplicationController
     @query_type  = params[:type] || "include"
 
     if @query
+      WordSet.current_query = @query
       @word_sets = WordSet.search_for(@query, @query_type)
     else
       @word_sets = WordSet.all_with_words

@@ -6,7 +6,8 @@ class WordSet < ActiveRecord::Base
   attr :current_query
 
   module ClassMethods
-    attr :current_query
+    attr        :current_query
+    attr_writer :current_query
 
     def search_for(string, type="include")
       joins(:words).includes(:words)
