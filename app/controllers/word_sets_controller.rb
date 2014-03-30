@@ -4,7 +4,7 @@ class WordSetsController < ApplicationController
   # GET /word_sets
   # GET /word_sets.json
   def index
-    @query = params[:q]
+    @query = params[:q].blank? ? nil : params[:q]
     @query_type  = params[:type] || "include"
 
     if @query
@@ -32,7 +32,6 @@ class WordSetsController < ApplicationController
   # POST /word_sets
   # POST /word_sets.json
   def create
-    puts word_set_params.inspect
     @word_set = WordSet.new(word_set_params)
 
     respond_to do |format|
