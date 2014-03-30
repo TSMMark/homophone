@@ -5,7 +5,7 @@
       <% @preface = ["The Internet's only complete", "Your one-stop complete", "The world's only complete"].sample %>
       <p><strong><%= @preface %> homophone list</strong>.</p>
       <%= link_to "Browse homophones", word_sets_path, class: "btn btn-primary btn-lg btn-xs-full" %>
-      <a class="btn btn-info btn-lg btn-xs-full">What's a homophone?!</a>
+      <%= link_to "What's a homophone?", "#what", class: "btn btn-info btn-lg btn-xs-full" %>
       </p>
     </div>
   </div>
@@ -13,7 +13,7 @@
 
 <%= render "ads/horizontal" %>
 
-<section class="block-section" id="what-is-a-homophone">
+<section class="block-section" id="what-is-a-homophone" name="what">
   <div class="container">
     <h1>What is a Homophone?</h1>
     <h4>Homophones are words that sound alike but have different meanings and spellings.</h4>

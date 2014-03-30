@@ -16,5 +16,9 @@
 //= require bootstrap.min
 //= require masonry.min
 //  
+//= require vars
+//  
+//= require home
+//  
 //= require navbar
 //= require_tree .
