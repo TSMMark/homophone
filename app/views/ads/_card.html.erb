@@ -1,7 +1,8 @@
 <div class="card card-partner">
   <div class="well well-lg">
-    [ad goes here]
-    <%= google_adsense_include_tag  client: 'ca-pub-7450582029313903',
-                                    slot: '4153570663' %>
+    <div class="partner-container">
+      <%= serve_ad card_ad_tools %>
+      <script>window.pushPartner()</script>
+    </div>
   </div>
 </div>

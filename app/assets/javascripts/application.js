@@ -20,5 +20,7 @@
 //  
 //= require home
 //  
+//= require adsense
+//  
 //= require navbar
 //= require_tree .

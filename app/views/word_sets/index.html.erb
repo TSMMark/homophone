@@ -23,7 +23,7 @@
       <% @word_set = word_set %>
       <%= render partial: 'card' %>
 
-      <%= render "ads/card" if (i + ad_start) % ad_frequency == 0 %>
+      <%= render "ads/card" if should_serve_ad?(i, ad_frequency, ad_start, @word_sets.count) %>
     <% end %>
   </div>
 

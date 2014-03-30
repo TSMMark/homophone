@@ -1,6 +1,6 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+window.remason = ->
+  $(".card-set-container").masonry()
+
 $ ->
   $("[data-infinite-inputs]").each ->
     $this = $(this)
@@ -19,9 +19,13 @@ $ ->
 
 # masonry on cards
 $ ->
-  $(".card-set-container").masonry
+  $cards = $(".card-set-container")
+  $cards.masonry
     itemSelector: ".card",
     gutter: 9
+
+
+  $cards.find("iframe").one "load", window.remason
 
 $ ->
   $("[data-toggle=popover]").popover
