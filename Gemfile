@@ -36,3 +36,6 @@ gem 'canonical-rails', github: 'jumph4x/canonical-rails'
 gem "font-awesome-rails", "~> 4.0"
 
 gem 'rails_serve_static_assets'
+
+# https://github.com/museways/ads-rails
+gem 'ads-rails', '~> 0.0.8'

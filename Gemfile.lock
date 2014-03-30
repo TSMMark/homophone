@@ -34,6 +34,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    ads-rails (0.0.8)
+      rails (>= 3.0.0)
     arel (5.0.0)
     atomic (1.1.16)
     auto_strip_attributes (2.0.4)
@@ -129,6 +131,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ads-rails (~> 0.0.8)
   auto_strip_attributes (~> 2.0)
   better_errors
   canonical-rails!
