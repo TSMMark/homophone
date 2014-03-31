@@ -1,6 +1,7 @@
 
 get started buttons on every homepage panel
 
+FIX WORD CLICK FOR IPHONE
 word-popup can click to view further definition info, etc
   APIs
 
