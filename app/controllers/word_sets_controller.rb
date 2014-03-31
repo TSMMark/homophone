@@ -23,6 +23,7 @@ class WordSetsController < ApplicationController
   # GET /word_sets/1.json
   def show
     add_breadcrumb "[current_query]", "[current_query_path]"
+    add_breadcrumb "A homophone set"
   end
 
   # GET /word_sets/new
