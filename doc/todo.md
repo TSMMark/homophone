@@ -6,10 +6,12 @@ word-popup can click to view further definition info, etc
 
 pagination
 
+browse by letter
 
 newly added homophones
+
 popular homophones
-browse by letter
+
 random homophone
 
 
