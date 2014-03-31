@@ -39,3 +39,8 @@ gem 'rails_serve_static_assets'
 
 # https://github.com/museways/ads-rails
 gem 'ads-rails', '~> 0.0.8'
+
+gem "breadcrumbs_on_rails"
+
+# https://github.com/kpumuk/meta-tags
+gem 'meta-tags', :require => 'meta_tags'

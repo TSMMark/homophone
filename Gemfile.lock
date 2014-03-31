@@ -43,6 +43,7 @@ GEM
     better_errors (1.0.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
+    breadcrumbs_on_rails (2.3.0)
     builder (3.2.2)
     coderay (1.0.9)
     coffee-rails (4.0.1)
@@ -68,6 +69,8 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    meta-tags (1.5.0)
+      actionpack
     mime-types (1.25.1)
     minitest (5.3.1)
     multi_json (1.9.2)
@@ -134,11 +137,13 @@ DEPENDENCIES
   ads-rails (~> 0.0.8)
   auto_strip_attributes (~> 2.0)
   better_errors
+  breadcrumbs_on_rails
   canonical-rails!
   coffee-rails (~> 4.0.0)
   font-awesome-rails (~> 4.0)
   jbuilder (~> 2.0)
   jquery-rails
+  meta-tags
   pg
   rails (= 4.1.0.rc2)
   rails_serve_static_assets

@@ -2,13 +2,15 @@
 
   <div class="row">
     <div class="col-sm-9">
-      <h3>
+    
+      <%= content_tag page_h do %>
         <% if @query %>
           Homophones that <%= describe_query(@query, @query_type) %>
         <% else %>
           Listing all Homophones
         <% end %>
-      </h3>
+      <% end %>
+      
     </div>
     <div class="col-sm-3">
       <h3>
@@ -28,3 +30,7 @@
   </div>
 
 </div>
+
+<script>
+sessvars.current_query = <%= ({term: @query, type: @query_type}.to_json.html_safe) %>;
+</script>

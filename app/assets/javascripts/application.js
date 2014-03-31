@@ -16,9 +16,15 @@
 //= require bootstrap.min
 //= require masonry.min
 //  
+//  http://www.thomasfrank.se/sessionvars.html
+//= require sessvars.min
+//  
+//= require helpers
+//  
 //= require vars
 //  
 //= require home
+//= require breadcrumbs
 //  
 //= require adsense
 //  
