@@ -1,6 +1,8 @@
 
 get started buttons on every homepage panel
 
+header too wide for iphone
+
 remove breadcrumbs. switch to back button
 
 FIX WORD CLICK FOR IPHONE
