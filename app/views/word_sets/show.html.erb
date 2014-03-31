@@ -1,9 +1,18 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<p>
-  <strong>Visits:</strong>
-  <%= @word_set.visits %>
-</p>
+  <div class="row">
+    <div class="col-sm-9">
+      <%= content_tag page_h, "A homophone set" %>
+    </div>
+    <div class="col-sm-3">
+      <%= content_tag page_h, btn_view_more(class: "btn btn-primary btn-xs-full") %>
+    </div>
+  </div>
 
-<%= link_to 'Edit', edit_word_set_path(@word_set) %> |
-<%= link_to 'Back', word_sets_path %>
+  <div class="card-set-container">
+    <%= render partial: "card" %>
+
+    <%= render partial: "ads/card" %>
+  </div>
+  
+</div>

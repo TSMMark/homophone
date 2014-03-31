@@ -1,9 +1,14 @@
-.btn-edit {
+.icon-success {
+  .fa-stack-2x {
+    color: darken($state-success-bg, 25%);
+  }
+}
+.icon-edit {
   .fa-stack-2x {
     color: darken($state-warning-bg, 25%);
   }
 }
-.btn-delete {
+.icon-delete {
   .fa-stack-2x {
     color: darken($state-danger-bg, 25%);
   }
