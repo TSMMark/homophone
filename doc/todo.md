@@ -5,6 +5,8 @@ word-popup can click to view further definition info, etc
 
 top-right corner of card has button to inspect word_set
 
+pagination
+
 
 newly added homophones
 popular homophones
