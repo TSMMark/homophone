@@ -1,4 +1,8 @@
 
+social links
+
+copyright
+
 get started buttons on every homepage panel
 
 header too wide for iphone
