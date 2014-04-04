@@ -70,10 +70,12 @@ input[type=text] {
 }
 
 #tiny-options {
+  font-family: $font-family-monospace;
   position: absolute;
   font-size: 80%;
-  text-align: right;
-  right:12px;
+  text-align: center;
+  left:0;
+  right:0;
   bottom: 3px;
 }
 
