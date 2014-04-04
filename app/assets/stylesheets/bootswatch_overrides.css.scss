@@ -79,3 +79,10 @@ input[type=text] {
   bottom: 3px;
 }
 
+@media (max-width: $screen-xs-min) {
+  .jumbotron{
+    padding: 6px 12px;
+    margin-left: -12px;
+    margin-right: -12px;
+  }
+}
