@@ -10,11 +10,9 @@ class WordSetsController < ApplicationController
     @query_type  = params[:type] || "include"
 
     if @query
-      add_breadcrumb "Homophones that " + describe_query(@query, @query_type)
       WordSet.current_query = @query
       @word_sets = WordSet.search_for(@query, @query_type)
     else
-      add_breadcrumb "All homophones", word_sets_path
       @word_sets = WordSet.with_words
     end
   end
@@ -22,8 +20,12 @@ class WordSetsController < ApplicationController
   # GET /word_sets/1
   # GET /word_sets/1.json
   def show
-    add_breadcrumb "[current_query]", "[current_query_path]"
-    add_breadcrumb "A homophone set"
+  end
+
+  # GET /word_sets/1
+  # GET /word_sets/1.json
+  def random
+    @word_set = WordSet.sample
   end
 
   # GET /word_sets/new

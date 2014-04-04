@@ -5,7 +5,11 @@
     
       <%= content_tag page_h do %>
         <% if @query %>
-          Homophones that <%= describe_query(@query, @query_type) %>
+          <% if @word_sets.count.zero? %>
+            We couldn't find any homophones that <%= describe_query(@query, @query_type) %>...
+          <% else %>
+            Homophones that <%= describe_query(@query, @query_type) %>...
+          <% end %>
         <% else %>
           Listing all Homophones
         <% end %>
@@ -28,6 +32,9 @@
       <%= render "ads/card" if should_serve_ad?(i, ad_frequency, ad_start, @word_sets.count) %>
     <% end %>
   </div>
+
+  <%# # if no more homophones (pagination)  %>
+  <%= render 'layouts/more_homophones' %>
 
 </div>
 

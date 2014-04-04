@@ -11,11 +11,14 @@
 
 <%= render "layouts/header" %>
 
-<%= render "layouts/breadcrumbs" %>
+<%# render "layouts/breadcrumbs" %>
+<%= render "layouts/back_button" %>
 
 <%= yield %>
 
 <%= render "layouts/footer" %>
+
+<%= render "modals/browse_letters" %>
 
 </body>
 </html>

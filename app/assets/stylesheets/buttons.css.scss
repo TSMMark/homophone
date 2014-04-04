@@ -17,3 +17,11 @@
     margin: 16px 0;
   }
 }
+
+.btn-letter {
+  @extend .btn-default;
+  min-width: 55px;
+  margin-top: 8px;
+  margin-left: 4px;
+  margin-right: 4px;
+}

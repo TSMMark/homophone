@@ -3,6 +3,10 @@ body {
   background-image: image_url('patterns/lightpaperfibers.png');
 }
 
+.centered-content {
+  text-align: center;
+}
+
 input[type=text] {
   @extend .form-control;
 }

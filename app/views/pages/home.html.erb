@@ -4,7 +4,7 @@
       <h1>Welcome to <%= t(:site) %></h1>
       <% @preface = ["The Internet's only complete", "Your one-stop complete", "The world's only complete"].sample %>
       <p><strong><%= @preface %> homophone list</strong>.</p>
-      <%= link_to "Browse homophones", word_sets_path, class: "btn btn-primary btn-lg btn-xs-full" %>
+      <%= link_to "Browse homophones", browse_path, class: "btn btn-primary btn-lg btn-xs-full" %>
       <%= link_to "What is a homophone?", "#what", class: "btn btn-info btn-lg btn-xs-full" %>
       </p>
     </div>

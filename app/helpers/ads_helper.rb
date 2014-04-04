@@ -4,7 +4,7 @@ module AdsHelper
     # production check
     if Rails.env.production? || ENV['ADS']
       ad_server ||= AdTools.new
-      content_tag(:ins, "", ad_server.request_ad_data)
+      content_tag(:ins, "", ad_server.request_ad_data) + "<script>window.pushPartner()</script>".html_safe
     else
       content_tag(:div, "[ad placeholder]", style: "background-color:white; min-height: 60px;")
     end

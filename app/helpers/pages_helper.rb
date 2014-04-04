@@ -12,6 +12,6 @@ module PagesHelper
     defaults = {
       class: "btn btn-primary"
     }
-    link_to "Click for more homophones !", word_sets_path, defaults.merge(options)
+    link_to "Click for more homophones !", browse_path, defaults.merge(options)
   end
 end

@@ -1,9 +1,9 @@
 class PagesController < ApplicationController
 
-  skip_before_filter :add_home_breadcrumb, only: [:home]
+  before_filter :no_back_button, only: :home
 
-  def home
+  def home; end
 
-  end
+  def browse; end
 
 end

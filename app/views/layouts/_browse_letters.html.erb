@@ -1,0 +1,5 @@
+<div class="browse-letters-container">
+  <% ("A".."Z").to_a.each do |letter| %>
+    <%= link_to letter, homophones_that_begin_with_path(letter), class: "btn btn-letter" %>
+  <% end %>
+</div>
