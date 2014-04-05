@@ -3,6 +3,8 @@ class Word < ActiveRecord::Base
 
   has_and_belongs_to_many :word_sets
 
+  has_many :definitions
+
   auto_strip_attributes :text, nullify: true, squish: true
 
   # validate :text, presence: true
@@ -16,6 +18,15 @@ class Word < ActiveRecord::Base
   end
   extend ClassMethods
 
+  def definition
+    definitions.limit(1).first
+  end
+
+  def definitions
+    super
+  end
+
+  # comparator
   def <=>(another)
     text.downcase <=> another.text.downcase
   end

@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140328041003) do
+ActiveRecord::Schema.define(version: 20140405031546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "definitions", force: true do |t|
+    t.integer  "word_id"
+    t.string   "text"
+    t.string   "part_of_speech"
+    t.string   "source_dictionary"
+    t.string   "atttribution_text"
+    t.string   "attribution_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "word_sets", force: true do |t|
     t.integer  "visits"
