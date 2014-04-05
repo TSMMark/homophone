@@ -25,6 +25,8 @@
 //  http://www.thomasfrank.se/sessionvars.html
 //= require sessvars.min
 //  
+//= require enquire.min
+//  
 //= require helpers
 //  
 //= require vars
@@ -35,6 +37,8 @@
 //= require adsense
 //  
 //= require navbar
+//  
+//= require popovers
 //  
 //= require popovers
 //  

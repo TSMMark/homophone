@@ -1,0 +1,26 @@
+window.Homophone = 
+  environment:  "<%= Rails.env %>",
+  scrollSpeed:  300,
+  navbarHeight: 64,
+
+  # media query
+  screen_xs:    480,
+  screen_sm:    768,
+  screen_md:    992,
+  screen_lg:    1200
+
+Homophone.screen_xs_max = Homophone.screen_sm - 1
+Homophone.screen_sm_max = Homophone.screen_md - 1
+Homophone.screen_md_max = Homophone.screen_lg - 1
+
+window.delay = (ms, func) -> setTimeout func, ms
+
+((sessvars)->
+  sessvars.current_query ||= {}
+  sessvars.current_query.type ||= "include"
+)(sessvars)
+
+
+# return true if Rails.env is included in *arguments
+window.Homophone.env = ()->
+  Array.prototype.slice.call(arguments).indexOf(window.App.environment) is not -1
