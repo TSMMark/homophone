@@ -9,16 +9,19 @@
 </head>
 <body>
 
-<%= render "layouts/header" %>
+  <%= render "layouts/header" %>
 
-<%# render "layouts/breadcrumbs" %>
-<%= render "layouts/back_button" %>
+  <div id="body-content">
 
-<%= yield %>
+    <%= render "layouts/back_button" %>
 
-<%= render "layouts/footer" %>
+    <%= yield %>
 
-<%= render "modals/browse_letters" %>
+    <%= render "layouts/footer" %>
+
+    <%= render "modals/browse_letters" %>
+
+  </div>
 
 </body>
 </html>

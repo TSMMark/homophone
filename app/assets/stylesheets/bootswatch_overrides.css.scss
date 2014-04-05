@@ -3,6 +3,14 @@ body {
   background-image: image_url('patterns/lightpaperfibers.png');
 }
 
+#body-content {
+  position: relative;
+}
+
+.container {
+  overflow: hidden;
+}
+
 .centered-content {
   text-align: center;
 }

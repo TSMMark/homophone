@@ -2,3 +2,12 @@
   @extend .well;
   text-align: center;
 }
+
+.definition {
+  .word-text {
+    @extend strong;
+  }
+  .part-of-speech {
+    font-style: italic;
+  }
+}

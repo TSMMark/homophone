@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140405031546) do
+ActiveRecord::Schema.define(version: 20140405040539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20140405031546) do
     t.string   "text"
     t.string   "part_of_speech"
     t.string   "source_dictionary"
-    t.string   "atttribution_text"
+    t.string   "attribution_text"
     t.string   "attribution_url"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20140405031546) do
     t.integer  "visits"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "no_definitions"
   end
 
 end

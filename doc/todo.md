@@ -1,6 +1,8 @@
 
 social links
 
+random have ID in url
+
 ads only on right
 
 get started buttons on every homepage panel
@@ -25,7 +27,7 @@ add spelling option to word
 
 cache
 
-rails g scaffold definitions word_id:integer text part_of_speech source_dictionary attribution_text
+rails g scaffold definitions word_id:integer text part_of_speech source_dictionary attribution_text attribution_url
 
 rails g scaffold pronounciations word_id:integer file_url attribution_text
 

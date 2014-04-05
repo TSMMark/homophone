@@ -1,7 +1,10 @@
 Popover = 
   settings:
     trigger: "hover",
-    html: true
+    html: true,
+    placement: "auto top",
+    container: "#body-content"
+
 
 $ ->
   $("[data-toggle=popover]").popover Popover.settings

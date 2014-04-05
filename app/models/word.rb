@@ -3,7 +3,7 @@ class Word < ActiveRecord::Base
 
   has_and_belongs_to_many :word_sets
 
-  has_many :definitions
+  has_many :definitions, dependent: :delete_all
 
   auto_strip_attributes :text, nullify: true, squish: true
 
@@ -19,15 +19,53 @@ class Word < ActiveRecord::Base
   extend ClassMethods
 
   def definition
-    definitions.limit(1).first
+    @definition ||= get_definitions.first
   end
 
-  def definitions
-    super
+  def get_definitions
+    defs = definitions.all
+
+    return defs if no_definitions?
+
+    apply_wordnik_definitions if defs.count.zero?
+
+    definitions
   end
 
   # comparator
   def <=>(another)
     text.downcase <=> another.text.downcase
   end
+  
+
+  protected
+
+
+  def apply_wordnik_definitions
+    wordnik_definitions.each do |row|
+      definition = Definition.build_from_wordnik(row).tap do |d|
+        d.word_id = self.id
+        d.save!
+      end
+      definitions << definition
+    end
+    definitions
+  end
+
+  def wordnik_definitions
+    @wordnik_definitions ||= Wordnik.word.get_definitions(self.text)
+  end
+
+
+  private
+
+
+  # delete all definitions in case the word was changed
+  after_save :delete_definitions
+  def delete_definitions
+    definitions.delete_all
+    true
+  end
+
+
 end

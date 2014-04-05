@@ -1,2 +1,19 @@
-<strong><%= @word.text %></strong>  
-<p><%= @word.definition %></p>
+<div class="definition">
+  <span class="word-text"><%= @word.text %></span>
+  
+  <% @definitions = @word.get_definitions.limit(2) %>
+
+  <% if @definitions.blank? %>
+    <p>So sorry... We couldn't find a definition for this word.</p>
+  <% else %>
+    <ol>
+      <% @definitions.each do |definition| %>
+        <li>
+          :: 
+          <span class="part-of-speech"><%= definition.part_of_speech %></span>
+          <p><%= definition.text %></p>
+        </li>
+      <% end %>
+    </ol>
+  <% end %>
+</div>
