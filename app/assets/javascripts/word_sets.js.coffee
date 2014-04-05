@@ -23,6 +23,8 @@ $ ->
 
   $ad_cards.addClass "stamp"
 
+  only_one_word = $cards.length - $ad_cards.length == 1
+
   window.remason = (setup=false)->
     $masonry_container.masonry "destroy" unless setup
 
@@ -30,7 +32,7 @@ $ ->
       itemSelector: ".card:not(.stamp)",
       stamp: ".stamp",
       gutter: 9,
-      isOriginLeft: false
+      isOriginLeft: only_one_word
 
   window.remason(true)
 
