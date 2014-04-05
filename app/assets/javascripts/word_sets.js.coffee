@@ -26,7 +26,3 @@ $ ->
 
 
   $cards.find("iframe").one "load", window.remason
-
-$ ->
-  $("[data-toggle=popover]").popover
-    trigger: "focus"

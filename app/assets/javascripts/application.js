@@ -11,7 +11,13 @@
 // about supported directives.
 //
 //= require jquery
+//
+//  require jquery.ui.all
+//= jquery.ui.widget.js
+//= jquery.ui.mouse.js
+//  
 //= require jquery_ujs
+//  
 //  require turbolinks
 //= require bootstrap.min
 //= require masonry.min
@@ -29,4 +35,7 @@
 //= require adsense
 //  
 //= require navbar
+//  
+//= require popovers
+//  
 //= require_tree .

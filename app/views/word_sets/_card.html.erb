@@ -1,7 +1,7 @@
 <div class="card">
   <div class="well well-lg">
     <% @word_set.words_matches_preceding(@query).each do |word| %>
-      <button type="button" class="btn btn-default word-btn" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title=""><%= word.text %></button>
+      <%= word_btn word %>
     <% end %>
 
     <div class="icon-container">

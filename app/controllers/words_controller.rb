@@ -10,6 +10,10 @@ class WordsController < ApplicationController
   # GET /words/1
   # GET /words/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.popover
+    end
   end
 
   # GET /words/new
