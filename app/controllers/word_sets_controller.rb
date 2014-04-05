@@ -1,10 +1,8 @@
 class WordSetsController < ApplicationController
   include WordSetsHelper
 
-  before_action :set_word_set, only: [:show, :edit, :update, :destroy]
+  before_action :set_word_set, only: [:show, :edit, :update, :destroy, :random]
 
-  # GET /word_sets
-  # GET /word_sets.json
   def index
     @query = params[:q].blank? ? nil : params[:q]
     @query_type  = params[:type] || "include"
@@ -17,15 +15,13 @@ class WordSetsController < ApplicationController
     end
   end
 
-  # GET /word_sets/1
-  # GET /word_sets/1.json
   def show
   end
 
-  # GET /word_sets/1
-  # GET /word_sets/1.json
+  def pick_random
+    redirect_to "/random/#{WordSet.sample.id}"
+  end
   def random
-    @word_set = WordSet.sample
   end
 
   # GET /word_sets/new
