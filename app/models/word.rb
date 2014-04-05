@@ -15,6 +15,12 @@ class Word < ActiveRecord::Base
     def search_for(string, type="include")
       where("text ILIKE ?", ilike_string(string, type))
     end
+
+    def self_or_new word_or_string
+      word_or_string.is_a?(Word) ?
+        word_or_string :
+        Word.find_or_create_by(text: word_or_string)
+    end
   end
   extend ClassMethods
 

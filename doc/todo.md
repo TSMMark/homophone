@@ -1,4 +1,7 @@
 
+add spelling option to word
+
+
 social links
 
 get started buttons on every homepage panel
@@ -16,8 +19,6 @@ newly added homophones
 popular homophones
 
 
-
-add spelling option to word
 
 
 
