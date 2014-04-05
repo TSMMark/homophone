@@ -28,6 +28,13 @@
 
 
   &.card-partner {
+    // added with enquire.js for > sm-max
+    &.stamp {
+      float: right;
+      margin-left: 5px;
+      clear:both;
+    }
+
     .well {
       padding: $ad-card-padding;
       // min-height: $ad-card-height;
