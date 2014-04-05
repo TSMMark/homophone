@@ -1,10 +1,6 @@
 
 social links
 
-random have ID in url
-
-ads only on right
-
 get started buttons on every homepage panel
 
 FIX WORD CLICK FOR IPHONE
@@ -45,4 +41,7 @@ remove breadcrumbs. switch to back button
 
 random homophone
 
+random have ID in url
+
+ads only on right
 
