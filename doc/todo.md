@@ -1,4 +1,8 @@
 
+admin side!
+
+change type of text column in definition to accommodate long strings
+# http://localhost:3000/words/5862.popover
 
 add spelling option to word
 
@@ -8,6 +12,8 @@ fix back buttons styling
 attr_accessor :matches_query or :matches_search on word
 
 add definitions_last_checked to words
+
+downcase strings before Wordnik API
 
 social links
 
