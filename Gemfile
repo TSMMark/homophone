@@ -51,3 +51,6 @@ gem 'figaro', github: 'laserlemon/figaro', ref: "9bbc7343f3916e73c185d071608e5ef
 
 # https://github.com/kpumuk/meta-tags
 gem 'meta-tags', :require => 'meta_tags'
+
+# https://github.com/tilo/smarter_csv
+gem 'smarter_csv'

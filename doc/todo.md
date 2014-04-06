@@ -1,9 +1,13 @@
 
+
+add spelling option to word
+
+fix back buttons use browser back
+fix back buttons styling
+
+add definitions_last_checked to words
+
 social links
-
-random have ID in url
-
-ads only on right
 
 get started buttons on every homepage panel
 
@@ -20,8 +24,11 @@ newly added homophones
 popular homophones
 
 
+create docs
+  text vs display text
+    text - definition lookup (singular)
+    how the word should be displayed 
 
-add spelling option to word
 
 
 
@@ -45,4 +52,7 @@ remove breadcrumbs. switch to back button
 
 random homophone
 
+random have ID in url
+
+ads only on right
 

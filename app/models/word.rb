@@ -15,8 +15,29 @@ class Word < ActiveRecord::Base
     def search_for(string, type="include")
       where("text ILIKE ?", ilike_string(string, type))
     end
+
+    def self_or_new word_or_string
+      word_or_string.is_a?(Word) ?
+        word_or_string :
+        create(text: word_or_string)
+    end
+
+    def destroy_unlinked
+      find_unlinked.destroy_all
+    end
+
+    def find_unlinked
+      where("words.id NOT IN(
+        SELECT words.id FROM words INNER JOIN word_sets_words ON words.id = word_sets_words.word_id
+      )")
+    end
+
   end
   extend ClassMethods
+
+  def display
+    (display_text || text).to_s
+  end
 
   def definition
     @definition ||= get_definitions.first
@@ -48,12 +69,15 @@ class Word < ActiveRecord::Base
         d.save!
       end
       definitions << definition
-    end
+    end if wordnik_definitions
     definitions
   end
 
   def wordnik_definitions
-    @wordnik_definitions ||= Wordnik.word.get_definitions(self.text)
+    return @wordnik_definitions if @wordnik_definitions
+
+    @wordnik_definitions = Wordnik.word.get_definitions(self.text)
+    @wordnik_definitions = @wordnik_definitions.blank? ? [] : @wordnik_definitions
   end
 
 

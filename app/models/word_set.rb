@@ -23,8 +23,12 @@ class WordSet < ActiveRecord::Base
   extend ClassMethods
 
   def words= words
-    words.map! { |w| w.is_a?(Word) ? w : Word.find_or_create_by(text: w) }
+    words.map! { |w| Word.self_or_new(w) }
     super words
+  end
+
+  def append_word word
+    words << Word.self_or_new(word)
   end
 
   def words_matches_preceding(string=nil)
@@ -80,5 +84,9 @@ class WordSet < ActiveRecord::Base
     @word_order_lists ||= {}
   end
 
+  after_commit :cleanup_unlinked_words
+  def cleanup_unlinked_words
+    Word.destroy_unlinked
+  end
 
 end

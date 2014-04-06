@@ -9,7 +9,8 @@ Rails.application.routes.draw do
 
   get '/browse/index' => redirect('/browse')
 
-  get '/random', to: 'word_sets#random', as: :random_homophone
+  get '/random',      to: 'word_sets#pick_random', as: :random_homophone
+  get '/random/:id',  to: 'word_sets#random'
 
   get '/index' => redirect('/')
   get '/home' => redirect('/')
