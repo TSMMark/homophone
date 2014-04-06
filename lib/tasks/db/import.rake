@@ -15,7 +15,7 @@ class Importer
       word_attibutes[:text] = row[:text]
     end
 
-    word = Word.find_or_create_by(word_attibutes)
+    word = Word.create(word_attibutes)
 
     if last_row && last_row[:relation_id] == row[:relation_id]
       current_set.append_word(word)

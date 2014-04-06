@@ -19,8 +19,19 @@ class Word < ActiveRecord::Base
     def self_or_new word_or_string
       word_or_string.is_a?(Word) ?
         word_or_string :
-        Word.find_or_create_by(text: word_or_string)
+        create(text: word_or_string)
     end
+
+    def destroy_unlinked
+      find_unlinked.destroy_all
+    end
+
+    def find_unlinked
+      where("words.id NOT IN(
+        SELECT words.id FROM words INNER JOIN word_sets_words ON words.id = word_sets_words.word_id
+      )")
+    end
+
   end
   extend ClassMethods
 

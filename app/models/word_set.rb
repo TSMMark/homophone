@@ -84,5 +84,9 @@ class WordSet < ActiveRecord::Base
     @word_order_lists ||= {}
   end
 
+  after_commit :cleanup_unlinked_words
+  def cleanup_unlinked_words
+    Word.destroy_unlinked
+  end
 
 end
