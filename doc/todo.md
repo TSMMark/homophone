@@ -1,6 +1,13 @@
 
+
+create docs
+  text vs display text
+    text - definition lookup (singular)
+    how the word should be displayed 
+
 add spelling option to word
 
+add definitions_last_checked to words
 
 social links
 

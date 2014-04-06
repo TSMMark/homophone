@@ -28,7 +28,7 @@ class WordSet < ActiveRecord::Base
   end
 
   def append_word word
-    words << Word.word_or_string(word)
+    words << Word.self_or_new(word)
   end
 
   def words_matches_preceding(string=nil)

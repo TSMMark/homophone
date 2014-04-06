@@ -24,6 +24,10 @@ class Word < ActiveRecord::Base
   end
   extend ClassMethods
 
+  def display
+    (display_text || text).to_s
+  end
+
   def definition
     @definition ||= get_definitions.first
   end
@@ -54,12 +58,15 @@ class Word < ActiveRecord::Base
         d.save!
       end
       definitions << definition
-    end
+    end if wordnik_definitions
     definitions
   end
 
   def wordnik_definitions
-    @wordnik_definitions ||= Wordnik.word.get_definitions(self.text)
+    return @wordnik_definitions if @wordnik_definitions
+
+    @wordnik_definitions = Wordnik.word.get_definitions(self.text)
+    @wordnik_definitions = @wordnik_definitions.blank? ? [] : @wordnik_definitions
   end
 
 

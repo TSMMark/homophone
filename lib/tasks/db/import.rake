@@ -2,7 +2,28 @@ class Importer
   attr_accessor :last_row
 
   def handle_row row
-    last_row = row
+    # relation_id,word_id,text,spelling
+
+    row.symbolize_keys!
+    
+    word_attibutes = {}
+
+    if row[:spelling] && row[:spelling] != "NULL"
+      word_attibutes[:text] = row[:spelling]
+      word_attibutes[:display_text] = row[:text]
+    else
+      word_attibutes[:text] = row[:text]
+    end
+
+    word = Word.find_or_create_by(word_attibutes)
+
+    if last_row && last_row[:relation_id] == row[:relation_id]
+      current_set.append_word(word)
+    else
+      new_set.append_word(word)
+    end
+
+    self.last_row = row
   end
 
   def current_set
@@ -10,15 +31,12 @@ class Importer
   end
 
   def new_set
+    done
     @current_set = WordSet.new
   end
 
-  def begin_new_set
-    new_set
-  end
-
   def done
-    begin_new_set
+    @current_set && @current_set.save!
   end
 
 end
@@ -26,7 +44,7 @@ end
 namespace :db do
   desc "import csv of homophones from lib/assets/homophone_list.csv"
 
-  task :import do
+  task :import => :environment do
     puts "importing homphones from lib/assets/homophone_list.csv"
 
     csv_file  = open("#{Rails.root}/lib/assets/homophone_list.csv",'r')
