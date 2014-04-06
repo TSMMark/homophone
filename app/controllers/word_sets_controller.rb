@@ -73,13 +73,6 @@ class WordSetsController < ApplicationController
     end
   end
 
-  def card_ad_tools
-    @card_ad_tools ||=  AdTools.new(
-                          default_format: "horizontal",
-                          format_sequence: %w(horizontal auto))
-  end
-  helper_method :card_ad_tools
-  
   private
 
     # Use callbacks to share common setup or constraints between actions.
