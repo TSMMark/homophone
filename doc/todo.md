@@ -5,6 +5,8 @@ add spelling option to word
 fix back buttons use browser back
 fix back buttons styling
 
+attr_accessor :matches_query or :matches_search on word
+
 add definitions_last_checked to words
 
 social links
