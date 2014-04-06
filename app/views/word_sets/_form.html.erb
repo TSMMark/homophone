@@ -12,17 +12,19 @@
   <% end %>
 
   <% make_one_input = Proc.new do |word=nil| %>
-    <div data-infinite-inputs-row class="">
+    <div data-infinite-inputs-row class="form-group">
       <input type="text" name="word_set[words][]" value="<%= word.text if word %>"/>
     </div>
   <% end %>
 
-  <div data-infinite-inputs>
-    <% if @word_set.words.count.zero? %>
-      <% make_one_input.call() %>
-    <% else %>
-      <% @word_set.words.find_each &make_one_input %>
-    <% end %>
+  <div class="row">
+    <div class="col-sm-6" data-infinite-inputs>
+      <% if @word_set.words.count.zero? %>
+        <% make_one_input.call() %>
+      <% else %>
+        <% @word_set.words.find_each &make_one_input %>
+      <% end %>
+    </div>
   </div>
 
   <div class="actions">

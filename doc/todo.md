@@ -1,11 +1,9 @@
 
 
-create docs
-  text vs display text
-    text - definition lookup (singular)
-    how the word should be displayed 
-
 add spelling option to word
+
+fix back buttons use browser back
+fix back buttons styling
 
 add definitions_last_checked to words
 
@@ -25,6 +23,11 @@ newly added homophones
 
 popular homophones
 
+
+create docs
+  text vs display text
+    text - definition lookup (singular)
+    how the word should be displayed 
 
 
 
