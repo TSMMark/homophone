@@ -8,7 +8,8 @@ class WordSetsController < ApplicationController
     @query_type  = params[:type] || "include"
 
     if @query
-      WordSet.current_query = @query
+      WordSet.current_query       = @query
+      WordSet.current_query_type  = @query_type
       @word_sets = WordSet.search_for(@query, @query_type)
     else
       @word_sets = WordSet.with_words
@@ -22,6 +23,8 @@ class WordSetsController < ApplicationController
     redirect_to "/random/#{WordSet.sample.id}"
   end
   def random
+    WordSet.current_query       = ""
+    WordSet.current_query_type  = ""
   end
 
   # GET /word_sets/new
@@ -73,13 +76,6 @@ class WordSetsController < ApplicationController
     end
   end
 
-  def card_ad_tools
-    @card_ad_tools ||=  AdTools.new(
-                          default_format: "horizontal",
-                          format_sequence: %w(horizontal auto))
-  end
-  helper_method :card_ad_tools
-  
   private
 
     # Use callbacks to share common setup or constraints between actions.

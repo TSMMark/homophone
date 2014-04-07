@@ -1,4 +1,11 @@
 
+admin side!
+  no ads for admins
+
+change type of text column in definition to accommodate long strings
+# http://localhost:3000/words/5862.popover
+
+footer col-sm-8 col-sm-4
 
 add spelling option to word
 
@@ -6,6 +13,8 @@ fix back buttons use browser back
 fix back buttons styling
 
 add definitions_last_checked to words
+
+downcase strings before Wordnik API
 
 social links
 
@@ -41,6 +50,9 @@ rails g scaffold pronounciations word_id:integer file_url attribution_text
 
 
 DONE
+
+highlight matched words
+  Word.matches_search? options[:exact]
 
 copyright
 
