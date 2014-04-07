@@ -1,12 +1,13 @@
 <div class="card">
   <div class="well well-lg">
     <% @word_set.words_matches_preceding(@query).each do |word| %>
-      <%= word_btn word %>
+      <%= word_btn(word) %>
     <% end %>
 
     <div class="icon-container">
       <div class="btn-group">
         <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown"><%= fa_icon("cog") %> <span class="caret"></span></button>
+
         <ul class="dropdown-menu dropdown-left" role="menu">
           <li><%= link_to fa_stacked_icon("info inverse", base: "square", class: "icon-success") + " Show", word_set_path(@word_set) -%></li>
           <li><%= link_to fa_stacked_icon("pencil inverse", base: "square", class: "icon-edit") + " Edit", edit_word_set_path(@word_set) -%></li>

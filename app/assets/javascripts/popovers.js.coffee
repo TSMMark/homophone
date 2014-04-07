@@ -3,7 +3,9 @@ Popover =
     trigger: "hover",
     html: true,
     placement: "auto top",
-    container: "#body-content"
+    container: "#body-content",
+    "original-title": "",
+    "title": ""
 
 
 $ ->

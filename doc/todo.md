@@ -1,11 +1,14 @@
 
 admin side!
+  no ads for admins
 
 change type of text column in definition to accommodate long strings
 # http://localhost:3000/words/5862.popover
 
 highlight matched words
   Word.matches_search? options[:exact]
+
+footer col-sm-8 col-sm-4
 
 add spelling option to word
 

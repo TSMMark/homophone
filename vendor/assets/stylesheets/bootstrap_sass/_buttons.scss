@@ -75,6 +75,20 @@
   @include button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
 }
 
+// word btns
+.btn-match-none {
+  @include button-variant($btn-default-color, darken($btn-default-bg, 3%), $btn-default-border);
+}
+.btn-match-include {
+  @include button-variant($btn-default-color, darken($btn-default-bg, 2%), $btn-default-border);
+}
+.btn-match-begin {
+  @include button-variant($btn-default-color, darken($btn-default-bg, 1%), $btn-default-border);
+}
+.btn-match-exact {
+  @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
+}
+
 
 // Link buttons
 // -------------------------

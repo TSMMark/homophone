@@ -12,8 +12,12 @@ class WordSet < ActiveRecord::Base
   end
 
   module ClassMethods
-    attr        :current_query
-    attr_writer :current_query
+    attr_accessor :current_query
+    attr_accessor :current_query_type
+
+    def current_query= value
+      @current_query = value.is_a?(String) ? value.downcase : value
+    end
 
     def search_for(string, type="include")
       with_words.where("words.text ILIKE ?", ilike_string(string, type))
@@ -47,7 +51,7 @@ class WordSet < ActiveRecord::Base
     other     = []
 
     all_words.each do |w|
-      case w.text.index(string)
+      case w.current_query_index_of_text
       when nil
         other
       when 0
