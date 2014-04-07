@@ -4,12 +4,13 @@ admin side!
 change type of text column in definition to accommodate long strings
 # http://localhost:3000/words/5862.popover
 
+highlight matched words
+  Word.matches_search? options[:exact]
+
 add spelling option to word
 
 fix back buttons use browser back
 fix back buttons styling
-
-attr_accessor :matches_query or :matches_search on word
 
 add definitions_last_checked to words
 
