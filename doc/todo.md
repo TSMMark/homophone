@@ -2,6 +2,10 @@
 admin side!
   no ads for admins
 
+unicorn
+
+new relic, etc
+
 change type of text column in definition to accommodate long strings
 # http://localhost:3000/words/5862.popover
 
