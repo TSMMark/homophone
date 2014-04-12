@@ -1,16 +1,15 @@
 module AdsHelper
 
   def serve_ad(ad_server=nil)
+    ad_server ||= AdTools.new
+    ad_data = ad_server.request_ad_data
+    
     # production check
     if Rails.env.production? || ENV['ADS']
-      ad_server ||= AdTools.new
-      content_tag(:ins, "", ad_server.request_ad_data) + "<script>window.pushPartner()</script>".html_safe
+      content_tag(:ins, "", ad_data) + "<script>window.pushPartner()</script>".html_safe
     else
       content_tag(:div, "[ad placeholder]", style: "background-color:white; min-height: 60px;")
     end
   end
 
-  def should_serve_ad?(counter, frequency, start_at, total_results=999)
-    total_results < start_at || (counter + start_at) % frequency == 0
-  end
 end

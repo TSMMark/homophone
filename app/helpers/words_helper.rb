@@ -1,7 +1,7 @@
 module WordsHelper
 
   def word_btn(word)
-    button_tag word.display, :"data-ajax" => word_path(word, format: :popover), :class => "btn btn-default word-btn", :"data-toggle" => "popover", :"data-placement" => "top", :"data-content" => "Loading...", :"data-original-title" => "", :title => ""
+    button_tag word.display, :"data-match-type" => word.describe_match_type, :"data-ajax" => word_path(word, format: :popover), :class => "btn word-btn", :"data-toggle" => "popover", :"data-content" => "Loading..."
   end
 
 end

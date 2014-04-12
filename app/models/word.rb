@@ -39,6 +39,34 @@ class Word < ActiveRecord::Base
     (display_text || text).to_s
   end
 
+  def describe_match_type(query=nil)
+    query ||= WordSet.current_query
+    
+    if self.text.downcase == query
+      "exact"
+    elsif current_query_index_of_text == 0
+      "begin"
+    elsif !current_query_index_of_text.nil?
+      "include"
+    else
+      "none"
+    end
+  end
+
+  def matches_current_query? options={}
+    if options[:exact]
+      self.text.downcase == WordSet.current_query
+    elsif WordSet.current_query_type == "begin"
+      current_query_index_of_text == 0
+    else
+      !current_query_index_of_text.nil?
+    end
+  end
+
+  def current_query_index_of_text
+    @current_query_index_of_text ||= self.text.downcase.index(WordSet.current_query)
+  end
+
   def definition
     @definition ||= get_definitions.first
   end
