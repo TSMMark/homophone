@@ -3,6 +3,12 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0.rc2'
+
+gem 'unicorn'
+gem 'rack-timeout'
+
+gem 'foreman', group: :development
+
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
