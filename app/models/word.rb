@@ -1,7 +1,7 @@
 class Word < ActiveRecord::Base
   extend SearchConcern
 
-  has_and_belongs_to_many :word_sets
+  belongs_to :word_set
 
   has_many :definitions, dependent: :delete_all
 
@@ -28,7 +28,7 @@ class Word < ActiveRecord::Base
 
     def find_unlinked
       where("words.id NOT IN(
-        SELECT words.id FROM words INNER JOIN word_sets_words ON words.id = word_sets_words.word_id
+        SELECT words.id FROM words INNER JOIN word_sets ON words.word_set_id = word_sets.id
       )")
     end
 
@@ -64,7 +64,8 @@ class Word < ActiveRecord::Base
   end
 
   def current_query_index_of_text
-    @current_query_index_of_text ||= self.text.downcase.index(WordSet.current_query)
+    @current_query_index_of_text ||=
+      self.text.downcase.index(WordSet.current_query || "")
   end
 
   def definition

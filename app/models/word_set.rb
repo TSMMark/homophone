@@ -1,7 +1,7 @@
 class WordSet < ActiveRecord::Base
   extend SearchConcern
 
-  has_and_belongs_to_many :words
+  has_many :words
 
   attr :current_query
 
