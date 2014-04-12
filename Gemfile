@@ -9,6 +9,8 @@ gem 'rack-timeout'
 
 gem 'foreman', group: :development
 
+gem 'newrelic_rpm'
+
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
