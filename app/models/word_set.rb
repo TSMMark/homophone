@@ -1,7 +1,7 @@
 class WordSet < ActiveRecord::Base
   extend SearchConcern
 
-  has_and_belongs_to_many :words
+  has_many :words
 
   attr :current_query
 
@@ -32,6 +32,7 @@ class WordSet < ActiveRecord::Base
   end
 
   def append_word word
+    word.word_set_id = id
     words << Word.self_or_new(word)
   end
 

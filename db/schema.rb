@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140412021414) do
+ActiveRecord::Schema.define(version: 20140412151339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,14 +35,6 @@ ActiveRecord::Schema.define(version: 20140412021414) do
     t.datetime "updated_at"
   end
 
-  create_table "word_sets_words", force: true do |t|
-    t.integer "word_set_id"
-    t.integer "word_id"
-  end
-
-  add_index "word_sets_words", ["word_id"], name: "index_word_sets_words_on_word_id", using: :btree
-  add_index "word_sets_words", ["word_set_id"], name: "index_word_sets_words_on_word_set_id", using: :btree
-
   create_table "words", force: true do |t|
     t.string   "text"
     t.integer  "visits"
@@ -50,6 +42,9 @@ ActiveRecord::Schema.define(version: 20140412021414) do
     t.datetime "updated_at"
     t.boolean  "no_definitions"
     t.string   "display_text"
+    t.integer  "word_set_id"
   end
+
+  add_index "words", ["word_set_id"], name: "index_words_on_word_set_id", using: :btree
 
 end
