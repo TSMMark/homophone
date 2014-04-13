@@ -15,19 +15,26 @@ class Importer
       word_attibutes[:text] = row[:text]
     end
 
-    word = Word.create(word_attibutes)
+    word = Word.new(word_attibutes)
 
     if last_row && last_row[:relation_id] == row[:relation_id]
       current_set.append_word(word)
+
+      puts "using current set"
+      puts current_set.words
     else
       new_set.append_word(word)
+      
+      puts "creating new set"
     end
+
+    word.save!
 
     self.last_row = row
   end
 
   def current_set
-    @current_set || new_set
+    @current_set ||= new_set
   end
 
   def new_set
@@ -36,7 +43,7 @@ class Importer
   end
 
   def done
-    @current_set && @current_set.save!
+    @current_set.save! if @current_set
   end
 
 end
@@ -56,7 +63,7 @@ namespace :db do
       # file_encoding: 'windows-1251:utf-8',
 
       # key_mapping:  key_mapping,
-      verbose:                    true,
+      verbose:                    false,
       convert_values_to_numeric:  false,
       remove_empty_values:        false,
       remove_zero_values:         false,
@@ -65,11 +72,15 @@ namespace :db do
 
     importer = Importer.new
 
+    c_i = r_i = 0
     # iterate over CSV rows
     SmarterCSV.process(csv_file, csv_options) do |chunk|
       chunk.each do |row|
         importer.handle_row(row)
+        # r_i+=1
       end
+      puts "processing chunk: #{c_i}"
+      c_i+=1
     end
 
     importer.done

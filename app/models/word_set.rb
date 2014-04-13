@@ -32,6 +32,7 @@ class WordSet < ActiveRecord::Base
   end
 
   def append_word word
+    word.word_set_id = id
     words << Word.self_or_new(word)
   end
 
