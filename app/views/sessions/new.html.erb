@@ -1,0 +1,17 @@
+<div class="container">
+
+  <h1>Administrator Log In</h1>
+
+  <%= form_for :session, url: sessions_path do %>
+    <div class="field">
+      <%= label_tag :email %>
+      <%= text_field_tag :email, params[:email] %>
+    </div>
+    <div class="field">
+      <%= label_tag :password %>
+      <%= password_field_tag :password, params[:password] %>
+    </div>
+    <div class="actions"><%= submit_tag "Log In", class: "btn btn-primary" %></div>
+  <% end %>
+
+</div>

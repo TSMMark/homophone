@@ -15,8 +15,10 @@ body {
   text-align: center;
 }
 
-input[type=text] {
-  @extend .form-control;
+input {
+  &[type=text], &[type=email], &[type=password] {
+    @extend .form-control;
+  }
 }
 
 @include all-h-tags {

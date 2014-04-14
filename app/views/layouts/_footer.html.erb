@@ -1,6 +1,7 @@
 <%= render "ads/horizontal" %>
 
 <section class="block-section" id="footer">
+
   <footer>
     <div class="container">
       <h1>Get in touch!</h1>
@@ -12,7 +13,11 @@
   
   <div class="dark-background" id="tiny-options">
     Copyright Alfred Aloisi 2008 - 2014 | 
-    <%= link_to "Admin", "#" %>
+    <% if signed_in? %>
+      <%= link_to "Logout", logout_path, method: :delete %>
+    <% else %>
+      <%= link_to "Admin", new_session_path %>
+    <% end %>
   </div>
 
 </section>
