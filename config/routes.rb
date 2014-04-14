@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  
+  get     'login'  => 'sessions#new',     as: 'login'
+  delete  'logout' => 'sessions#destroy', as: 'logout'
+
+  resources :users
+
   resources :word_sets
 
   resources :words
@@ -18,5 +24,7 @@ Rails.application.routes.draw do
 
   get '/about/index' => redirect('/about')
   get '/word_sets/index' => redirect('/word_sets')
+
+  resources :sessions, only: [:new, :create, :destroy]
 
 end
