@@ -2,12 +2,8 @@ class UsersController < ApplicationController
 
   load_and_authorize_resource only: [:edit, :update]
 
-  # GET /users/1/edit
-  def edit
-  end
+  def edit; end
 
-  # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
       if @user.update(user_params)
