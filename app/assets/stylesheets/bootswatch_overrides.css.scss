@@ -5,6 +5,9 @@ body {
 
 #body-content {
   position: relative;
+  > .container:first-child {
+    margin-top: 22px;
+  }
 }
 
 .container {
@@ -65,7 +68,6 @@ input {
 }
 
 .breadcrumb {
-  margin-top: 22px;
   margin-bottom: 0;
 }
 
