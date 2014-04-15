@@ -14,7 +14,7 @@ class WordsController < ApplicationController
   def update
     respond_to do |format|
       if @word.update(word_params)
-        format.html { redirect_to @word, success: 'Word was successfully updated.' }
+        format.html { redirect_to @word, info: 'Word was successfully updated.' }
         format.json { render action: 'show', status: :ok, location: @word }
       else
         format.html { render action: 'edit' }
