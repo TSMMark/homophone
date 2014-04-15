@@ -1,3 +1,5 @@
-<div class="partner-container">
-  <%= serve_ad %>
-</div>
+<% if can?(:read, :ads) %>
+  <div class="partner-container">
+    <%= serve_ad %>
+  </div>
+<% end %>

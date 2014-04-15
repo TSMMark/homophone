@@ -18,7 +18,9 @@
     </div>
     <div class="col-sm-3">
       <h3>
-        <%= link_to fa_icon("plus") + ' New Word Set', new_word_set_path, class: "btn btn-info btn-sm btn-xs-full" %>
+        <% if can? :create, :word_set %>
+          <%= link_to fa_icon("plus") + ' New Word Set', new_word_set_path, class: "btn btn-info btn-sm btn-xs-full" %>
+        <% end %>
       </h3>
     </div>
   </div>

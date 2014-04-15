@@ -56,6 +56,7 @@ GEM
       erubis (>= 2.6.6)
     breadcrumbs_on_rails (2.3.0)
     builder (3.2.2)
+    cancan (1.6.10)
     coderay (1.0.9)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -190,6 +191,7 @@ DEPENDENCIES
   auto_strip_attributes (~> 2.0)
   better_errors
   breadcrumbs_on_rails
+  cancan (~> 1.6.10)
   canonical-rails!
   coffee-rails (~> 4.0.0)
   devise (~> 3.2.4)

@@ -1,7 +1,9 @@
-<div class="card card-partner">
-  <div class="well well-lg">
-    <div class="partner-container">
-      <%= serve_ad card_ad_tools %>
+<% if can?(:read, :ads) %>
+  <div class="card card-partner">
+    <div class="well well-lg">
+      <div class="partner-container">
+        <%= serve_ad card_ad_tools %>
+      </div>
     </div>
   </div>
-</div>
+<% end %>

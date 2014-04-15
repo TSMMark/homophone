@@ -1,6 +1,7 @@
 <section class="partner-section">
   <div class="container">
-    <%= render 'ads/responsive' %>
+    <% if can?(:read, :ads) %>
+      <%= render 'ads/responsive' %>
+    <% end %>
   </div>
 </section>
-
