@@ -9,6 +9,8 @@ gem 'rack-timeout'
 
 gem 'foreman', group: :development
 
+gem 'rspec-rails', '~> 3.0.0.beta', group: [:development, :test]
+
 gem 'newrelic_rpm'
 
 gem 'devise', '~> 3.2.4'

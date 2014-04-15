@@ -21,5 +21,10 @@ module Homophone
     # config.i18n.default_locale = :de
 
     # config.autoload_paths += %W(#{config.root}/lib)
+
+    config.generators do |g|
+      g.test_framework nil
+    end
+
   end
 end
