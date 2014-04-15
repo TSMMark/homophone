@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140413164147) do
+ActiveRecord::Schema.define(version: 20140415004922) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "definitions", force: true do |t|
     t.integer  "word_id"
-    t.string   "text"
+    t.text     "text"
     t.string   "part_of_speech"
     t.string   "source_dictionary"
     t.string   "attribution_text"
