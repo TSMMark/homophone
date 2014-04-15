@@ -14,6 +14,7 @@
   <div class="dark-background" id="tiny-options">
     Copyright Alfred Aloisi 2008 - 2014 | 
     <% if signed_in? %>
+      <%= link_to "Change Password", edit_user_path(current_user.id) %> |
       <%= link_to "Logout", logout_path, method: :delete %>
     <% else %>
       <%= link_to "Admin", new_session_path %>

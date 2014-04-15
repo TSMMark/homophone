@@ -1,7 +1,8 @@
 class WordSetsController < ApplicationController
   include WordSetsHelper
 
-  before_action :set_word_set, only: [:show, :edit, :update, :destroy, :random]
+  before_action :set_word_set, only: [:show, :random]
+  load_and_authorize_resource only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @query = params[:q].blank? ? nil : params[:q]
@@ -16,8 +17,7 @@ class WordSetsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   def pick_random
     redirect_to "/random/#{WordSet.sample.id}"
@@ -27,17 +27,12 @@ class WordSetsController < ApplicationController
     WordSet.current_query_type  = ""
   end
 
-  # GET /word_sets/new
   def new
     @word_set = WordSet.new
   end
 
-  # GET /word_sets/1/edit
-  def edit
-  end
+  def edit; end
 
-  # POST /word_sets
-  # POST /word_sets.json
   def create
     @word_set = WordSet.new(word_set_params)
 

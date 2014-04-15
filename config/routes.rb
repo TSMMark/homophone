@@ -1,15 +1,11 @@
 Rails.application.routes.draw do
   
+  root to: 'pages#home'
+
   get     'login'  => 'sessions#new',     as: 'login'
   delete  'logout' => 'sessions#destroy', as: 'logout'
 
-  resources :users
-
   resources :word_sets
-
-  resources :words
-
-  root to: 'pages#home'
 
   get '/browse', to: 'pages#browse', controller: 'pages', action: 'browse', as: 'browse'
 
@@ -24,6 +20,10 @@ Rails.application.routes.draw do
 
   get '/about/index' => redirect('/about')
   get '/word_sets/index' => redirect('/word_sets')
+
+  resources :words
+
+  resources :users, only: [:edit, :update]
 
   resources :sessions, only: [:new, :create, :destroy]
 
