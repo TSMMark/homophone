@@ -38,7 +38,7 @@ class WordSetsController < ApplicationController
 
     respond_to do |format|
       if @word_set.save
-        format.html { redirect_to @word_set, notice: 'Word set was successfully created.' }
+        format.html { redirect_to @word_set, success: 'Word set was successfully created.' }
         format.json { render action: 'show', status: :created, location: @word_set }
       else
         format.html { render action: 'new' }
@@ -52,7 +52,7 @@ class WordSetsController < ApplicationController
   def update
     respond_to do |format|
       if @word_set.update(word_set_params)
-        format.html { redirect_to @word_set, notice: 'Word set was successfully updated.' }
+        format.html { redirect_to @word_set, success: 'Word set was successfully updated.' }
         format.json { render action: 'show', status: :ok, location: @word_set }
       else
         format.html { render action: 'edit' }
@@ -66,7 +66,7 @@ class WordSetsController < ApplicationController
   def destroy
     @word_set.destroy
     respond_to do |format|
-      format.html { redirect_to word_sets_url }
+      format.html { redirect_to browse_path, warning: "Word set deleted." }
       format.json { head :no_content }
     end
   end

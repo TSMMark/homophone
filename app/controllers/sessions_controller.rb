@@ -7,15 +7,15 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to root_url, notice: "Welcome back!"
+      redirect_to root_url, success: "Welcome back!"
     else
-      render action: 'new', alert: "Email or password invalid."
+      render action: 'new', warning: "Email or password invalid."
     end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_url, notice: "You're logged out."
+    redirect_to root_url, info: "You're logged out."
   end
 
 
