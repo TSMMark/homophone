@@ -1,6 +1,8 @@
 module AdsHelper
 
   def serve_ad(ad_server=nil)
+    return '' unless can?(:read, :ads)
+
     ad_server ||= AdTools.new
     ad_data = ad_server.request_ad_data
     

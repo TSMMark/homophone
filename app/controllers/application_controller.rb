@@ -40,8 +40,6 @@ class ApplicationController < ActionController::Base
   helper_method :card_ad_tools
   
   def should_serve_ad?(counter, frequency, start_at, total_results=999)
-    puts "card_ad_tools.card_ad_count #{card_ad_tools.card_ad_count}"
-    puts "card_ad_tools.max_ads #{card_ad_tools.max_ads}"
     (card_ad_tools.card_ad_count < card_ad_tools.max_ads) &&
       (total_results < start_at ||
       (counter + start_at) % frequency == 0)

@@ -9,7 +9,11 @@ class Ability
     # can :read, Definition
 
     if user
-      can :manage, :all
+      can     :manage,  WordSet
+      can     :manage,  WordSet
+      can     :manage,  User
+    else
+      can     :read,    :ads
     end
 
   end
