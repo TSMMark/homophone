@@ -38,7 +38,10 @@
   </div>
 
   <div class="pagination-container">
-    <%= will_paginate @word_sets, renderer: BootstrapPagination::Rails %>
+    <%= will_paginate @word_sets,
+          renderer: BootstrapPagination::Rails,
+          inner_window: 2,
+          outer_window: 0 %>
   </div>
 
   <%# # if no more homophones (pagination)  %>

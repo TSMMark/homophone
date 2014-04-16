@@ -1,0 +1,23 @@
+@media (max-width: $screen-sm-min) {
+  .pagination {
+    position: relative;
+
+    & li.prev, & li.next {
+      position: absolute;
+      top: 40px;
+      width: 50%;
+      a, span {
+        display: block;
+        width: 100%;
+      }
+
+      &.prev {
+        left: 0;
+      }
+      &.next {
+        right: 0
+      }
+    }
+
+  }
+}
