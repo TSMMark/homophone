@@ -13,8 +13,10 @@
         <% else %>
           Listing all Homophones
         <% end %>
+
+        (<%= params[:page] || 1 %>/<%= @word_sets.total_pages %>)
       <% end %>
-      
+
     </div>
     <div class="col-sm-3">
       <h3>
@@ -33,6 +35,13 @@
 
       <%= render "ads/card" if should_serve_ad?(i, ad_frequency, ad_start, @word_sets.count) %>
     <% end %>
+  </div>
+
+  <div class="pagination-container">
+    <%= will_paginate @word_sets,
+          renderer: BootstrapPagination::Rails,
+          inner_window: 2,
+          outer_window: 0 %>
   </div>
 
   <%# # if no more homophones (pagination)  %>

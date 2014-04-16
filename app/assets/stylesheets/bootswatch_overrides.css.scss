@@ -18,6 +18,10 @@ body {
   text-align: center;
 }
 
+.pagination-container {
+  text-align: center;
+}
+
 input {
   &[type=text], &[type=email], &[type=password] {
     @extend .form-control;

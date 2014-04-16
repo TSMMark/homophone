@@ -7,8 +7,11 @@ class WordSet < ActiveRecord::Base
 
   scope :with_words, -> do
     joins(:words)
-      .includes(:words)
-      .order("lower(words.text) ASC")
+      # .eager_load(:words)
+  end
+
+  scope :word_order, -> do
+    order("lower(words.text) ASC")
   end
 
   module ClassMethods
