@@ -41,7 +41,10 @@
     <%= will_paginate @word_sets,
           renderer: BootstrapPagination::Rails,
           inner_window: 2,
-          outer_window: 0 %>
+          outer_window: 0,
+          previous_label: "«",
+          next_label: "»"
+        %>
   </div>
 
   <%# # if no more homophones (pagination)  %>

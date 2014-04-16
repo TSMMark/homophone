@@ -18,7 +18,7 @@ class WordSetsController < ApplicationController
 
     # raise params[:page].to_yaml unless params[:page].blank?
 
-    @word_sets = @word_sets.page(params[:page] || 1).per_page(15).word_order
+    @word_sets = @word_sets.page(params[:page] || 1).per_page(10).word_order
   end
 
   def show; end
