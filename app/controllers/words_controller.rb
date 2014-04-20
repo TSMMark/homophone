@@ -1,6 +1,6 @@
 class WordsController < ApplicationController
   before_action :set_word, only: [:show]
-  load_and_authorize_resource only: [:new, :create, :edit, :update, :destroy]
+  load_and_authorize_resource only: [:edit, :update, :destroy]
 
   def show
     respond_to do |format|
@@ -14,7 +14,7 @@ class WordsController < ApplicationController
   def update
     respond_to do |format|
       if @word.update(word_params)
-        format.html { redirect_to @word, info: 'Word was successfully updated.' }
+        format.html { redirect_to @word.word_set, info: 'Word was successfully updated.' }
         format.json { render action: 'show', status: :ok, location: @word }
       else
         format.html { render action: 'edit' }
@@ -32,7 +32,9 @@ class WordsController < ApplicationController
   end
 
   def word_params
-    params.require(:word).permit(:text)
+    params.require(:word).permit(:text, :display_text).tap do |p|
+      p[:display_text] = nil if p[:display_text].blank?
+    end
   end
 
 end

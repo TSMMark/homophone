@@ -35,8 +35,7 @@ class WordSet < ActiveRecord::Base
   end
 
   def append_word word
-    word.word_set_id = id
-    words << Word.self_or_new(word)
+    words << Word.self_or_new(word).tap {|w| w.word_set_id = id}
   end
 
   def words_matches_preceding(string=nil)
@@ -79,6 +78,12 @@ class WordSet < ActiveRecord::Base
   def current_query
     @current_query || self.class.current_query
   end
+
+
+  def print_words
+    words.map {|w|"\"#{w.display}\""}.join ", "
+  end
+
 
   def <=> another
     words_ordered_by_current_query.first.text.downcase <=> another.words_ordered_by_current_query.first.text.downcase
