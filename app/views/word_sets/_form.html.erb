@@ -1,34 +1,48 @@
-<%= form_for(@word_set) do |f| %>
-  <% if @word_set.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@word_set.errors.count, "error") %> prohibited this word_set from being saved:</h2>
-
-      <ul>
-      <% @word_set.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<% make_one_input = Proc.new do |word=nil| %>
+  <div data-infinite-inputs-row class="form-group">
+    <div class="row">
+      <div class="col-xs-3">
+        <label for="word_set[words][][text]">Text</label>
+      </div>
+      <div class="col-xs-9">
+        <input type="text" name="word_set[words][][text]" value="<%= word.text if word %>"/>
+      </div>
     </div>
-  <% end %>
-
-  <% make_one_input = Proc.new do |word=nil| %>
-    <div data-infinite-inputs-row class="form-group">
-      <input type="text" name="word_set[words][][text]" value="<%= word.text if word %>"/>
-      <input type="text" name="word_set[words][][display_text]" value="<%= word.display_text if word %>"/>
+    <div class="row">
+      <div class="col-xs-3">
+        <label for="word_set[words][][display_text]">Display Text</label>
+      </div>
+      <div class="col-xs-9">
+        <input type="text" name="word_set[words][][display_text]" value="<%= word.display_text if word %>"/>
+      </div>
     </div>
-  <% end %>
-
-  <div class="row">
-    <div class="col-sm-6" data-infinite-inputs>
-      <% if @word_set.words.count.zero? %>
-        <% make_one_input.call() %>
-      <% else %>
-        <% @word_set.words.find_each &make_one_input %>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="actions">
-    <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<div class="row">
+  <div class="col-sm-7" >
+    <%= form_for(@word_set) do |f| %>
+      <div data-infinite-inputs >
+        <% if @word_set.words.count.zero? %>
+          <% make_one_input.call() %>
+        <% else %>
+          <% @word_set.words.find_each &make_one_input %>
+        <% end %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-sm-5" >
+    <h3>Help</h3>
+    <p>
+      <strong>Text (required): </strong> the text of the word. Definitions will always be looked up use this word, so it should not be plural or conjugated because usually the plural definition of a word will just say "the plural form of the word X".
+    </p>
+    <p>
+      <strong>Display Text (optional): </strong> include "display text" if the text you want to show the user is different from the word to use to find a definition.
+    </p>
+  </div>
+</div>
