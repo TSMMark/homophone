@@ -9,7 +9,7 @@ $ ->
       bindLastInput()
 
     bindLastInput = ->
-      $this.find("[data-infinite-inputs-row]:last input").one "focus", ->
+      $this.find("[data-infinite-inputs-row]:last input:first").one "focus", ->
         appendInput()
 
     appendInput()

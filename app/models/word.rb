@@ -113,6 +113,11 @@ class Word < ActiveRecord::Base
   private
 
 
+  before_validation :sanitize_params
+  def sanitize_params
+    self.display_text = nil if display_text.blank?
+  end
+
   # delete all definitions in case the word was changed
   after_save :delete_definitions
   def delete_definitions

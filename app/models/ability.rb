@@ -10,7 +10,7 @@ class Ability
 
     if user
       can     :manage,  WordSet
-      can     :manage,  WordSet
+      can     :manage,  Word
       can     :manage,  User
     else
       can     :read,    :ads

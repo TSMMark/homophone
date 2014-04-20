@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get '/about/index' => redirect('/about')
   get '/word_sets/index' => redirect('/word_sets')
 
-  resources :words
+  resources :words, only: [:show, :edit, :update]
 
   resources :users, only: [:edit, :update]
 

@@ -54,6 +54,8 @@ class WordSetsController < ApplicationController
   # PATCH/PUT /word_sets/1
   # PATCH/PUT /word_sets/1.json
   def update
+    # raise params.to_h.to_yaml
+
     respond_to do |format|
       if @word_set.update(word_set_params)
         format.html { redirect_to @word_set, info: 'Word set was successfully updated.' }
@@ -84,8 +86,13 @@ class WordSetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def word_set_params
-      params.require(:word_set).permit(:visits, words: []).tap do |p|
-        p[:words].reject!(&:empty?)
+      # raise params.to_h.to_yaml
+      params.require(:word_set).permit(words: [[:text, :display_text]]).tap do |p|
+        p[:words] = p[:words].reject{|w|w[:text].blank?}.map do |w|
+          w[:word_set_id] = @word_set.id
+          w[:word_set]    = @word_set
+          Word.new(w)
+        end
       end
     end
 end

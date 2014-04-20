@@ -13,7 +13,8 @@
 
   <% make_one_input = Proc.new do |word=nil| %>
     <div data-infinite-inputs-row class="form-group">
-      <input type="text" name="word_set[words][]" value="<%= word.text if word %>"/>
+      <input type="text" name="word_set[words][][text]" value="<%= word.text if word %>"/>
+      <input type="text" name="word_set[words][][display_text]" value="<%= word.display_text if word %>"/>
     </div>
   <% end %>
 
