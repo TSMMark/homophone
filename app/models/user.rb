@@ -9,4 +9,11 @@ class User < ActiveRecord::Base
             confirmation: true
 
   validates_confirmation_of :password
+
+  before_validation :downcase_email
+  def downcase_email
+    self.email = email.downcase
+  end
+
+
 end
