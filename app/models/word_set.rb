@@ -6,8 +6,7 @@ class WordSet < ActiveRecord::Base
   attr :current_query
 
   scope :with_words, -> do
-    joins(:words)
-      # .eager_load(:words)
+    joins(:words).includes(:words)
   end
 
   scope :word_order, -> do
