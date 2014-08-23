@@ -13,3 +13,19 @@
     color: darken($state-danger-bg, 25%);
   }
 }
+
+.icon-facebook {
+  .fa-stack-2x {
+    color: $color-facebook;
+  }
+}
+.icon-twitter {
+  .fa-stack-2x {
+    color: $color-twitter;
+  }
+}
+.icon-email {
+  .fa-stack-2x {
+    color: $color-email;
+  }
+}

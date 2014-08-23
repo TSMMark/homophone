@@ -84,6 +84,11 @@ input {
     left:inherit;
     right:0px;
   }
+  > li > a:hover,
+  > li > a:focus {
+    background-color: #F5F5F5;
+    color: $text-color;
+  }
 }
 
 #footer {
