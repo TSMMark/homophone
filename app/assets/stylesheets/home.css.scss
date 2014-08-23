@@ -10,7 +10,11 @@
       color: $link-hover-color-inverse;
     }
   }
+  .well {
+    color: $text-color;
+  }
 }
+
 .blackboard-section {
   @extend .dark-background;
   background-image: image_url("fullwidth/blackboard.jpg");
@@ -18,6 +22,14 @@
 
 .jumbotron {
   margin-bottom: 0;
+  @media (max-width: $screen-xs-min) {
+    h1 {
+      font-size: 28px;
+    }
+    p {
+      font-size: 18px;
+    }
+  }
 }
 
 .block-section {
