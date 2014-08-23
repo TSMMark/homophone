@@ -2,9 +2,7 @@
 <html>
 <head>
   <%= render "meta/head" %>
-
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
+  <%= stylesheet_link_tag("application", media: "all") %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -26,6 +24,8 @@
   </div>
 
   <%= render "layouts/analytics" %>
+
+  <%= javascript_include_tag("application") %>
 
 </body>
 </html>
