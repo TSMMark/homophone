@@ -2,9 +2,7 @@
   <div class="navbar-header">
     <%= link_to t("site"), root_path, class: "navbar-brand" %>
     <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
+      Menu
     </button>
   </div>
 
@@ -24,6 +22,11 @@
       </li>
 
       <li><%= link_to "Random", random_homophone_path %></li>
+
+      <% if can? :create, WordSet %>
+        <li><%= link_to(raw("<span class=\"fa fa-plus\"></li>"), new_word_set_path) %></li>
+      <% end %>
+
     </ul>
 
     <form class="navbar-form navbar-right navbar-search-form" action="<%= word_sets_path %>">
@@ -37,7 +40,7 @@
           <input type="hidden" value="<%= @query_type %>" name="type" />
         </div>
 
-        <input id="nav-search" type="text" placeholder="Search" name="q" value="<%= @query %>">
+        <input id="nav-search" type="text" placeholder="letters" name="q" value="<%= @query %>">
 
         <span class="input-group-btn">
           <input type="submit" class="btn btn-default" value="Search" />
