@@ -1,4 +1,9 @@
 module PagesHelper
+
+  def now
+    @now ||= Time.now
+  end
+
   def full_page_title
     "Homophone.com " +
       (content_for?(:title) ? "| #{content_for(:title)}" : "- Your Complete List of Homophones")
