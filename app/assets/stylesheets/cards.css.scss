@@ -58,4 +58,11 @@
       margin-right: auto;
     }
   }
+
+  .card-footer {
+    position: absolute;
+    left: 42px;
+    font-size: .8em;
+    color: $gray-light;
+  }
 }
