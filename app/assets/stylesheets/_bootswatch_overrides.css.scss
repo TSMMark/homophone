@@ -86,8 +86,8 @@ input {
   }
   > li > a:hover,
   > li > a:focus {
-    background-color: #F5F5F5;
-    color: $text-color;
+    background-color: $dropdown-link-hover-bg;
+    color: $dropdown-link-color;
   }
 }
 

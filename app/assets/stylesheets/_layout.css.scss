@@ -1,0 +1,4 @@
+.navbar .nav li a,
+.dropdown-menu li a {
+  @include transition(all 0.1s linear);
+}

@@ -1,5 +1,5 @@
 .btn {
-  @include transition(all, 0.2s, linear);
+  @include transition(all 0.1s linear);
 }
 
 .btn-xs-full,

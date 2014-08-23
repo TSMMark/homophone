@@ -19,7 +19,7 @@
 //= require jquery_ujs
 //  
 //  require turbolinks
-//= require bootstrap.min
+//= require _bootstrap.min
 //= require masonry.min
 //  
 //  http://www.thomasfrank.se/sessionvars.html
@@ -27,19 +27,17 @@
 //  
 //= require enquire.min
 //  
-//= require helpers
+//= require _helpers
 //  
-//= require vars
+//= require _vars
 //  
-//= require home
-//= require breadcrumbs
+//= require _home
+//= require _breadcrumbs
 //  
-//= require adsense
+//= require _adsense
 //  
-//= require navbar
+//= require _navbar
 //  
-//= require popovers
-//  
-//= require popovers
+//= require _popovers
 //  
 //= require_tree .
