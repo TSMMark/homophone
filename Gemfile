@@ -56,7 +56,7 @@ gem "font-awesome-rails", "~> 4.0"
 
 gem 'rails_serve_static_assets'
 
-gem 'cancan', '~> 1.6.10'
+gem 'cancancan', '~> 1.9'
 
 gem 'wordnik'
 

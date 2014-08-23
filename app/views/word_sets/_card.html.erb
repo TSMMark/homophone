@@ -4,6 +4,11 @@
       <%= word_btn(word) %>
     <% end %>
 
+    <div class="card-footer">
+      <span class="fa fa-hand-o-up"></span>
+      hover for definition.
+    </div>
+
     <% if can? :update, @word_set %>
 
       <div class="icon-container">

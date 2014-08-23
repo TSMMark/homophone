@@ -1,19 +1,24 @@
-<% make_one_input = Proc.new do |word=nil| %>
-  <div data-infinite-inputs-row class="form-group">
+<% make_one_input = Proc.new do |word = nil| %>
+  <div data-infinite-inputs-row>
     <div class="row">
-      <div class="col-xs-3">
-        <label for="word_set[words][][text]">Text</label>
-      </div>
-      <div class="col-xs-9">
-        <input type="text" name="word_set[words][][text]" value="<%= word.text if word %>"/>
+      <div class="col-xs-12">
+        <h3>Word:</h3>
       </div>
     </div>
-    <div class="row">
-      <div class="col-xs-3">
-        <label for="word_set[words][][display_text]">Display Text</label>
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="word_set[words][][text]">Definition</label>
+      <div class="col-sm-9">
+        <input type="text" name="word_set[words][][text]"
+               value="<%= word.text if word %>"
+               class="form-control" />
       </div>
-      <div class="col-xs-9">
-        <input type="text" name="word_set[words][][display_text]" value="<%= word.display_text if word %>"/>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="word_set[words][][display_text]">Display</label>
+      <div class="col-sm-9">
+        <input type="text" name="word_set[words][][display_text]"
+               value="<%= word.display_text if word %>"
+               class="form-control" />
       </div>
     </div>
   </div>
@@ -22,7 +27,7 @@
 
 <div class="row">
   <div class="col-sm-7" >
-    <%= form_for(@word_set) do |f| %>
+    <%= form_for(@word_set, html: { class: "form-horizontal", role: "form" }) do |f| %>
       <div data-infinite-inputs >
         <% if @word_set.words.count.zero? %>
           <% make_one_input.call() %>

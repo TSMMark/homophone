@@ -5,7 +5,17 @@
   <footer>
     <div class="container">
       <h1>Get in touch!</h1>
-      <p>We're always discovering and adding new homophones to <%= t(:site) %>... In fact, we just added [] 3 days ago! Many new additions are thanks to contributions from users like you.</p>
+      <p>
+        We're always discovering and adding new homophones to <%= t(:site) %>...
+        <% if last_word_set %>
+          In fact, we just added these homophones
+          <%= time_ago_in_words((now - last_word_set.created_at).ago) %> ago:
+          <strong><%= link_to last_word_set.words.map(&:display).join(", "),
+                              word_set_path(last_word_set) %></strong>.
+        <% end %>
+        <br />
+        Many new additions are thanks to contributions from users like you.
+      </p>
       <p>If you think we're missing any homophones, let us know by emailing me at <a href="mailto:al@homophone.com">al@homophone.com</a></p>
       <p>You can also visit my main business at <a href="http://aafinancial.com" target="_blank">aafinancial.com</a></p>
     </div>
@@ -15,6 +25,7 @@
     Copyright Alfred Aloisi 2008 - 2014 | 
     <% if signed_in? %>
       <%= link_to "Change Password", edit_user_path(current_user.id) %> |
+      <%= link_to "Add Homophones", new_word_set_path %> |
       <%= link_to "Logout", logout_path, method: :delete %>
     <% else %>
       <%= link_to "Admin", new_session_path %>

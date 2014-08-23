@@ -48,5 +48,5 @@ class ApplicationController < ActionController::Base
       (counter + start_at) % frequency == 0)
   end
   helper_method :should_serve_ad?
-  
+
 end
