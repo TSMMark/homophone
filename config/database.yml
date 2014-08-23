@@ -1,17 +1,12 @@
-development:
+default: &default
   adapter: postgresql
-  encoding: utf8
-  database: homophone_development
-  username: trendsettermm
   pool: 5
-  password: 
-  host: localhost
+  timeout: 5000
+
+development:
+  <<: *default
+  database: homophone_development
 
 test:
-  adapter: postgresql
-  encoding: utf8
+  <<: *default
   database: homophone_test
-  username: trendsettermm
-  pool: 5
-  password: 
-  host: localhost
