@@ -16,7 +16,6 @@ $ ->
 
 # masonry on cards
 $ ->
-
   $masonry_container  = $(".card-set-container")
   $cards              = $(".card")
   $ad_cards           = $cards.filter(".card-partner")
@@ -25,7 +24,7 @@ $ ->
 
   only_one_word = $cards.length - $ad_cards.length == 1
 
-  window.remason = (setup=false)->
+  window.remason = (setup = false)->
     $masonry_container.masonry "destroy" unless setup
 
     $masonry_container.masonry
@@ -46,3 +45,16 @@ $ ->
 
 
   $masonry_container.find("iframe").one "load", window.remason
+
+# Share Buttons
+$ ->
+  $("[data-share-button]").each ->
+    $this = $(this)
+    options =
+      id:      $this.data("id")
+      social:  $this.data("social")
+      type:    $this.data("type")
+      trigger: $this.data("trigger")
+
+    options.url = window.location.host + "/word_sets/" + options.id
+    new ShareButton($this, options)
