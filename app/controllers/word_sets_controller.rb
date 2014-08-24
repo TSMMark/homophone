@@ -1,6 +1,8 @@
 class WordSetsController < ApplicationController
   include WordSetsHelper
 
+  MAX_PER_PAGE = 100
+
   before_action :set_word_set, only: [:show, :random]
   load_and_authorize_resource only: [:new, :create, :edit, :update, :destroy]
 
@@ -16,7 +18,8 @@ class WordSetsController < ApplicationController
       @word_sets = WordSet.with_words
     end
 
-    @word_sets = @word_sets.page(params[:page] || 1).per_page(10).word_order
+    per_page = [(params[:per_page] || 10).to_i, MAX_PER_PAGE].min
+    @word_sets = @word_sets.page(params[:page] || 1).per_page(per_page).word_order
   end
 
   def show; end
