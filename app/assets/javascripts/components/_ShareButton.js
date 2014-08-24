@@ -34,6 +34,7 @@ var ShareButton;
       return;
     }
 
+    // TODO: analytics
     var methodName = "trigger" + this.options.social.capitalize();
 
     this[methodName].call(this);
@@ -65,10 +66,10 @@ var ShareButton;
   }
 
   ShareButton.prototype.successfulShare = function () {
+    // TODO: analytics
     alert("Thank you for sharing!");
   }
 
   ShareButton.prototype.unsuccessfulShare = function () {
-    alert("Please reconsider sharing");
   }
 }();
