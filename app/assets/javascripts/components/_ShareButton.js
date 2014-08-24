@@ -45,7 +45,7 @@ var ShareButton;
     window.console && console.log("triggerFacebook", this.options);
     FB.ui({
       method: "feed",
-      href: this.options.url
+      link: this.options.url
     },
     function(response) {
       if (response && !response.error_code) {
