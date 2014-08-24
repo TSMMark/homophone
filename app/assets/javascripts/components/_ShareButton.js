@@ -40,6 +40,8 @@ var ShareButton;
   }
 
   ShareButton.prototype.triggerFacebook = function () {
+    var self = this;
+
     window.console && console.log("triggerFacebook", this.options);
     FB.ui({
       // method: "feed",
@@ -48,9 +50,9 @@ var ShareButton;
     },
     function(response) {
       if (response && !response.error_code) {
-        successfulShare();
+        self.successfulShare();
       } else {
-        unsuccessfulShare();
+        self.unsuccessfulShare();
       }
     });
   }
