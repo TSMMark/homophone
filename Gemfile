@@ -46,9 +46,6 @@ gem 'better_errors', group: :development
 
 gem "auto_strip_attributes", "~> 2.0"
 
-gem 'will_paginate', '~> 3.0'
-gem 'will_paginate-bootstrap', '~> 1.0.0'
-
 # https://github.com/jumph4x/canonical-rails
 gem 'canonical-rails', github: 'jumph4x/canonical-rails'
 

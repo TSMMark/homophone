@@ -1,7 +1,7 @@
 module SearchConcern
 
   def ilike_string(string, type = "include")
-    type == "begin" ? "#{string}%" : "%#{string}%"
+    Utils::Queries.ilike_string(string, type)
   end
 
 end

@@ -1,8 +1,6 @@
 class WordSetsController < ApplicationController
   include WordSetsHelper
 
-  MAX_PER_PAGE = 100
-
   before_action :set_word_set, only: [:show, :random]
   load_and_authorize_resource only: [:new, :create, :edit, :update, :destroy]
 
@@ -13,13 +11,13 @@ class WordSetsController < ApplicationController
     if @query
       WordSet.current_query       = @query
       WordSet.current_query_type  = @query_type
-      @word_sets = WordSet.search_for(@query, @query_type)
-    else
-      @word_sets = WordSet.with_words
     end
 
-    per_page = [(params[:per_page] || 10).to_i, MAX_PER_PAGE].min
-    @word_sets = @word_sets.page(params[:page] || 1).per_page(per_page).word_order
+    @presenter = Presenters::WordSetPresenter.new(params.merge({
+      :dataset => WordSet,
+      :query => @query,
+      :query_type => @query_type
+    }))
   end
 
   def show; end

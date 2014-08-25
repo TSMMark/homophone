@@ -5,24 +5,12 @@ class WordSet < ActiveRecord::Base
 
   attr :current_query
 
-  scope :with_words, -> do
-    joins(:words).includes(:words)
-  end
-
-  scope :word_order, -> do
-    order("lower(words.text) ASC")
-  end
-
   module ClassMethods
     attr_accessor :current_query
     attr_accessor :current_query_type
 
     def current_query= value
       @current_query = value.is_a?(String) ? value.downcase : value
-    end
-
-    def search_for(string, type="include")
-      with_words.where("words.text ILIKE ?", ilike_string(string, type))
     end
 
   end
@@ -34,10 +22,10 @@ class WordSet < ActiveRecord::Base
   end
 
   def append_word word
-    words << Word.self_or_new(word).tap {|w| w.word_set_id = id}
+    words << Word.self_or_new(word).tap { |w| w.word_set_id = id }
   end
 
-  def words_matches_preceding(string=nil)
+  def words_matches_preceding(string = nil)
     string.downcase! if string.is_a? String
 
     current_query = string
@@ -45,7 +33,7 @@ class WordSet < ActiveRecord::Base
     return word_order_lists[string] if word_order_lists[string]
 
     all_words = words.order("lower(text) DESC").all
-    
+
     return word_order_lists[string] = all_words.sort if string.nil?
 
     begins    = []
@@ -66,7 +54,7 @@ class WordSet < ActiveRecord::Base
     return word_order_lists[string] = begins.sort + includes.sort + other.sort
   end
 
-  def words_ordered_by_query(query=nil)
+  def words_ordered_by_query(query = nil)
     words_matches_preceding(query)
   end
 
@@ -80,7 +68,7 @@ class WordSet < ActiveRecord::Base
 
 
   def print_words
-    words.map {|w|"\"#{w.display}\""}.join ", "
+    words.map { |w|"\"#{w.display}\"" }.join ", "
   end
 
 
