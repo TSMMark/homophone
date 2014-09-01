@@ -57,12 +57,11 @@
     }
 
     .well {
-      padding: $ad-card-padding;
-      min-height: $ad-card-height;
+      padding: $ad-card-padding-v $ad-card-padding-h;
+      min-height: $ad-card-height + ($ad-card-padding-v * 2);
       background: none;
       border: none;
       @include box-shadow(none);
-      padding: 25px 2%;
     }
     .partner-container {
       max-width: 470px;
