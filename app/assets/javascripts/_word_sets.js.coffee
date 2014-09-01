@@ -24,27 +24,35 @@ $ ->
 
   only_one_word = $cards.length - $ad_cards.length == 1
 
-  window.remason = (setup = false)->
-    $masonry_container.masonry "destroy" unless setup
+  # Teardown and rebuild the masonry
+  window.remason = ()->
+    $masonry_container.masonry "destroy"
+    window.masonry_init();
 
+  # Setup the masonry
+  window.masonry_init = ()->
     $masonry_container.masonry
-      itemSelector: ".card:not(.stamp)",
-      stamp: ".stamp",
+      itemSelector: ".card",
+      # If ads should be rendered as cards
+      # itemSelector: ".card:not(.stamp)",
+      # stamp: ".stamp",
       gutter: 9,
       isOriginLeft: only_one_word
 
-  window.remason(true)
+  window.masonry_init()
 
-  enquire.register "screen and (max-width: #{Homophone.screen_xs_max}px)",
-    match: ->
-      $ad_cards.removeClass "stamp"
-      window.remason()
-    unmatch: ->
-      $ad_cards.addClass "stamp"
-      window.remason()
+  # Only needed if ads should be rendered as cards
+  # enquire.register "screen and (max-width: #{Homophone.screen_xs_max}px)",
+  #   match: ->
+  #     $ad_cards.removeClass "stamp"
+  #     window.remason()
+  #   unmatch: ->
+  #     $ad_cards.addClass "stamp"
+  #     window.remason()
 
-
-  $masonry_container.find("iframe").one "load", window.remason
+  # remason on ads load
+  $masonry_container.find("iframe").one "load.remason", ()->
+    setTimeout(window.remason, 100)
 
 # Share Buttons
 $ ->

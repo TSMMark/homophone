@@ -28,7 +28,7 @@
   </div>
 
   <div class="card-set-container">
-    <% ad_frequency = 3; ad_start = 2 %>
+    <% ad_frequency = 6; ad_start = 3 %>
     <% @presenter.results.each_with_index do |word_set, i| %>
       <% @word_set = word_set %>
       <%= render partial: 'card' %>

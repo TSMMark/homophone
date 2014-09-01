@@ -3,7 +3,8 @@ module Presenters
 
     include Form::Extensions::Presenter
 
-    DEFAULT_PER_PAGE = 30
+    DEFAULT_PER_PAGE = 10
+    MAX_PER_PAGE = 100
 
     attribute(:query)
     attribute(:query_type)
