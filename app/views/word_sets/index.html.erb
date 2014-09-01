@@ -5,7 +5,7 @@
     
       <%= content_tag page_h do %>
         <% if @query %>
-          <% if @presenter.any? %>
+          <% if @presenter.empty? %>
             We couldn't find any homophones that <%= describe_query(@query, @query_type) %>...
           <% else %>
             Homophones that <%= describe_query(@query, @query_type) %>...
@@ -14,7 +14,7 @@
           Listing all Homophones
         <% end %>
 
-        (<%= params[:page] || 1 %>/<%# TODO: @word_sets.total_pages %>)
+        (page <%= params[:page] || 1 %> of <%= @presenter.total_pages %>)
       <% end %>
 
     </div>
@@ -33,7 +33,7 @@
       <% @word_set = word_set %>
       <%= render partial: 'card' %>
 
-      <%= render "ads/card" if should_serve_ad?(i, ad_frequency, ad_start, @presenter.results.count) %>
+      <%= render "ads/card" if should_serve_ad?(i, ad_frequency, ad_start, @presenter.count) %>
     <% end %>
   </div>
 

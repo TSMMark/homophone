@@ -9,22 +9,30 @@ module Presenters
     attribute(:query_type)
 
     def results
-      @results ||= filtered_dataset.all
+      @results ||= paginated_dataset.all
+    end
+
+    def paginated_dataset
+      filtered_dataset.order("min(lower(words.text)) ASC")
+                      .limit(per_page)
+                      .offset(start)
     end
 
     def filtered_dataset
-      word_sets = dataset
-
-      word_sets_ids = Word.where("text ILIKE ?", Utils::Queries.ilike_string(query, query_type)).
-                           select("word_set_id, min(lower(text)) as lower_text").
-                           order("lower_text ASC").
-                           group(:word_set_id).
-                           limit(per_page)
-
-      word_sets_ids = word_sets_ids.map(&:word_set_id)
-
-      word_sets.where(:id => word_sets_ids)
+      dataset.joins(:words).
+              select("word_sets.*, min(lower(words.text))").
+              where("lower(words.text) LIKE ?", Utils::Queries.ilike_string(query, query_type).downcase).
+              group("word_sets.id")
     end
+
+    def count
+      sql = %Q(SELECT count(*) FROM (#{filtered_dataset.to_sql}) AS results)
+      @count ||= begin
+        values_array = WordSet.connection.execute(sql).values.first
+        values_array.first.to_i
+      end
+    end
+
 
   end
 end

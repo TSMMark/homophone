@@ -90,7 +90,15 @@ module Form
       #
       # @return [Integer]
       def total_pages
-        @total_pages ||= (1.0 * filtered_dataset.count / per_page).ceil
+        @total_pages ||= (count.to_f / per_page).ceil
+      end
+
+      def count
+        filtered_dataset.count
+      end
+
+      def start
+        @start ||= (page - 1) * per_page
       end
 
       # Determine if there are any records.
@@ -98,6 +106,13 @@ module Form
       # @return [Boolean]
       def any?
         !total_pages.zero?
+      end
+
+      # Determine if there results are empty.
+      #
+      # @return [Boolean]
+      def empty?
+        total_pages.zero?
       end
 
       # Get the opposite sort order.
@@ -122,7 +137,6 @@ module Form
       # @return [Array]
       def results
         @results ||= begin
-          start = (page - 1) * per_page
           _dataset = filtered_dataset.limit(per_page).offset(start)
 
           if sort_by
