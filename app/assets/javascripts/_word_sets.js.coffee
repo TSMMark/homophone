@@ -54,6 +54,8 @@ $ ->
   $masonry_container.find("iframe").one "load.remason", ()->
     setTimeout(window.remason, 100)
 
+  setTimeout(window.remason, 100)
+
 # Share Buttons
 $ ->
   $("[data-share-button]").each ->
