@@ -1,13 +1,29 @@
+require 'uri'
+
 module Presenters
   class WordSetPresenter < Form::Base
 
     include Form::Extensions::Presenter
 
-    DEFAULT_PER_PAGE = 10
+    DEFAULT_PER_PAGE = 16
     MAX_PER_PAGE = 100
 
     attribute(:query)
     attribute(:query_type)
+
+    def pagination_path(page)
+      query_params = {
+        :q => query,
+        :type => query_type,
+        :page => page,
+        :per_page => per_page
+      }
+
+      query_params.delete(:per_page) if per_page == default_per_page
+
+      uri_encoded = URI.encode_www_form(query_params)
+      "#{path}?#{uri_encoded}"
+    end
 
     def results
       @results ||= paginated_dataset.all
@@ -33,7 +49,6 @@ module Presenters
         values_array.first.to_i
       end
     end
-
 
   end
 end

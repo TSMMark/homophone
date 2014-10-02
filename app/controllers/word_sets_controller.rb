@@ -16,7 +16,8 @@ class WordSetsController < ApplicationController
     @presenter = Presenters::WordSetPresenter.new(params.merge({
       :dataset => WordSet,
       :query => @query,
-      :query_type => @query_type
+      :query_type => @query_type,
+      :path => "/word_sets"
     }))
   end
 

@@ -39,7 +39,9 @@
   > li > span {
     &:hover,
     &:focus {
+      color: $pagination-active-color;
       background-color: $pagination-hover-bg;
+      border-color: $pagination-hover-bg;
     }
   }
 

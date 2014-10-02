@@ -5,19 +5,19 @@ module Form
       DEFAULT_PER_PAGE = 30
       MAX_PER_PAGE = 100
       SORT_ORDERS = ["ASC", "DESC"]
-      DEFAULT_SORT_ORDER = "ASC"
+      DEFAULT_SORT_ORDER = SORT_ORDERS.first
 
-      # Add the attributes to paginate, including :dataset, :page, :sort_by and
-      # :sort_order.
+      # Add the attributes to paginate, including
+      #   :dataset, :page, :per_page, :sort_by, :sort_order, :path
       #
       # @param base [Class]
       def self.included(base)
-
         base.attribute(:dataset)
         base.attribute(:page, :type => :integer, :skip_reader => true)
         base.attribute(:per_page, :type => :integer, :skip_reader => true)
         base.attribute(:sort_by, :type => :string, :skip_reader => true)
         base.attribute(:sort_order, :type => :string, :skip_reader => true)
+        base.attribute(:path, :type => :string)
         base.extend(ClassMethods)
       end
 
@@ -178,6 +178,25 @@ module Form
         else
           @page
         end
+      end
+
+
+      # Get the next page, or nil if current page is last page.
+      #
+      # @return [Integer, nil]
+      def next_page
+        p = page + 1
+        p > total_pages && p = nil
+        p
+      end
+
+      # Get the previous page, or nil if current page is first page.
+      #
+      # @return [Integer, nil]
+      def prev_page
+        p = page - 1
+        p < 1 && p = nil
+        p
       end
 
       # Get the attribute to sort by the records.
