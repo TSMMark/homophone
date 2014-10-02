@@ -65,7 +65,35 @@ module Form
       # @param attributes [Hash]
       def url_attributes
         @url_attributes ||=
-          attributes.except(:dataset).map_values!(&:to_s)
+          attributes.except(:dataset, :path)
+                    .map_values!(&:to_s)
+      end
+
+      # Given a page number, provide the path.
+      #
+      # @param page [Integer]
+      #
+      # @return [String]
+      def pagination_path(page)
+        query_params = pagination_params(page)
+        uri_encoded = URI.encode_www_form(query_params)
+        "#{path}?#{uri_encoded}"
+      end
+
+      # Given a page number, provide a Hash of attributes
+      #   to be used as query parameters in the pagination URL.
+      #
+      # @param page [Integer]
+      #
+      # @return [Hash]
+      def pagination_params(page)
+        # TODO: include sort params
+        {
+          :page => page,
+          :per_page => per_page
+        }.tap do |params|
+          params.delete(:per_page) if per_page == default_per_page
+        end
       end
 
       # Iterate through the results.

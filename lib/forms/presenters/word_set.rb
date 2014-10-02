@@ -1,4 +1,4 @@
-require 'uri'
+require "uri"
 
 module Presenters
   class WordSetPresenter < Form::Base
@@ -11,18 +11,11 @@ module Presenters
     attribute(:query)
     attribute(:query_type)
 
-    def pagination_path(page)
-      query_params = {
+    def pagination_params(page)
+      super.merge({
         :q => query,
-        :type => query_type,
-        :page => page,
-        :per_page => per_page
-      }
-
-      query_params.delete(:per_page) if per_page == default_per_page
-
-      uri_encoded = URI.encode_www_form(query_params)
-      "#{path}?#{uri_encoded}"
+        :type => query_type
+      })
     end
 
     def results
@@ -43,8 +36,8 @@ module Presenters
     end
 
     def count
-      sql = %Q(SELECT count(*) FROM (#{filtered_dataset.to_sql}) AS results)
       @count ||= begin
+        sql = %Q(SELECT count(*) FROM (#{filtered_dataset.to_sql}) AS results)
         values_array = WordSet.connection.execute(sql).values.first
         values_array.first.to_i
       end
