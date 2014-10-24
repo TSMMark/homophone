@@ -1,3 +1,5 @@
+require_relative "validation_error"
+
 module Form
   module Validations
 
