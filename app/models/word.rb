@@ -7,15 +7,10 @@ class Word < ActiveRecord::Base
 
   auto_strip_attributes :text, nullify: true, squish: true
 
-  # validate :text, presence: true
   validates_presence_of :text
 
 
   module ClassMethods
-    def search_for(string, type="include")
-      where("text ILIKE ?", ilike_string(string, type))
-    end
-
     def self_or_new word_or_string
       word_or_string.is_a?(Word) ?
         word_or_string :
@@ -31,7 +26,6 @@ class Word < ActiveRecord::Base
         SELECT words.id FROM words INNER JOIN word_sets ON words.word_set_id = word_sets.id
       )")
     end
-
   end
   extend ClassMethods
 
@@ -41,7 +35,7 @@ class Word < ActiveRecord::Base
 
   def describe_match_type(query=nil)
     query ||= WordSet.current_query
-    
+
     if self.text.downcase == query
       "exact"
     elsif current_query_index_of_text == 0

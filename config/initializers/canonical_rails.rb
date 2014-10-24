@@ -4,7 +4,7 @@ CanonicalRails.setup do |config|
   
   # This is the main host, not just the TLD, omit slashes and protocol. If you have more than one, pick the one you want to rank in search results.
   
-  config.host = "homophone.com" # = 'www.mywebstore.com'
+  config.host = ENV["HOST_DOMAIN"]
   
   # http://en.wikipedia.org/wiki/URL_normalization
   # Trailing slash represents semantics of a directory, ie a collection view - implying an :index get route;
@@ -12,11 +12,11 @@ CanonicalRails.setup do |config|
   #
   # Acts as a whitelist for routes to have trailing slashes
   
-  config.collection_actions# = [:index]
+  config.collection_actions = []
 
   # Parameter spamming can cause index dilution by creating seemingly different URLs with identical or near-identical content.
   # Unless whitelisted, these parameters will be omitted
   
-  config.whitelisted_parameters# = []
+  config.whitelisted_parameters = ["type", "q"]
   
 end

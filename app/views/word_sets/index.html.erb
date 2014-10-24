@@ -5,18 +5,19 @@
     
       <%= content_tag page_h do %>
         <% if @query %>
-          <% if @word_sets.count.zero? %>
-            We couldn't find any homophones that <%= describe_query(@query, @query_type) %>...
-          <% else %>
+          <% if @presenter.any? %>
             Homophones that <%= describe_query(@query, @query_type) %>...
+          <% else %>
+            We couldn't find any homophones that <%= describe_query(@query, @query_type) %>...
           <% end %>
         <% else %>
           Listing all Homophones
         <% end %>
-
-        (<%= params[:page] || 1 %>/<%= @word_sets.total_pages %>)
       <% end %>
 
+      <% if @presenter.any? %>
+        <h5>Page <%= @presenter.page %> / <%= @presenter.total_pages %></h5>
+      <% end %>
     </div>
     <div class="col-sm-3">
       <h3>
@@ -27,31 +28,32 @@
     </div>
   </div>
 
-  <div class="card-set-container">
-    <% ad_frequency = 3; ad_start = 2 %>
-    <% @word_sets.each_with_index do |word_set, i| %>
-      <% @word_set = word_set %>
-      <%= render partial: 'card' %>
+  <% if @presenter.any? %>
+    <div class="card-set-container">
+      <% ad_frequency = 6; ad_start = 3 %>
+      <% @presenter.results.each_with_index do |word_set, i| %>
+        <% @word_set = word_set %>
+        <%= render partial: 'card' %>
 
-      <%= render "ads/card" if should_serve_ad?(i, ad_frequency, ad_start, @word_sets.count) %>
-    <% end %>
-  </div>
+        <%= render "ads/card" if should_serve_ad?(i, ad_frequency, ad_start, @presenter.count) %>
+      <% end %>
+    </div>
+  <% else%>
+    <div class="well well-lg">
+      No homophones found!
+    </div>
+  <% end %>
 
-  <div class="pagination-container">
-    <%= will_paginate @word_sets,
-          renderer: BootstrapPagination::Rails,
-          inner_window: 2,
-          outer_window: 0,
-          previous_label: "«",
-          next_label: "»"
-        %>
-  </div>
+  <% if @presenter.any? %>
+    <div class="pagination-container">
+      <%= render_pagination(@presenter) %>
+    </div>
+  <% end %>
 
-  <%# # if no more homophones (pagination)  %>
-  <%= render 'layouts/more_homophones' %>
+  <%= render "layouts/more_homophones" %>
 
 </div>
 
 <script>
-sessvars.current_query = <%= ({term: @query, type: @query_type}.to_json.html_safe) %>;
+  sessvars.current_query = <%= ({term: @query, type: @query_type}.to_json.html_safe) %>;
 </script>

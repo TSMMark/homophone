@@ -1,7 +1,6 @@
 <%= render "ads/horizontal" %>
 
-<section class="block-section" id="footer">
-
+<section class="block-section" id="footer" name="contact">
   <footer>
     <div class="container">
       <h1>Get in touch!</h1>
@@ -18,6 +17,7 @@
       </p>
       <p>If you think we're missing any homophones, let us know by emailing me at <a href="mailto:al@homophone.com">al@homophone.com</a></p>
       <p>You can also visit my main business at <a href="http://aafinancial.com" target="_blank">aafinancial.com</a></p>
+      <%= browse_btn %>
     </div>
   </footer>
   
@@ -31,5 +31,4 @@
       <%= link_to "Admin", new_session_path %>
     <% end %>
   </div>
-
 </section>

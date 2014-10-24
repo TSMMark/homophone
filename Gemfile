@@ -46,21 +46,19 @@ gem 'better_errors', group: :development
 
 gem "auto_strip_attributes", "~> 2.0"
 
-gem 'will_paginate', '~> 3.0'
-gem 'will_paginate-bootstrap', '~> 1.0.0'
-
 # https://github.com/jumph4x/canonical-rails
 gem 'canonical-rails', github: 'jumph4x/canonical-rails'
 
 gem "font-awesome-rails", "~> 4.0"
 
 gem 'rails_serve_static_assets'
+gem 'rails_12factor'
 
 gem 'cancancan', '~> 1.9'
 
 gem 'wordnik'
 
-gem 'figaro', github: 'laserlemon/figaro', ref: "9bbc7343f3916e73c185d071608e5ef24e9638d0"
+gem 'figaro'
 
 # https://github.com/tilo/smarter_csv
 gem 'smarter_csv'

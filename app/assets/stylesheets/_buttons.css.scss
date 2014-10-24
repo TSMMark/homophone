@@ -1,3 +1,7 @@
+.btn {
+  @include transition(all 0.1s linear);
+}
+
 .btn-xs-full,
 .btn-sm-full {
   @media (max-width: $screen-xs-max) {

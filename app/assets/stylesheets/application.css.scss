@@ -1,11 +1,15 @@
+@import "bootstrap_sass/core";
+@import "variables";
+
 @import "bootstrap_sass/bootstrap";
 
-@import "variables";
 @import "mixins";
 
 @import "bootswatch_overrides";
 
 @import "scaffolds";
+
+@import "layout";
 
 @import "font-awesome";
 

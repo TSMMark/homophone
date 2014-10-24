@@ -1,0 +1,48 @@
+<div>
+  <% if prev_page %>
+    <a href="<%= presenter.pagination_path(prev_page) %>"
+       class="btn btn-default btn-lg">Prev Page</a>
+  <% else %>
+    <a class="btn btn-default btn-lg disabled">Prev Page</a>
+  <% end %>
+
+  <% if next_page %>
+    <a href="<%= presenter.pagination_path(next_page) %>"
+       class="btn btn-primary btn-lg">Next Page</a>
+  <% else %>
+    <a class="btn btn-primary btn-lg disabled">Next Page</a>
+  <% end %>
+</div>
+
+<ul class="pagination pagination-sm">
+  <% if prev_page %>
+    <li><a href="<%= presenter.pagination_path(prev_page) %>">&laquo;</a></li>
+  <% else %>
+    <li class="disabled"><span>&laquo;</span></li>
+  <% end %>
+
+  <% last_item = nil %>
+  <% pagination_items.each do |item| %>
+    <% if last_item && item - last_item > 1 %>
+      <li class="disabled"><span>...</span></li>
+    <% end %>
+
+    <% if item == current_page %>
+      <li class="active">
+        <span><%= item %></span>
+      </li>
+    <% else %>
+      <li>
+        <a href="<%= presenter.pagination_path(item) %>"><%= item %></a>
+      </li>
+    <% end %>
+
+    <% last_item = item %>
+  <% end %>
+
+  <% if next_page %>
+    <li><a href="<%= presenter.pagination_path(next_page) %>">&raquo;</a></li>
+  <% else %>
+    <li class="disabled"><span>&raquo;</span></li>
+  <% end %>
+</ul>

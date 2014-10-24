@@ -1,0 +1,20 @@
+<section class="block-section" id="more-details" name="more">
+  <div class="container">
+    <h1>Easy and fun education!</h1>
+    <div class="well">
+      <h4>Spellings, pronunciations, definitions.</h4>
+      <p>
+        We include a definition for each word listed!
+        Just hover your mouse pointer over a word to learn its definitions.
+      </p>
+      <p>
+        <strong>Try it with the homophones below</strong>
+      </p>
+    </div>
+    
+    <h3>Example homophones:</h3>
+    <% @word_set = random_word_set %>
+    <%= render partial: 'word_sets/card' %>
+    <%= browse_btn %>
+  </div>
+</section>

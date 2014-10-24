@@ -2,12 +2,15 @@
 <html>
 <head>
   <%= render "meta/head" %>
+  <%= stylesheet_link_tag("application", media: "all") %>
 
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
+  <%= render "layouts/variables" %>
+  <%= javascript_include_tag("application") %>
+
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%= body_class %>">
+  <div id="fb-root"></div>
 
   <%= render "layouts/header" %>
 

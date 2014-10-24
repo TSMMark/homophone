@@ -11,12 +11,14 @@ class WordSetsController < ApplicationController
     if @query
       WordSet.current_query       = @query
       WordSet.current_query_type  = @query_type
-      @word_sets = WordSet.search_for(@query, @query_type)
-    else
-      @word_sets = WordSet.with_words
     end
 
-    @word_sets = @word_sets.page(params[:page] || 1).per_page(10).word_order
+    @presenter = Presenters::WordSetPresenter.new(params.merge({
+      :dataset => WordSet,
+      :query => @query,
+      :query_type => @query_type,
+      :path => "/word_sets"
+    }))
   end
 
   def show; end

@@ -73,6 +73,7 @@ input {
 
 .breadcrumb {
   margin-bottom: 0;
+  @include box-shadow(1px 1px 1px rgba(0, 0, 0, 0.1));
 }
 
 .dropdown-menu {
@@ -83,6 +84,11 @@ input {
   &.dropdown-left {
     left:inherit;
     right:0px;
+  }
+  > li > a:hover,
+  > li > a:focus {
+    background-color: $dropdown-link-hover-bg;
+    color: $dropdown-link-color;
   }
 }
 

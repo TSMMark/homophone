@@ -9,11 +9,15 @@
       hover for definition.
     </div>
 
-    <% if can? :update, @word_set %>
+    <div class="icon-container">
 
-      <div class="icon-container">
+      <% if can? :update, @word_set %>
+
         <div class="btn-group">
-          <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown"><%= fa_icon("cog") %> <span class="caret"></span></button>
+          <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+            <%= fa_icon("cog") %>
+            <span class="caret"></span>
+          </button>
 
           <ul class="dropdown-menu dropdown-left" role="menu">
             <li><%= link_to fa_stacked_icon("info inverse", base: "square", class: "icon-success") + " Show", word_set_path(@word_set) -%></li>
@@ -21,13 +25,39 @@
             <li><%= link_to fa_stacked_icon("trash-o inverse", base: "square", class: "icon-delete") + " Delete", @word_set, method: :delete, data: { confirm: "Really delete this Word Set?\r\nYou can't undo this!" } -%></li>
           </ul>
         </div>
-      </div>
 
-    <% else %>
+      <% else %>
 
-      
+        <div class="btn-group share-word-set">
+          <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+            <%= fa_icon("share") %>
+          </button>
 
-    <% end %>
+          <ul class="dropdown-menu dropdown-left" role="menu">
+            <li>
+              <a href="#" data-share-button data-id="<%= @word_set.id %>" data-social="facebook">
+                <%= fa_stacked_icon("facebook inverse", base: "square", class: "icon-facebook") %>
+                Facebook
+              </a>
+            </li>
+            <li>
+              <a href="#" data-share-button data-id="<%= @word_set.id %>" data-social="twitter">
+                <%= fa_stacked_icon("twitter inverse", base: "square", class: "icon-twitter") %>
+                Twitter
+              </a>
+            </li>
+            <li>
+              <a href="#" data-share-button data-id="<%= @word_set.id %>" data-social="email">
+                <%= fa_stacked_icon("envelope inverse", base: "square", class: "icon-email") %>
+                Email
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      <% end %>
+
+    </div>
 
   </div>
 </div>

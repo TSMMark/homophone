@@ -1,5 +1,9 @@
 module WordSetsHelper
 
+  def browse_btn
+    link_to "Browse homophones", browse_path, class: "btn btn-primary btn-lg btn-xs-full"
+  end
+
   def last_word_set
     @last_word_set ||= WordSet.order("id DESC").last
   end

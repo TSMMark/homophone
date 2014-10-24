@@ -6,18 +6,17 @@
     </button>
   </div>
 
-  <div class="navbar-collapse collapse navbar-responsive-collapse" id="navbar-main">
-    
+  <div class="navbar-default navbar-collapse collapse navbar-responsive-collapse" id="navbar-main">
+
     <ul class="nav navbar-nav">
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">About <span class="caret"></span></a>
         <ul class="dropdown-menu" >
           <li><a href="/about#what">What is a homophone?</a></li>
           <li><a href="/about#more">More about homophones</a></li>
-          <li><a href="/about#examples">Homophone sentence examples</a></li>
           <li><a href="/about#why">Why do homophones exist?</a></li>
-          <li><a href="/about#about">About the author</a></li>
-          <li><a href="/about#email">Email the author</a></li>
+          <li><a href="/about#author">About the author</a></li>
+          <li><a href="/about#contact">Email the author</a></li>
         </ul>
       </li>
 
@@ -26,7 +25,6 @@
       <% if can? :create, WordSet %>
         <li><%= link_to(raw("<span class=\"fa fa-plus\"></li>"), new_word_set_path) %></li>
       <% end %>
-
     </ul>
 
     <form class="navbar-form navbar-right navbar-search-form" action="<%= word_sets_path %>">
