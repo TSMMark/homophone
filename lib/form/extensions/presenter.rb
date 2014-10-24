@@ -1,3 +1,5 @@
+require_relative "../base"
+
 module Form
   module Extensions
     module Presenter
