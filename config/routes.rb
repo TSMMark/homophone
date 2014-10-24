@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get '/home' => redirect('/')
   get '/home/index' => redirect('/')
 
+  get '/about' => 'pages#about'
   get '/about/index' => redirect('/about')
   get '/word_sets/index' => redirect('/word_sets')
 

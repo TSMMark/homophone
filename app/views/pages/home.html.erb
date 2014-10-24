@@ -4,7 +4,7 @@
       <h1>Welcome to <%= t(:site) %></h1>
       <% @preface = ["The Internet's only complete", "Your one-stop complete", "The world's only complete"].sample %>
       <p><strong><%= @preface %> homophone list</strong>.</p>
-      <%= link_to "Browse homophones", browse_path, class: "btn btn-primary btn-lg btn-xs-full" %>
+      <%= browse_btn %>
       <%= link_to "What is a homophone?", "#what", class: "btn btn-info btn-lg btn-xs-full" %>
       </p>
     </div>
@@ -13,39 +13,8 @@
 
 <%= render "ads/horizontal" %>
 
-<section class="block-section" id="what-is-a-homophone" name="what">
-  <div class="container">
-    <h1>What is a Homophone?</h1>
-    <div class="well">
-      <h4>Words that sound alike but have different meanings and spellings.</h4>
-      <p>For example: "aye", "eye" and "I".</p>
-      <p>
-        <%= t(:site) %> is a handy compilation of homophones for anyone who is learning or simply curious about the English language!
-        This resource is exceptionally useful for schools and offices as a reference for when spoken English word must be converted to written language.
-      </p>
-    </div>
-  </div>
-</section>
+<%= render partial: 'sections/about_homophones' %>
 
 <%= render "ads/horizontal" %>
 
-<section class="block-section" id="more-details">
-  <div class="container">
-    <h1>Easy and fun education!</h1>
-    <div class="well">
-      <h4>Spellings, pronunciations, definitions.</h4>
-      <p>
-        We include a definition for each word listed!
-        Just hover your mouse pointer over a word to learn its definitions.
-      </p>
-      <p>
-        <strong>Try it with the homophones below</strong>
-      </p>
-    </div>
-    
-    <h3>Example homophones:</h3>
-    <% @word_set = random_word_set %>
-    <%= render partial: 'word_sets/card' %>
-
-  </div>
-</section>
+<%= render partial: 'sections/more_info' %>
