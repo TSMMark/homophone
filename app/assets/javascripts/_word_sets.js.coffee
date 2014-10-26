@@ -66,5 +66,5 @@ $ ->
       type:    $this.data("type")
       trigger: $this.data("trigger")
 
-    options.url = window.location.protocol + window.location.host + "/word_sets/" + options.id
+    options.url = window.location.protocol + "//" + window.location.host + "/word_sets/" + options.id
     new ShareButton($this, options)
