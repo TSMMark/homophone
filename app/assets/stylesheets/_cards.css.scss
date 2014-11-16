@@ -38,6 +38,7 @@
     position: absolute;
     top:   -1px; // account for border
     right: -1px; // account for border
+    font-size: 0px; // remove space between multiple .btn-group
 
     .btn-group > .btn {
       margin: 0;

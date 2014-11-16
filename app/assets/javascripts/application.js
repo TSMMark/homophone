@@ -1,3 +1,5 @@
+//= require _polyfills
+//
 //= require socials
 //
 //= require jquery
