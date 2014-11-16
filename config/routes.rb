@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   delete  'logout' => 'sessions#destroy', as: 'logout'
 
   get '/search' => 'word_sets#index', as: 'word_sets'
+  post '/search' => 'word_sets#create'
+
   get '/search/index' => redirect('/search')
 
-  resources :h, as: 'word_sets', controller: 'word_sets', only: %i(show new create edit update destroy)
+  resources :h, as: 'word_sets', controller: 'word_sets', only: %i(show new edit update destroy)
 
   get '/browse', to: 'pages#browse', as: 'browse'
 
@@ -23,7 +25,6 @@ Rails.application.routes.draw do
 
   get '/about' => 'pages#about'
   get '/about/index' => redirect('/about')
-  get '/word_sets/index' => redirect('/word_sets')
 
   resources :words, only: %i(show)
 
