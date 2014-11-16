@@ -51,7 +51,6 @@ var ShareButton;
     event.preventDefault();
     var self = this;
 
-    window.console && console.log("triggerFacebook", this.options);
     FB.ui({
       method: "feed",
       link: this.options.url
@@ -73,8 +72,6 @@ var ShareButton;
       , text = "I had no idea this word was a #homophone. " + 
                "You learn something new every day.";
 
-    window.console && console.log("triggerTwitter", this.options);
-
     params.push(["url", this.options.url]);
     params.push(["text", text]);
 
@@ -91,8 +88,6 @@ var ShareButton;
                this.options.url
       , params = []
       , mailtoURL;
-
-    window.console && console.log("triggerEmail", this.options);
 
     params.push(["subject", subject]);
     params.push(["body", body]);
