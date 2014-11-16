@@ -4,6 +4,10 @@ module WordSetsHelper
     link_to "Browse homophones", browse_path, class: "btn btn-primary btn-lg btn-xs-full"
   end
 
+  def random_btn
+    link_to "Random homophones", random_homophone_path, class: "btn btn-info btn-lg btn-xs-full"
+  end
+
   def last_word_set
     @last_word_set ||= WordSet.order("id DESC").last
   end

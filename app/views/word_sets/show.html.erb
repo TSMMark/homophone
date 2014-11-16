@@ -2,7 +2,7 @@
 
   <div class="row">
     <div class="col-sm-9">
-      <%= content_tag page_h, "A homophone set" %>
+      <%= content_tag page_h, "These words are homophones" %>
     </div>
     <div class="col-sm-3">
       <%= content_tag page_h, btn_view_more(class: "btn btn-primary btn-xs-full") %>
@@ -14,5 +14,12 @@
 
     <%= render partial: "ads/card" %>
   </div>
+
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <%= link_to "What is a homophone?", "/about#what", class: "btn btn-info btn-lg btn-xs-full" %>
+    </div>
+  </div>
+
   
 </div>
