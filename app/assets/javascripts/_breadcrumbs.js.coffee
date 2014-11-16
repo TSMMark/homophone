@@ -9,7 +9,7 @@ $ ->
     $crumb = $(@).find("a[href=\\[current_query_path\\]]")
     return unless $crumb.length > 0
     
-    path = "/word_sets"
+    path = "/h"
 
     unless !term || term == ""
       path += "?q=#{term}&type=#{type}" 

@@ -13,11 +13,11 @@ module WordSetsHelper
   end
 
   def homophones_that_begin_with_path(letter)
-    "/word_sets?type=begin&q=#{letter}"
+    "/search?type=begin&q=#{letter}"
   end
 
   def homophones_that_include_path(letter)
-    "/word_sets?type=include&q=#{letter}"
+    "/search?type=include&q=#{letter}"
   end
 
   def random_word_set
