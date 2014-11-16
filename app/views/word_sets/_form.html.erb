@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="form-group">
-      <label class="control-label col-sm-3" for="word_set[words][][text]">Definition</label>
+      <label class="control-label col-sm-3" for="word_set[words][][text]">* Definition</label>
       <div class="col-sm-9">
         <input type="text" name="word_set[words][][text]"
                value="<%= word.text if word %>"
@@ -43,12 +43,12 @@
   </div>
 
   <div class="col-sm-5" >
-    <h3>Help</h3>
+    <h3>Need Help?</h3>
     <p>
-      <strong>Text (required): </strong> the text of the word. Definitions will always be looked up use this word, so it should not be plural or conjugated because usually the plural definition of a word will just say "the plural form of the word X".
+      <strong>Definition Text (required): </strong> Definitions will always be looked up using this value, so it should not be plural or conjugated.
     </p>
     <p>
-      <strong>Display Text (optional): </strong> include "display text" if the text you want to show the user is different from the word to use to find a definition.
+      <strong>Display Text (optional): </strong> Include "Display Text" if the text you want to show the user is different from the "Definition Text".
     </p>
   </div>
 </div>

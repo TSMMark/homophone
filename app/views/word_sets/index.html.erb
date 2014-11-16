@@ -44,7 +44,7 @@
     </div>
   <% end %>
 
-  <% if @presenter.any? %>
+  <% if @presenter.total_pages > 1 %>
     <div class="pagination-container">
       <%= render_pagination(@presenter) %>
     </div>

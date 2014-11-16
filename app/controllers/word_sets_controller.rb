@@ -6,18 +6,18 @@ class WordSetsController < ApplicationController
 
   def index
     @query = params[:q].blank? ? nil : params[:q]
-    @query_type  = params[:type] || "include"
+    @query_type = params[:type] || "include"
 
     if @query
-      WordSet.current_query       = @query
-      WordSet.current_query_type  = @query_type
+      WordSet.current_query = @query
+      WordSet.current_query_type = @query_type
     end
 
     @presenter = Presenters::WordSetPresenter.new(params.merge({
       :dataset => WordSet,
       :query => @query,
       :query_type => @query_type,
-      :path => "/word_sets"
+      :path => word_sets_path
     }))
   end
 
@@ -28,8 +28,8 @@ class WordSetsController < ApplicationController
   end
 
   def random
-    WordSet.current_query       = ""
-    WordSet.current_query_type  = ""
+    WordSet.current_query = ""
+    WordSet.current_query_type = ""
   end
 
   def new
@@ -84,7 +84,7 @@ class WordSetsController < ApplicationController
     params.require(:word_set).permit(words: [[:text, :display_text]]).tap do |p|
       p[:words].reject! { |w| w[:text].blank? }.map! do |w|
         w[:word_set_id] = @word_set && @word_set.id
-        w[:word_set]    = @word_set
+        w[:word_set] = @word_set
         Word.new(w)
       end
     end

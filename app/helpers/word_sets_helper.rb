@@ -4,6 +4,10 @@ module WordSetsHelper
     link_to "Browse homophones", browse_path, class: "btn btn-primary btn-lg btn-xs-full"
   end
 
+  def random_btn
+    link_to "Random homophones", random_homophone_path, class: "btn btn-info btn-lg btn-xs-full"
+  end
+
   def last_word_set
     @last_word_set ||= WordSet.order("id DESC").last
   end
@@ -13,11 +17,11 @@ module WordSetsHelper
   end
 
   def homophones_that_begin_with_path(letter)
-    "/word_sets?type=begin&q=#{letter}"
+    "/search?type=begin&q=#{letter}"
   end
 
   def homophones_that_include_path(letter)
-    "/word_sets?type=include&q=#{letter}"
+    "/search?type=include&q=#{letter}"
   end
 
   def random_word_set
