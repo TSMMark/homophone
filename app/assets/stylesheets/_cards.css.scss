@@ -13,6 +13,7 @@
     min-width: $word-btn-min-width;
     padding-left: $word-btn-padding;
     padding-right: $word-btn-padding;
+    font-weight: bold;
 
     &[data-match-type=exact] {
       @extend .btn-match-exact;
