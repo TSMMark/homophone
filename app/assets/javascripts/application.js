@@ -1,3 +1,5 @@
+//= require modernizr.min
+//
 //= require _polyfills
 //
 //= require socials
@@ -10,7 +12,8 @@
 //
 //= require jquery_ujs
 //
-//  require turbolinks
+//= jq-touch-punch.min
+//
 //= require _bootstrap.min
 //= require masonry.min
 //
