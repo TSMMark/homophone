@@ -11,7 +11,7 @@ www.homophone.com Copyright Alfred Aloisi 2014
 
 ### Use figaro to set the environment variables.
 ```
-$ figaro heroku:set -e staging -a homophone-staging
+$ figaro heroku:set -e staging -a homophonestaging
 $ figaro heroku:set -e production -a homophone
 ```
 
