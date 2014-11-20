@@ -58,7 +58,7 @@ gem 'cancancan', '~> 1.9'
 
 gem 'wordnik'
 
-gem 'figaro'
+gem 'figaro', '~> 1.0.0'
 
 # https://github.com/tilo/smarter_csv
 gem 'smarter_csv'
