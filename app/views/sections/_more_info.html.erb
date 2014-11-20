@@ -12,9 +12,14 @@
       </p>
     </div>
     
+
     <h3>Example homophones:</h3>
     <% @word_set = random_word_set %>
-    <%= render partial: 'word_sets/card' %>
+    <% if @word_set %>
+      <%= render partial: 'word_sets/card' %>
+    <% else %>
+      <p>Please add some homophones</p>
+    <% end %>
     <%= browse_btn %>
     <%= random_btn %>
   </div>
