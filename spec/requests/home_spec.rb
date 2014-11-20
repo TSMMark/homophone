@@ -9,3 +9,12 @@ describe "/" do
     end
   end
 end
+
+describe "/random" do
+  describe "when the db is empty" do
+    it "redirects to root" do
+      get "/random"
+      expect(response).to redirect_to(root_path)
+    end
+  end
+end

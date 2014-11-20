@@ -24,7 +24,13 @@ class WordSetsController < ApplicationController
   def show; end
 
   def pick_random
-    redirect_to "/random/#{WordSet.sample.id}"
+    @word_set = WordSet.sample
+
+    if @word_set
+      redirect_to "/random/#{@word_set.id}"
+    else
+      redirect_to root_path, info: "No homophones yet"
+    end
   end
 
   def random

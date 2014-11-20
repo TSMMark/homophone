@@ -4,11 +4,16 @@ WORDNIK_PASSWORD: examplepassword
 
 NEWRELIC_LICENSE: a6fg1d5e3b7849c2
 
+ADSENSE_CLIENT: ca-pub-XXXXXXXXXXXXXXXX
+ADSENSE_SLOT: "1234567890"
+ADS: true
+
 development:
   HOST_DOMAIN: homophone-localhost.com
   GOOGLE_ANALYTICS_ACCOUNT: UA-XXXXXXXX-3
   FB_APP_ID: "123451234512345"
   FB_APP_SECRET: abcdefg12345abcdefg12345abcdefg1
+  ADS: false
 
 staging:
   HOST_DOMAIN: homophone-staging.herokuapp.com
@@ -17,7 +22,7 @@ staging:
   FB_APP_SECRET: abcdefg12345abcdefg12345abcdefg1
 
 production:
-  HOST_DOMAIN: homophone.com
+  HOST_DOMAIN: www.homophone.com
   GOOGLE_ANALYTICS_ACCOUNT: UA-XXXXXXXX-1
   FB_APP_ID: "123451234512345"
   FB_APP_SECRET: abcdefg12345abcdefg12345abcdefg1
