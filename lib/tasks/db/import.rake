@@ -5,7 +5,7 @@ class Importer
     # relation_id,word_id,text,spelling
 
     row.symbolize_keys!
-    
+
     word_attibutes = {}
 
     if row[:spelling] && row[:spelling] != "NULL"
@@ -24,7 +24,7 @@ class Importer
       puts current_set.words
     else
       new_set.append_word(word)
-      
+
       puts "creating new set"
     end
 
@@ -52,10 +52,12 @@ namespace :db do
   desc "import csv of homophones from lib/assets/homophone_list.csv"
 
   task :import => :environment do
+    puts "IMPORTANT: CSV must be ordered by relation_id"
+
     puts "importing homphones from lib/assets/homophone_list.csv"
 
     csv_file  = open("#{Rails.root}/lib/assets/homophone_list.csv",'r')
-    
+
     csv_options = { 
       chunk_size:                 100,
       col_sep:                    ",",
