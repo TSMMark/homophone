@@ -46,9 +46,6 @@ gem 'better_errors', group: :development
 
 gem "auto_strip_attributes", "~> 2.0"
 
-# https://github.com/jumph4x/canonical-rails
-gem 'canonical-rails', github: 'jumph4x/canonical-rails'
-
 gem "font-awesome-rails", "~> 4.0"
 
 gem 'rails_serve_static_assets'
@@ -62,3 +59,9 @@ gem 'figaro', '~> 1.0.0'
 
 # https://github.com/tilo/smarter_csv
 gem 'smarter_csv'
+
+# SEO
+# https://github.com/jumph4x/canonical-rails
+gem 'canonical-rails', github: 'jumph4x/canonical-rails'
+# https://github.com/viseztrance/rails-sitemap
+gem 'sitemap', '~> 0.3.3'

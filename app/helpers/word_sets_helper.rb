@@ -13,7 +13,7 @@ module WordSetsHelper
   end
 
   def describe_query(string, type="include")
-    type != "begin" ? "include \"#{string}\"" : "begin with \"#{string}\""
+    type != "begin" ? "include #{string}" : "begin with #{string}"
   end
 
   def homophones_that_begin_with_path(letter)

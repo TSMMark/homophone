@@ -1,3 +1,5 @@
+<%= content_for(:title, @word_set.words_ordered_by_current_query.map(&:display).join(", ")) %>
+
 <div class="container">
 
   <div class="row">

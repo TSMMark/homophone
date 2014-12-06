@@ -1,8 +1,17 @@
+<%
+@title = if @query
+           "Homophones that #{describe_query(@query, @query_type)}"
+         else
+           "Listing all Homophones"
+         end
+content_for(:title, @title)
+%>
+
 <div class="container">
 
   <div class="row">
     <div class="col-sm-9">
-    
+
       <%= content_tag page_h do %>
         <% if @query %>
           <% if @presenter.any? %>
