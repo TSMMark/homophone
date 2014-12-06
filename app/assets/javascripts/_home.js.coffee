@@ -13,9 +13,10 @@ $ ->
     $(".dropdown.open").click()
     $(".navbar-toggle:not(.collapsed)").click()
 
-  $("a[href*=#]:not([href=#])").click ->
+  $("a[href*=#]:not([href=#])").on "click", ->
     if window.location.pathname.replace(/^\//, "") is @pathname.replace(/^\//, "") and location.hostname is @hostname
       closeNavbar()
       scrollTo @hash
+    undefined # return nothing to not stop the event.
 
   scrollTo(window.location.hash, 0) if window.location.hash

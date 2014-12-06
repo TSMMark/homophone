@@ -37,11 +37,12 @@ input {
 }
 
 .navbar {
-
   margin-bottom: 0;
+
   .navbar-collapse.in {
     overflow: visible;
   }
+
   &.navbar-inverse {
     @media (min-width: $screen-sm-min) {
       border-bottom-width: 1px;
@@ -59,13 +60,22 @@ input {
     margin-top:12px;
   }
 
+  .navbar-form {
+    background-color: $navbar-default-bg
+  }
+
   @media (min-width: $screen-sm-min) {
-    .navbar-search-form {
+    .navbar-form.search-form {
       padding-left: 0;
       padding-right: 0;
-
+      
+      .form-group {
+        label {
+          display: none;
+        }
+      }
       .input-group {
-        width:325px;
+        width: 325px;
       }
     }
   }

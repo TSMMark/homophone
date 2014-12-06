@@ -1,6 +1,5 @@
 $ ->
-  $navbar = $(".navbar")
-  $search_form = $navbar.find(".navbar-search-form")
+  $search_form = $(".search-form")
 
   TYPES = {
     include: "Includes",
@@ -14,12 +13,12 @@ $ ->
   $dropdown_text  = $search_form.find(".dropdown-toggle span:first")
   $dropdown_menu  = $search_form.find(".dropdown-menu")
   $hidden_input   = $search_form.find("input[type=hidden]")
-  $nav_search     = $search_form.find("#nav-search")
+  $text_field     = $search_form.find("#search-text")
 
   $dropdown_menu.find("a").on "click", (e)->
     e.preventDefault()
     $this = $(this)
     window.applySearchType($(this).data("value"))
-    $search_form.submit() unless $nav_search.val().trim() == ""
+    $search_form.submit() unless $text_field.val().trim() == ""
 
   window.applySearchType($hidden_input.val())

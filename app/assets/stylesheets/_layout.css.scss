@@ -2,3 +2,10 @@
 .dropdown-menu li a {
   @include transition(all 0.1s linear);
 }
+
+.jumbotron {
+  .form-group label {
+    font-size: $font-size-large;
+    line-height: 1;
+  }
+}
