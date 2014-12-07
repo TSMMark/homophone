@@ -65,3 +65,7 @@ gem 'smarter_csv'
 gem 'canonical-rails', github: 'jumph4x/canonical-rails'
 # https://github.com/viseztrance/rails-sitemap
 gem 'sitemap', '~> 0.3.3'
+
+# Environment specific robots.txt
+# https://github.com/LaunchAcademy/roboto
+gem 'roboto', '~> 0.2.0'
