@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+  mount_roboto
   root to: 'pages#home'
 
   get     'login'  => 'sessions#new',     as: 'login'

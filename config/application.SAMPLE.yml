@@ -16,7 +16,7 @@ development:
   ADS: "false"
 
 staging:
-  HOST_DOMAIN: homophone-staging.herokuapp.com
+  HOST_DOMAIN: homophonestaging.herokuapp.com
   GOOGLE_ANALYTICS_ACCOUNT: UA-XXXXXXXX-2
   FB_APP_ID: "123451234512345"
   FB_APP_SECRET: abcdefg12345abcdefg12345abcdefg1

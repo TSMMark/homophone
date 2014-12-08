@@ -52,6 +52,12 @@
   margin-top: 0;
   border-top: none;
   background-image: image_url("fullwidth/applebook.jpg");
+
+  .search-form .input-group .input-group-btn.type-input-group {
+    @media (max-width: $screen-xs-max) {
+      display: none;
+    }
+  }
 }
 
 #what-is-a-homophone,

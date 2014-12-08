@@ -1,5 +1,8 @@
 <div class="browse-letters-container">
-  <p><%= link_to("Random Homophone", random_homophone_path, class: "btn btn-info") %></p>
+  <p>
+    <%= random_btn %>
+    <%# link_to("Random Homophone", random_homophone_path, class: "btn btn-info") %>
+  </p>
   <% ("A".."Z").to_a.each do |letter| %>
     <%= link_to letter, homophones_that_begin_with_path(letter), class: "btn btn-letter" %>
   <% end %>

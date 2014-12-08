@@ -1,11 +1,12 @@
-<div class="container">
+<%= content_for(:title, @word_set.words_ordered_by_current_query.map(&:display).join(", ")) %>
 
+<div class="container">
   <div class="row">
     <div class="col-sm-9">
-      <%= content_tag page_h, "A random homophone set" %>
+      <%= content_tag page_h, "Some random homophones" %>
     </div>
     <div class="col-sm-3">
-      <%= content_tag page_h, link_to("Click for another random homophone!", random_homophone_path, class: "btn btn-info btn-xs-full") %>
+      <%= content_tag page_h, link_to("Click for more random homophones!", random_homophone_path, class: "btn btn-info btn-xs-full") %>
     </div>
   </div>
 
@@ -14,7 +15,6 @@
 
     <%= render partial: "ads/card" %>
   </div>
-  
+
   <%= render 'layouts/more_homophones' %>
-  
 </div>

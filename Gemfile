@@ -40,14 +40,11 @@ gem 'jquery-ui-rails', "~> 4.0"
 # gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
+gem 'spring', group: :development
 
 gem 'better_errors', group: :development
 
 gem "auto_strip_attributes", "~> 2.0"
-
-# https://github.com/jumph4x/canonical-rails
-gem 'canonical-rails', github: 'jumph4x/canonical-rails'
 
 gem "font-awesome-rails", "~> 4.0"
 
@@ -62,3 +59,13 @@ gem 'figaro', '~> 1.0.0'
 
 # https://github.com/tilo/smarter_csv
 gem 'smarter_csv'
+
+# SEO
+# https://github.com/jumph4x/canonical-rails
+gem 'canonical-rails', github: 'jumph4x/canonical-rails'
+# https://github.com/viseztrance/rails-sitemap
+gem 'sitemap', '~> 0.3.3'
+
+# Environment specific robots.txt
+# https://github.com/LaunchAcademy/roboto
+gem 'roboto', '~> 0.2.0'
