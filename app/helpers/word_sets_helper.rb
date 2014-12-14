@@ -1,5 +1,9 @@
 module WordSetsHelper
 
+  def homophones_to_title(word_set)
+    word_set.words_ordered_by_current_query.map(&:display).join(", ")
+  end
+
   def plain_icon(name)
     raw "<span class=\"fa fa-#{name}\"></span>"
   end

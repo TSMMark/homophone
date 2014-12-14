@@ -1,6 +1,7 @@
 .card {
   margin: 0;
-  width:32%;
+  width: 32%;
+
   @media (max-width: $screen-md-max) {
     width: 49%;
   }
