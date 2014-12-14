@@ -1,0 +1,41 @@
+<% @defintion_providers = {} %>
+<div class="row">
+  <% @word_set.words_matches_preceding(@query).each do |word| %>
+    <% @word = word %>
+
+    <div class="col-sm-6">
+      <div class="definition-card">
+        <div class="well">
+          <span class="word-text"><%= @word.text %></span>
+          
+          <% @definitions = @word.get_definitions.limit(4) %>
+
+          <% if @definitions.blank? %>
+            <p>So sorry... We couldn't find a definition for this word.</p>
+          <% else %>
+            <ol class="definitions-list">
+              <% @definitions.each do |definition| %>
+                <li>
+                  :: 
+                  <span class="part-of-speech"><%= definition.part_of_speech %></span>
+                  <p class="definition-text">
+                    <%= definition.text %>
+                    <% @defintion_providers[definition.attribution_text] = true %>
+                  </p>
+                </li>
+              <% end %>
+            </ol>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="col-sm-6">
+    <p class="attribution-text">
+      Definitions 
+      <%= @defintion_providers.keys.join(", ") %> and Wordnik.
+    </p>
+  </div>
+
+</div>

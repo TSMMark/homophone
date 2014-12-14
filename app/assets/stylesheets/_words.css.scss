@@ -3,11 +3,33 @@
   text-align: center;
 }
 
-.definition {
+.definition,
+.definition-card {
   .word-text {
     @extend strong;
   }
+
   .part-of-speech {
     font-style: italic;
   }
+}
+
+.definition-card {
+  padding: 8px;
+
+  .well {
+    margin-bottom: 9px;
+    position: relative;
+    @include box-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+  }
+
+  .definitions-list {
+    .definition-text {
+    }
+  }
+}
+
+.attribution-text {
+  font-size: 85%;
+  padding: 8px;
 }

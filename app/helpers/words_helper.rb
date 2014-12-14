@@ -1,7 +1,7 @@
 module WordsHelper
 
   def word_btn(word)
-    button_tag word.display,
+    link_to word.display, word.word_set,
       :class => "btn word-btn",
       :"data-word-id" => word.id,
       :"data-match-type" => word.describe_match_type,
