@@ -17,7 +17,7 @@ module PagesHelper
     defaults = {
       :class => "btn btn-primary"
     }
-    link_to("More homophones", browse_path, defaults.merge(options))
+    link_to(raw("More homophones #{plain_icon("book")}"), browse_path, defaults.merge(options))
   end
 
 end

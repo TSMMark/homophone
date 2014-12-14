@@ -20,7 +20,11 @@
       </p>
     </div>
     <div class="col-sm-3">
-      <%= content_tag page_h, btn_view_more(class: "btn btn-primary btn-xs-full") %>
+      <% if @random %>
+        <%= content_tag page_h, link_to(raw("More random homophones #{plain_icon("random")}"), random_homophone_path, class: "btn btn-info btn-xs-full") %>
+      <% else %>
+        <%= content_tag page_h, btn_view_more(class: "btn btn-primary btn-xs-full") %>
+      <% end %>
     </div>
   </div>
 
