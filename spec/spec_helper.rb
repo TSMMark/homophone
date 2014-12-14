@@ -18,3 +18,7 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 end
+
+def assert_response_redirect(response, path)
+  expect(response.headers['Location']).to end_with path
+end
