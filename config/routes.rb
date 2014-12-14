@@ -31,4 +31,7 @@ Rails.application.routes.draw do
   resources :users, only: %i(edit update)
 
   resources :sessions, only: %i(new create destroy)
+
+  get '/:filename' => 'legacy#results', :constraints => { :filename => /results\.php/ }
+  get '/:filename' => 'legacy#default', :constraints => { :filename => /.*\.(php|html)/ }
 end
