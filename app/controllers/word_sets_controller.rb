@@ -1,7 +1,7 @@
 class WordSetsController < ApplicationController
   include WordSetsHelper
 
-  before_action :set_word_set, only: [:show, :random]
+  before_action :set_word_set, only: [:show]
   load_and_authorize_resource only: [:new, :create, :edit, :update, :destroy]
 
   def index
@@ -21,21 +21,22 @@ class WordSetsController < ApplicationController
     }))
   end
 
-  def show; end
+  def show
+    @random = params[:random].to_s.downcase == "true"
+  end
 
   def pick_random
     @word_set = WordSet.sample
 
     if @word_set
-      redirect_to "/random/#{@word_set.id}"
+      redirect_to word_set_path(@word_set, params: {:random => "true"})
     else
       redirect_to root_path, info: "No homophones yet"
     end
   end
 
   def random
-    WordSet.current_query = ""
-    WordSet.current_query_type = ""
+    redirect_to word_set_path(params[:id], params: {:random => "true"}), status: :moved_permanently
   end
 
   def new
