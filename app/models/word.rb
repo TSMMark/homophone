@@ -11,7 +11,7 @@ class Word < ActiveRecord::Base
 
 
   module ClassMethods
-    def self_or_new word_or_string
+    def self_or_new(word_or_string)
       word_or_string.is_a?(Word) ?
         word_or_string :
         create(text: word_or_string)
@@ -28,6 +28,7 @@ class Word < ActiveRecord::Base
     end
   end
   extend ClassMethods
+
 
   def display
     (display_text || text).to_s
@@ -76,35 +77,27 @@ class Word < ActiveRecord::Base
     definitions
   end
 
-  # comparator
+  # Comparator
   def <=>(another)
     text.downcase <=> another.text.downcase
   end
   
 
-  protected
+  private
 
 
   def apply_wordnik_definitions
-    wordnik_definitions.each do |row|
-      definition = Definition.build_from_wordnik(row).tap do |d|
-        d.word_id = self.id
-        d.save!
-      end
-      definitions << definition
-    end if wordnik_definitions
+    wordnik_definitions.each do |definition_attributes|
+      definition_attributes[:word_id] = self.id
+      definitions << Definition.create!(definition_attributes)
+    end
+
     definitions
   end
 
   def wordnik_definitions
-    return @wordnik_definitions if @wordnik_definitions
-
-    @wordnik_definitions = Wordnik.word.get_definitions(self.text)
-    @wordnik_definitions = @wordnik_definitions.blank? ? [] : @wordnik_definitions
+    @wordnik_definitions ||= Utils::Detinitions.definitions_for(self.text)
   end
-
-
-  private
 
 
   before_validation :sanitize_params
