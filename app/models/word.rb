@@ -80,7 +80,11 @@ class Word < ActiveRecord::Base
   def <=>(another)
     text.downcase <=> another.text.downcase
   end
-  
+
+  def to_slug
+    display.parameterize
+  end
+
 
   protected
 

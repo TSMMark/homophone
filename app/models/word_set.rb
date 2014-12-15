@@ -2,6 +2,7 @@ class WordSet < ActiveRecord::Base
   extend SearchConcern
 
   has_many :words
+  has_many :slugs
 
   attr :current_query
 
@@ -74,6 +75,14 @@ class WordSet < ActiveRecord::Base
 
   def <=> another
     words_ordered_by_current_query.first.text.downcase <=> another.words_ordered_by_current_query.first.text.downcase
+  end
+
+  def to_slug
+    slug.to_s
+  end
+
+  def slug
+    @slug ||= slugs.order(:created_at).last
   end
 
 
