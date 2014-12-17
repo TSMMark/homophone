@@ -21,7 +21,11 @@ class WordSetsController < ApplicationController
     }))
   end
 
-  def show; end
+  def show
+    if @word_set.slug
+      redirect_to Utils::Routes.slug_path(@word_set), :status => :moved_permanently
+    end
+  end
 
   def from_slug
     @word_set = WordSet.from_slug(params[:slug])

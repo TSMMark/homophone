@@ -1,3 +1,5 @@
+# https://github.com/viseztrance/rails-sitemap
+
 Sitemap.configure do |config|
   # config.params_format = "html"
   config.search_change_frequency = "daily"
@@ -47,7 +49,10 @@ Sitemap::Generator.instance.load :host => ENV['HOST_DOMAIN'] do
   # get '/about' => 'pages#about'
   path :about, :priority => 0.6
 
-  resources :word_sets, :skip_index => true
+  # resources :word_sets, :skip_index => true
+  WordSet.order("id DESC").find_each do |word_set|
+    literal Utils::Routes.slug_path(word_set)
+  end
 
   # Search by letter.
   ("a".."z").each do |letter|

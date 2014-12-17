@@ -1,6 +1,39 @@
 require 'spec_helper'
 
 describe WordSetsController do
+  describe "GET show" do
+    context "when a word_set no slugs" do
+      let(:word_set) { WordSet.create }
+
+      it "renders #show" do
+        get(:show, {
+          :id => word_set.id
+        })
+        expect(response).to render_template("show")
+      end
+    end
+
+    context "when a word_set at least 1 slug" do
+      let(:word_set) { WordSet.create }
+      let(:slug) do
+        Slug.create.tap do |slug|
+          slug.value = "wha-wha-wha"
+          slug.word_set_id = word_set.id
+          word_set.slugs << slug
+        end
+      end
+
+      it "redirects to #from_slug" do
+        slug_value = slug.value
+
+        get(:show, {
+          :id => word_set.id
+        })
+        assert_response_redirect(response, "/h/#{slug_value}")
+      end
+    end
+  end
+
   describe "GET from_slug" do
     context "when a word_set has multiple slugs" do
       let(:word_set) { WordSet.create }
