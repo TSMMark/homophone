@@ -23,6 +23,14 @@ class WordSetsController < ApplicationController
 
   def show; end
 
+  def from_slug
+    @word_set = WordSet.from_slug(params[:slug])
+
+    respond_to do |format|
+      format.html { render action: 'show' }
+    end
+  end
+
   def pick_random
     @word_set = WordSet.sample
 
@@ -49,7 +57,7 @@ class WordSetsController < ApplicationController
 
     respond_to do |format|
       if @word_set.save
-        @word_set.slugs << Slug.create_for_word_set(@word_set)
+        Slug.create_for_word_set(@word_set)
         format.html { redirect_to @word_set, info: 'Word set was successfully created.' }
         format.json { render action: 'show', status: :created, location: @word_set }
       else

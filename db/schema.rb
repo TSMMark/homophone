@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20141214024058) do
   end
 
   add_index "slugs", ["created_at"], name: "index_slugs_on_created_at", using: :btree
-  add_index "slugs", ["value"], name: "index_slugs_on_value", using: :btree
+  add_index "slugs", ["value"], name: "index_slugs_on_value", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email"

@@ -1,6 +1,29 @@
 require 'spec_helper'
 
 describe WordSetsController do
+  describe "GET from_slug" do
+    context "when a word_set has multiple slugs" do
+      let(:word_set) { WordSet.create }
+      let(:slugs) do
+        (0..5).map do |i|
+          Slug.create.tap do |slug|
+            slug.value = "wha-wha-#{i}"
+            slug.word_set_id = word_set.id
+            word_set.slugs << slug
+          end
+        end
+      end
+
+      it "is able to route using any of the slugs" do
+        slugs.map(&:value).each do |slug_value|
+          get(:from_slug, {
+            :slug => slug_value
+          })
+          expect(response).to render_template("show")
+        end
+      end
+    end
+  end
 
   describe "POST create" do
     let(:words) { %w[wha ska fla] }
@@ -30,5 +53,4 @@ describe WordSetsController do
       assert_response_redirect(response, "/h/#{@last_word_set.id}")
     end
   end
-
 end

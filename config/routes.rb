@@ -10,7 +10,10 @@ Rails.application.routes.draw do
 
   get '/search/index' => redirect('/search')
 
-  resources :h, as: 'word_sets', controller: 'word_sets', only: %i(show new edit update destroy)
+  constraints(id: /\d+/) do
+    resources :h, as: 'word_sets', controller: 'word_sets', only: %i(show new edit update destroy)
+  end
+  get '/h/:slug' => 'word_sets#from_slug'
 
   get '/browse', to: 'pages#browse', as: 'browse'
 

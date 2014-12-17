@@ -30,7 +30,7 @@ gem 'bcrypt-ruby', '~> 3.1.5' # , :require => 'bcrypt'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
-gem 'jquery-ui-rails', "~> 4.0"
+gem 'jquery-ui-rails', '~> 4.0'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
@@ -44,12 +44,12 @@ gem 'spring', group: :development
 
 gem 'better_errors', group: :development
 
-gem "auto_strip_attributes", "~> 2.0"
+gem 'auto_strip_attributes', '~> 2.0'
 
-gem "font-awesome-rails", "~> 4.0"
+gem 'font-awesome-rails', '~> 4.0'
 
 gem 'rails_serve_static_assets'
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
 
 gem 'cancancan', '~> 1.9'
 

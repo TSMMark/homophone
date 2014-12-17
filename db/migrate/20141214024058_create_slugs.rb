@@ -6,7 +6,7 @@ class CreateSlugs < ActiveRecord::Migration
 
       t.timestamps
 
-      t.index :value
+      t.index :value, :unique => true
       t.index :created_at
     end
   end
