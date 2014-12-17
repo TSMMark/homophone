@@ -25,8 +25,8 @@ end
 describe "vanity word_set path" do
   context "when words have weird characters" do
     [
-      [%w(h3l1uM SKY-net 48295), "h3l1um-sky-net-48295", true],
-      [%w(its' it's its), "its-it-s-its", true],
+      [%w(h3l1uM SKY-net 48295), "48295-h3l1um-sky-net", true],
+      [%w(its' it's its), "it-s-its-its", true],
       [%w(porter+robinson porter(robinson)), "porter-robinson-porter-robinson", true]
     ].each do |words, expected_slug, expected_route|
       context "when words are #{words.map(&:inspect).join(", ")}" do
@@ -45,7 +45,7 @@ describe "vanity word_set path" do
         end
 
         describe "#to_slug" do
-          it "generates the slug: #{expected_slug.inspect}" do
+          it "sorts the elements and generates the slug: #{expected_slug.inspect}" do
             expect(word_set.to_slug).to eq(expected_slug)
           end
         end

@@ -26,7 +26,7 @@ describe WordSetsController do
   end
 
   describe "POST create" do
-    let(:words) { %w[wha ska fla] }
+    let(:words) { %w[fla ska wha] }
 
     let(:params) { { :word_set => {
       :words => words.map { |t| { :text => t } }
@@ -51,6 +51,55 @@ describe WordSetsController do
 
     it "redirects to the #show path for the word_set" do
       assert_response_redirect(response, "/h/#{@last_word_set.id}")
+    end
+  end
+
+  describe "PUT update" do
+    let(:word_set) do
+      WordSet.create.tap do |word_set|
+        word_set.words = old_words
+        word_set.save!
+      end
+    end
+
+    let(:old_words) { %w[fla ska wha] }
+
+    let(:params) { { :id => word_set.id, :word_set => {
+      :words => new_words.map { |t| { :text => t } }
+    } } }
+
+    before do
+      @slug = Slug.create_for_word_set(word_set)
+      admin!
+    end
+
+    describe "when the words haven't changed" do
+      let(:new_words) { old_words }
+
+      it "does not create a new slug" do
+        expect(Slug.count).to eq(1)
+        expect(word_set.to_slug).to eq(old_words.join("-"))
+
+        put(:update, params)
+
+        expect(word_set.to_slug).to eq(old_words.join("-"))
+        expect(Slug.count).to eq(1)
+      end
+    end
+
+    describe "when at least one of the words has changed" do
+      let(:new_words) { %w[fla ska who] }
+
+      it "creates a new slug" do
+        expect(Slug.count).to eq(1)
+        expect(word_set.to_slug).to eq(old_words.join("-"))
+
+        put(:update, params)
+
+        word_set.reload
+        expect(word_set.to_slug).to eq(new_words.join("-"))
+        expect(Slug.count).to eq(2)
+      end
     end
   end
 end

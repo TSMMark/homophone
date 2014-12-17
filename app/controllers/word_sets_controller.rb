@@ -68,8 +68,16 @@ class WordSetsController < ApplicationController
   end
 
   def update
+    current_slug = Slug.value_for_word_set(@word_set)
+
     respond_to do |format|
       if @word_set.update(word_set_params)
+        @word_set.reload
+
+        if Slug.value_for_word_set(@word_set) != current_slug
+          Slug.create_for_word_set(@word_set)
+        end
+
         format.html { redirect_to @word_set, info: 'Word set was successfully updated.' }
         format.json { render action: 'show', status: :ok, location: @word_set }
       else

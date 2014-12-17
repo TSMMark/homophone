@@ -22,8 +22,7 @@ class WordSet < ActiveRecord::Base
 
 
   def words=(words)
-    words.map! { |w| Word.self_or_new(w) }
-    super(words)
+    super(words.map { |w| Word.self_or_new(w) })
   end
 
   def append_word(word)
@@ -84,7 +83,12 @@ class WordSet < ActiveRecord::Base
   end
 
   def slug
-    @slug ||= slugs.order(:created_at).last
+    @slug ||= slugs.order("created_at DESC, id DESC").first
+  end
+
+  def reload(options = nil)
+    @slug = nil
+    super(options)
   end
 
 

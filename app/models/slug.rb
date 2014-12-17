@@ -14,7 +14,7 @@ class Slug < ActiveRecord::Base
   end
 
   def self.value_for_word_set(word_set)
-    word_set.words.map(&:to_slug).join("-")
+    word_set.words.sort.map(&:to_slug).join("-")
   end
 
   def to_s
