@@ -71,11 +71,9 @@ class WordSet < ActiveRecord::Base
     @current_query || self.class.current_query
   end
 
-
   def print_words
     words.map { |w|"\"#{w.display}\"" }.join ", "
   end
-
 
   def <=>(another)
     words_ordered_by_current_query.first.text.downcase <=> another.words_ordered_by_current_query.first.text.downcase

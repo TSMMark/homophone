@@ -21,4 +21,34 @@ describe WordSet do
       expect(found).to eq(word_set)
     end
   end
+
+  describe ".to_slug" do
+    let(:word_set) { WordSet.create }
+    let(:slugs) do
+      (0..5).map do |i|
+        Slug.create do |slug|
+          slug.word_set_id = word_set
+          slug.value = "wha-wha-#{i}"
+          slug.created_at = Time.now.utc - (i * 5)
+          word_set.slugs << slug
+        end
+      end
+    end
+
+    describe "when the word_set has multiple slugs" do
+      before do
+        @last_created_at_slug = slugs.first
+      end
+
+      it "uses the last created_at slug" do
+        expect(word_set.to_slug).to eq(@last_created_at_slug.value)
+      end
+    end
+
+    describe "when the word_set has no slugs" do
+      it "uses the word_set.id" do
+        expect(word_set.to_slug).to eq(word_set.id.to_s)
+      end
+    end
+  end
 end
