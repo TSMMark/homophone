@@ -1,27 +1,88 @@
-<%= content_for(:title, @word_set.words_ordered_by_current_query.map(&:display).join(", ")) %>
+<%= content_for(:title, homophones_to_title(@word_set)) %>
+
+<%# TODO: Older / Newer links %>
+<!-- http://getbootstrap.com/components/#pagination-pager -->
 
 <div class="container">
 
   <div class="row">
     <div class="col-sm-9">
-      <%= content_tag page_h, "These words are homophones" %>
+      <%= content_tag page_h, homophones_to_title(@word_set) %>
+      <p class="lead">
+        The words <%= homophones_to_title(@word_set) %>
+        sound the same but have different meanings and definitions.
+        Why do <%= homophones_to_title(@word_set) %>
+        sound the same even though they have completely different spellings?
+      </p>
+      <p>
+        The english language is full of homophones,
+        and these are just a few.
+      </p>
     </div>
     <div class="col-sm-3">
-      <%= content_tag page_h, btn_view_more(class: "btn btn-primary btn-xs-full") %>
+      <% if @random %>
+        <%= content_tag page_h, link_to(raw("More random homophones #{plain_icon("random")}"), random_homophone_path, class: "btn btn-info btn-xs-full") %>
+      <% else %>
+        <%= content_tag page_h, btn_view_more(class: "btn btn-primary btn-xs-full") %>
+      <% end %>
     </div>
   </div>
 
-  <div class="card-set-container">
-    <%= render partial: "card" %>
+  <%= render partial: "word_sets/word_set_details" %>
 
-    <%= render partial: "ads/card" %>
+  <%= render 'ads/responsive' %>
+
+  <h4>Share <%= content_for(:title) %></h4>
+
+  <div class="list-group" role="menu">
+    <a href="#" class="list-group-item"
+       data-share-button data-id="<%= @word_set.id %>" data-social="facebook">
+      <%= fa_stacked_icon("facebook inverse", base: "square", class: "icon-facebook") %>
+      Facebook
+    </a>
+    <a href="#" class="list-group-item"
+       data-share-button data-id="<%= @word_set.id %>" data-social="twitter">
+      <%= fa_stacked_icon("twitter inverse", base: "square", class: "icon-twitter") %>
+      Twitter
+    </a>
+    <a href="#" class="list-group-item"
+       data-share-button data-id="<%= @word_set.id %>" data-social="email">
+      <%= fa_stacked_icon("envelope inverse", base: "square", class: "icon-email") %>
+      Email
+    </a>
+  </div>
+
+  <% if can? :update, @word_set %>
+    <h4>Admin</h4>
+    <div class="list-group" role="menu">
+      <%= link_to fa_stacked_icon("info inverse", base: "square", class: "icon-success") + " Show", word_set_path(@word_set), class: "list-group-item" -%>
+      <%= link_to fa_stacked_icon("pencil inverse", base: "square", class: "icon-edit") + " Edit", edit_word_set_path(@word_set), class: "list-group-item" -%>
+      <%= link_to fa_stacked_icon("trash-o inverse", base: "square", class: "icon-delete") + " Delete", @word_set, class: "list-group-item", method: :delete, data: { confirm: "Really delete this Word Set?\r\nYou can't undo this!" } -%>
+    </div>
+  <% end %>
+
+  <%= render 'ads/responsive' %>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      About Homophones
+    </div>
+    <div class="panel-body">
+      <p>
+        Homophones (literally "same sound") are usually defined as words that
+        share the same pronunciation, regardless of how they are spelled.
+      </p>
+      <p
+        >If they are spelled the same then they are also homographs (and homonyms);
+        if they are spelled differently then they are also heterographs (literally "different writing").
+        <%= link_to fa_icon("external-link"), "http://en.wikipedia.org/wiki/Homophone", :target => "_blank" %>
+      </p>
+    </div>
   </div>
 
   <div class="row">
     <div class="col-sm-12 text-center">
-      <%= link_to "What is a homophone?", "/about#what", class: "btn btn-info btn-lg btn-xs-full" %>
+      <%= random_btn %>
     </div>
   </div>
-
-  
 </div>

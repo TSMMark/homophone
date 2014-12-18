@@ -22,7 +22,7 @@ describe WordSet do
     end
   end
 
-  describe ".to_slug" do
+  describe "#to_slug" do
     let(:word_set) { WordSet.create }
     let(:slugs) do
       (0..5).map do |i|

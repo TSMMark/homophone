@@ -51,7 +51,7 @@ Sitemap::Generator.instance.load :host => ENV['HOST_DOMAIN'] do
 
   # resources :word_sets, :skip_index => true
   WordSet.order("id DESC").find_each do |word_set|
-    literal Utils::Routes.slug_path(word_set)
+    literal word_set_slug_path(word_set.to_slug)
   end
 
   # Search by letter.

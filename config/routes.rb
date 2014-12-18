@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   constraints(id: /\d+/) do
     resources :h, as: 'word_sets', controller: 'word_sets', only: %i(show new edit update destroy)
   end
-  get '/h/:slug' => 'word_sets#from_slug'
+  get '/h/:slug' => 'word_sets#from_slug', as: 'word_set_slug'
 
   get '/browse', to: 'pages#browse', as: 'browse'
 

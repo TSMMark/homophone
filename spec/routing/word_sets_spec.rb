@@ -8,7 +8,7 @@ describe "short word_set path" do
     end
   end
 
-  it "helper uses correct path" do
+  it "default path helper uses #id" do
     expect(word_set_path(word_set)).to eq("/h/#{word_set.id}")
   end
 
@@ -20,6 +20,26 @@ describe "short word_set path" do
     )
   end
 
+
+  describe "slug path helper" do
+    context "when word_set has a slug" do
+      before do
+        Slug.create_for_word_set(word_set)
+      end
+
+      it "uses #to_slug" do
+        expect(word_set.slug).not_to be_nil
+        expect(word_set_slug_path(word_set.to_slug)).to eq("/h/#{word_set.to_slug}")
+      end
+    end
+
+    context "when word_set has no slug" do
+      it "uses #id" do
+        expect(word_set.slug).to be_nil
+        expect(word_set_slug_path(word_set.to_slug)).to eq("/h/#{word_set.id}")
+      end
+    end
+  end
 end
 
 describe "vanity word_set path" do
@@ -51,7 +71,7 @@ describe "vanity word_set path" do
         end
 
         it "#{expected_route ? "routes" : "does not route"}" do
-          expect(:get => "/h/#{word_set.to_slug}").to route_to(
+          expect(:get => word_set_slug_path(word_set.to_slug)).to route_to(
             :controller => "word_sets",
             :action => "from_slug",
             :slug => word_set.to_slug

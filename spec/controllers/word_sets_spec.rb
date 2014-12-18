@@ -25,11 +25,21 @@ describe WordSetsController do
 
       it "redirects to #from_slug" do
         slug_value = slug.value
-
         get(:show, {
           :id => word_set.id
         })
         assert_response_redirect(response, "/h/#{slug_value}")
+      end
+
+      context "when params include random=true" do
+        it "carries the random=true param through the redirect" do
+          slug_value = slug.value
+          get(:show, {
+            :id => word_set.id,
+            :random => "true"
+          })
+          assert_response_redirect(response, "/h/#{slug_value}?random=true")
+        end
       end
     end
   end

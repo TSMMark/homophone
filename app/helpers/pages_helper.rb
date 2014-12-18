@@ -5,8 +5,8 @@ module PagesHelper
   end
 
   def full_page_title
-    "Homophone.com - " +
-      (content_for?(:title) ? content_for(:title) : "Your Complete List of Homophones")
+    tagline = (content_for?(:title) ? content_for(:title) : "Your Complete List of Homophones")
+    "#{tagline} at Homophone.com"
   end
 
   def page_h
@@ -17,7 +17,7 @@ module PagesHelper
     defaults = {
       :class => "btn btn-primary"
     }
-    link_to("Click for more homophones !", browse_path, defaults.merge(options))
+    link_to(raw("More homophones #{plain_icon("book")}"), browse_path, defaults.merge(options))
   end
 
 end
