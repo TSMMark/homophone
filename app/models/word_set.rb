@@ -2,6 +2,7 @@ class WordSet < ActiveRecord::Base
   extend SearchConcern
 
   has_many :words
+  has_many :slugs
 
   attr :current_query
 
@@ -9,19 +10,22 @@ class WordSet < ActiveRecord::Base
     attr_accessor :current_query
     attr_accessor :current_query_type
 
-    def current_query= value
+    def current_query=(value)
       @current_query = value.is_a?(String) ? value.downcase : value
     end
 
+    def from_slug(slug_value)
+      Slug.where(:value => slug_value).limit(1).eager_load(:word_set).first.word_set
+    end
   end
   extend ClassMethods
 
-  def words= words
-    words.map! { |w| Word.self_or_new(w) }
-    super words
+
+  def words=(words)
+    super(words.map { |w| Word.self_or_new(w) })
   end
 
-  def append_word word
+  def append_word(word)
     words << Word.self_or_new(word).tap { |w| w.word_set_id = id }
   end
 
@@ -66,18 +70,29 @@ class WordSet < ActiveRecord::Base
     @current_query || self.class.current_query
   end
 
-
   def print_words
     words.map { |w|"\"#{w.display}\"" }.join ", "
   end
 
-
-  def <=> another
+  def <=>(another)
     words_ordered_by_current_query.first.text.downcase <=> another.words_ordered_by_current_query.first.text.downcase
   end
 
+  def to_slug
+    (slug || id).to_s
+  end
 
-  protected
+  def slug
+    @slug ||= slugs.order("created_at DESC, id DESC").first
+  end
+
+  def reload(options = nil)
+    @slug = nil
+    super(options)
+  end
+
+
+  private
 
 
   def word_order_lists

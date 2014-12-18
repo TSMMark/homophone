@@ -1,5 +1,9 @@
 <% content_for(:title, "About Homophones") %>
 
+<% content_for(:desc,
+   "Why some words sound the same and everything else you need to know about homophones at Homophone.com. " +
+   default_page_description) %>
+
 <%= render partial: 'sections/about_homophones' %>
 
 <%= render "ads/horizontal" %>

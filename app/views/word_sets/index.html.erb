@@ -2,10 +2,12 @@
 @title = if @query
            "Homophones that #{describe_query(@query, @query_type)}"
          else
-           "Listing all Homophones"
+           "All homophones in our database"
          end
 content_for(:title, @title)
 %>
+
+<% content_for(:desc, "#{@title}. #{default_page_description}") %>
 
 <div class="container">
 

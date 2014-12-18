@@ -1,4 +1,10 @@
-<%= content_for(:title, homophones_to_title(@word_set)) %>
+<% content_for(:title, homophones_to_title(@word_set)) %>
+
+<% content_for(:desc,
+   "The words #{homophones_to_title(@word_set)} " +
+   "sound the same but have different meanings and spellings. " +
+   "Why do #{homophones_to_title(@word_set)} " +
+   "sound the same even though they are completely different words?") %>
 
 <%# TODO: Older / Newer links %>
 <!-- http://getbootstrap.com/components/#pagination-pager -->
@@ -9,14 +15,12 @@
     <div class="col-sm-9">
       <%= content_tag page_h, homophones_to_title(@word_set) %>
       <p class="lead">
-        The words <%= homophones_to_title(@word_set) %>
-        sound the same but have different meanings and definitions.
-        Why do <%= homophones_to_title(@word_set) %>
-        sound the same even though they have completely different spellings?
+        <%= page_description %>
       </p>
       <p>
-        The english language is full of homophones,
-        and these are just a few.
+        The answer is simple:
+        <%= homophones_to_title(@word_set) %>
+        are homophones of the English language.
       </p>
     </div>
     <div class="col-sm-3">
@@ -36,17 +40,20 @@
 
   <div class="list-group" role="menu">
     <a href="#" class="list-group-item"
-       data-share-button data-id="<%= @word_set.id %>" data-social="facebook">
+       data-share-button data-social="facebook"
+       data-id="<%= @word_set.id %>" data-slug="<%= @word_set.to_slug %>">
       <%= fa_stacked_icon("facebook inverse", base: "square", class: "icon-facebook") %>
       Facebook
     </a>
     <a href="#" class="list-group-item"
-       data-share-button data-id="<%= @word_set.id %>" data-social="twitter">
+       data-share-button data-social="twitter"
+       data-id="<%= @word_set.id %>" data-slug="<%= @word_set.to_slug %>">
       <%= fa_stacked_icon("twitter inverse", base: "square", class: "icon-twitter") %>
       Twitter
     </a>
     <a href="#" class="list-group-item"
-       data-share-button data-id="<%= @word_set.id %>" data-social="email">
+       data-share-button data-social="email"
+       data-id="<%= @word_set.id %>" data-slug="<%= @word_set.to_slug %>">
       <%= fa_stacked_icon("envelope inverse", base: "square", class: "icon-email") %>
       Email
     </a>

@@ -19,19 +19,22 @@
 
         <ul class="dropdown-menu dropdown-left" role="menu">
           <li>
-            <a href="#" data-share-button data-id="<%= @word_set.id %>" data-social="facebook">
+            <a href="#" data-share-button data-social="facebook"
+               data-id="<%= @word_set.id %>" data-slug="<%= @word_set.to_slug %>">
               <%= fa_stacked_icon("facebook inverse", base: "square", class: "icon-facebook") %>
               Facebook
             </a>
           </li>
           <li>
-            <a href="#" data-share-button data-id="<%= @word_set.id %>" data-social="twitter">
+            <a href="#" data-share-button data-social="twitter"
+               data-id="<%= @word_set.id %>" data-slug="<%= @word_set.to_slug %>">
               <%= fa_stacked_icon("twitter inverse", base: "square", class: "icon-twitter") %>
               Twitter
             </a>
           </li>
           <li>
-            <a href="#" data-share-button data-id="<%= @word_set.id %>" data-social="email">
+            <a href="#" data-share-button data-social="email"
+               data-id="<%= @word_set.id %>" data-slug="<%= @word_set.to_slug %>">
               <%= fa_stacked_icon("envelope inverse", base: "square", class: "icon-email") %>
               Email
             </a>
