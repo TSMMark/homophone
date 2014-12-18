@@ -57,5 +57,7 @@ Sitemap::Generator.instance.load :host => ENV['HOST_DOMAIN'] do
   # Search by letter.
   ("a".."z").each do |letter|
     literal "/search?type=begin&q=#{letter}", :change_frequency => "weekly"
+    literal "/search?type=include&q=#{letter}", :change_frequency => "weekly"
   end
+
 end

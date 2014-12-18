@@ -9,6 +9,19 @@ module PagesHelper
     "#{tagline} at Homophone.com"
   end
 
+  def page_description
+    if content_for?(:desc)
+      content_for(:desc)
+    else
+      default_page_description
+    end
+  end
+
+  def default_page_description
+    "A homophone is a word that sounds like another word, but has a different spelling and meaning. " +
+    "Homophone.com is user-friendly, searchable database of homophones of the English language."
+  end
+
   def page_h
     "h3"
   end
