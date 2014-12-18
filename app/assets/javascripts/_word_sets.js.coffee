@@ -62,9 +62,10 @@ $ ->
     $this = $(this)
     options =
       id:      $this.data("id")
+      slug:    $this.data("slug")
       social:  $this.data("social")
       type:    $this.data("type")
       trigger: $this.data("trigger")
 
-    options.url = window.location.protocol + "//" + window.location.host + "/h/" + options.id
+    options.url = window.location.protocol + "//" + window.location.host + "/h/" + options.slug
     new ShareButton($this, options)

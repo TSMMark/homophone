@@ -36,17 +36,20 @@
 
   <div class="list-group" role="menu">
     <a href="#" class="list-group-item"
-       data-share-button data-id="<%= @word_set.id %>" data-social="facebook">
+       data-share-button data-social="facebook"
+       data-id="<%= @word_set.id %>" data-slug="<%= @word_set.to_slug %>">
       <%= fa_stacked_icon("facebook inverse", base: "square", class: "icon-facebook") %>
       Facebook
     </a>
     <a href="#" class="list-group-item"
-       data-share-button data-id="<%= @word_set.id %>" data-social="twitter">
+       data-share-button data-social="twitter"
+       data-id="<%= @word_set.id %>" data-slug="<%= @word_set.to_slug %>">
       <%= fa_stacked_icon("twitter inverse", base: "square", class: "icon-twitter") %>
       Twitter
     </a>
     <a href="#" class="list-group-item"
-       data-share-button data-id="<%= @word_set.id %>" data-social="email">
+       data-share-button data-social="email"
+       data-id="<%= @word_set.id %>" data-slug="<%= @word_set.to_slug %>">
       <%= fa_stacked_icon("envelope inverse", base: "square", class: "icon-email") %>
       Email
     </a>
