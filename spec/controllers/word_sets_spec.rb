@@ -57,12 +57,17 @@ describe WordSetsController do
         end
       end
 
-      it "is able to route using any of the slugs" do
+      it "older slugs redirect to the newest slug" do
         slugs.map(&:value).each do |slug_value|
           get(:from_slug, {
             :slug => slug_value
           })
-          expect(response).to render_template("show")
+
+          if slug_value == word_set.to_slug
+            expect(response).to render_template("show")
+          else
+            assert_response_redirect(response, "/h/#{word_set.to_slug}")
+          end
         end
       end
     end

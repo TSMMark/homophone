@@ -31,10 +31,16 @@ class WordSetsController < ApplicationController
   end
 
   def from_slug
-    @word_set = WordSet.from_slug(params[:slug])
+    slug_value = params[:slug]
+
+    @word_set = WordSet.from_slug(slug_value)
 
     respond_to do |format|
-      format.html { render action: 'show' }
+      if @word_set.to_slug == slug_value
+        format.html { render action: 'show' }
+      else
+        format.html { redirect_to word_set_slug_path(@word_set.to_slug), status: :moved_permanently }
+      end
     end
   end
 
@@ -42,7 +48,7 @@ class WordSetsController < ApplicationController
     @word_set = WordSet.sample
 
     if @word_set
-      redirect_to word_set_path(@word_set, params: {:random => "true"})
+      redirect_to word_set_slug_path(@word_set.to_slug, params: {:random => "true"})
     else
       redirect_to root_path, info: "No homophones yet"
     end

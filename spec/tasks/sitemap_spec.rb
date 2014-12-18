@@ -1,7 +1,9 @@
 require "spec_helper"
 
 describe "sitemap:generate" do
-  skip { "Does not work because our shared context only searches for our rake tasks" }
+  before do
+    skip "TODO: This does not work because our shared context only loads for our own rake tasks."
+  end
 
   include_context "rake"
 
@@ -20,7 +22,8 @@ describe "sitemap:generate" do
     it "adds a node for the word_set" do
       subject.invoke
 
-      # expect file exists
+      # expect that file exists
+      # cleanup the file
     end
   end
 end
