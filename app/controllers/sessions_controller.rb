@@ -1,7 +1,9 @@
 class SessionsController < ApplicationController
-  
+
   def new
-    session[:return_to] = request.referer unless URI(request.referer).path == current_path
+    if request.referer && URI(request.referer).path != current_path
+      session[:return_to] = request.referer
+    end
   end
 
   def create
@@ -19,6 +21,5 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to request.referer, info: "You're logged out."
   end
-
 
 end
