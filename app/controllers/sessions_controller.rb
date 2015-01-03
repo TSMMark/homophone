@@ -1,7 +1,9 @@
 class SessionsController < ApplicationController
-  
+
   def new
-    session[:return_to] = request.referer unless URI(request.referer).path == current_path
+    if request.referer && URI(request.referer).path != current_path
+      session[:return_to] = request.referer
+    end
   end
 
   def create
@@ -9,7 +11,7 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to session.delete(:return_to), info: "Welcome back!"
+      redirect_to initial_path, info: "Welcome back!"
     else
       render action: 'new', warning: "Email or password invalid."
     end
@@ -20,5 +22,10 @@ class SessionsController < ApplicationController
     redirect_to request.referer, info: "You're logged out."
   end
 
+  private
+
+  def initial_path
+    session.delete(:return_to) || root_path
+  end
 
 end
