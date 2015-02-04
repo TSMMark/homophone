@@ -1,7 +1,7 @@
 # Homophone.com v2
 ## The Internet's only complete homophone list.
 
-**old (current) site:** http://www.homophone.com
+**production app:** http://www.homophone.com
 
 **staging app:** http://homophonestaging.herokuapp.com
 
