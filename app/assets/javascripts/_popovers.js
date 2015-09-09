@@ -19,8 +19,11 @@ Popover.settings = {
 
 Popover.hoverEvent = "mouseover";
 Popover.unhoverEvent = "mouseout";
+Popover.unhoverInterval = 150;
 
 Popover.prototype.show = function () {
+  this.stopUnhoverInterval();
+
   if (this.shown) {
     return;
   }
@@ -30,6 +33,8 @@ Popover.prototype.show = function () {
 }
 
 Popover.prototype.hide = function () {
+  this.stopUnhoverInterval();
+
   if (!this.shown) {
     return;
   }
@@ -50,48 +55,66 @@ Popover.prototype.bindListeners = function () {
     self.bindNormalListener();
   }
 
-  if (Popover.unhoverEvent) {
-    self.$el.on(Popover.unhoverEvent, function (_event) {
-      self.hide();
-    });
+  self.$el.on(Popover.unhoverEvent, function (_event) {
+    self.startUnhoverInterval()
+  });
+}
+
+Popover.prototype.startUnhoverInterval = function () {
+  var self = this;
+
+  self.stopUnhoverInterval();
+
+  self._unhoverInterval = setInterval(function () {
+    self.checkUnhover();
+  }, Popover.unhoverInterval);
+}
+
+Popover.prototype.stopUnhoverInterval = function () {
+  return clearInterval(this._unhoverInterval);
+}
+
+Popover.prototype.checkUnhover = function () {
+  var $hoveredPopoverContent = $(".popover:hover");
+
+  if (!$hoveredPopoverContent.length && !this.$el.is(":hover")) {
+    this.hide();
   }
 }
 
 Popover.prototype.bindAJAXListener = function () {
   var self = this;
 
-  if (Popover.hoverEvent) {
-    self.$el.one(Popover.hoverEvent, function (_event) {
-      self.show();
+  self.$el.one(Popover.hoverEvent, function (_event) {
+    self.show();
 
-      $.get(self.ajaxURI, function (content) {
-        self.setContent(content);
-        self.bindNormalListener();
-      });
+    $.get(self.ajaxURI, function (content) {
+      self.setContent(content);
+      self.bindNormalListener();
     });
-  }
+  });
 }
 
 Popover.prototype.bindNormalListener = function () {
   var self = this;
 
-  if (Popover.hoverEvent) {
-    self.$el.on(Popover.hoverEvent, function (_event) {
-      self.show();
-    });
-  }
+  self.$el.on(Popover.hoverEvent, function (_event) {
+    self.show();
+  });
 }
 
 Popover.prototype.setContent = function (content) {
   var wasShown = this.shown;
+
   this.shown = false;
+
   this.$el.attr("data-content", content);
   this.$el.popover("destroy").popover(Popover.settings);
+
   if (wasShown) {
     this.show();
   }
 }
-
 
 $(function () {
   $("[data-toggle=popover]").each(function () {
