@@ -15,7 +15,7 @@ $ figaro heroku:set -e staging -a homophonestaging
 $ figaro heroku:set -e production -a homophone
 ```
 
-# Importing Homphones CSV
+# Importing Homophones CSV
 
 The CSV should have 4 columns: word_id, text, spelling, relation_id
 

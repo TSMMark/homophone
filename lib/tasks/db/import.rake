@@ -54,11 +54,11 @@ namespace :db do
   task :import => :environment do
     puts "IMPORTANT: CSV must be ordered by relation_id"
 
-    puts "importing homphones from lib/assets/homophone_list.csv"
+    puts "importing homophones from lib/assets/homophone_list.csv"
 
     csv_file  = open("#{Rails.root}/lib/assets/homophone_list.csv",'r')
 
-    csv_options = { 
+    csv_options = {
       chunk_size:                 100,
       col_sep:                    ",",
       # row_sep: "\r",
