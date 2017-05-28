@@ -10,6 +10,7 @@ class WordSetsController < ApplicationController
     @query_type = params[:type] || "include"
 
     if @query
+      # WARNING: Not thread safe!
       WordSet.current_query = @query
       WordSet.current_query_type = @query_type
     end
@@ -21,8 +22,15 @@ class WordSetsController < ApplicationController
       :path => word_sets_path
     }))
 
+    results = @presenter.results.map do |word_set|
+      word_set.as_json.merge(
+        "words" => word_set.words_matches_preceding(@query)
+      )
+    end
+
     respond_to do |format|
-      format.html { render  }
+      format.html { render }
+      format.json { render json: results }
     end
   end
 

@@ -43,6 +43,7 @@ gem 'jquery-ui-rails', '~> 4.0'
 gem 'spring', group: :development
 
 gem 'better_errors', group: :development
+gem 'pry', group: :development
 
 gem 'auto_strip_attributes', '~> 2.0'
 
