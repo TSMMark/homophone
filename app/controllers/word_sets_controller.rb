@@ -14,12 +14,16 @@ class WordSetsController < ApplicationController
       WordSet.current_query_type = @query_type
     end
 
-    @presenter = Presenters::WordSet.new(params.merge({
+    @presenter = Presenters::WordSets.new(params.merge({
       :dataset => WordSet,
       :query => @query,
       :query_type => @query_type,
       :path => word_sets_path
     }))
+
+    respond_to do |format|
+      format.html { render  }
+    end
   end
 
   def show
