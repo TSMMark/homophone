@@ -14,7 +14,7 @@ class WordSetsController < ApplicationController
       WordSet.current_query_type = @query_type
     end
 
-    @presenter = Presenters::WordSetPresenter.new(params.merge({
+    @presenter = Presenters::WordSet.new(params.merge({
       :dataset => WordSet,
       :query => @query,
       :query_type => @query_type,

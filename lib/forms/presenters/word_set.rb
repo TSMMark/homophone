@@ -2,7 +2,7 @@ require "uri"
 require_relative "../../form/extensions/presenter"
 
 module Presenters
-  class WordSetPresenter < Form::Base
+  class WordSet < Form::Base
 
     include Form::Extensions::Presenter
 
