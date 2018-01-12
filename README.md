@@ -62,7 +62,7 @@ remote branches.
 $ git push staging master
 ```
 
-### Staging
+### Production
 
 ```
 $ git push production master
