@@ -17,13 +17,13 @@
       </p>
       <p>If you think we're missing any homophones, let us know by emailing me at <a href="mailto:al@homophone.com">al@homophone.com</a></p>
       <p>You can also visit my main business at <a href="http://aafinancial.com" target="_blank">aafinancial.com</a></p>
-      <%= browse_btn %>
       <%= random_btn %>
+      <%= browse_btn %>
     </div>
   </footer>
-  
+
   <div class="dark-background" id="tiny-options">
-    Copyright Alfred Aloisi 2008 - 2014 | 
+    Copyright Alfred Aloisi 2008 - 2014 |
     <% if signed_in? %>
       <%= link_to "Change Password", edit_user_path(current_user.id) %> |
       <%= link_to "Add Homophones", new_word_set_path %> |
