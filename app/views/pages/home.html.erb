@@ -1,11 +1,10 @@
 <section class="block-section" id="above-fold">
   <div class="container">
     <div class="jumbotron">
-      <h1>Welcome to <%= t(:site) %></h1>
-      <% @preface = ["The Internet's only complete", "Your one-stop complete", "The world's only complete"].sample %>
-      <p><strong><%= @preface %> homophone list</strong>.</p>
-      <%= browse_btn %>
+      <h1><%= t(:site) %></h1>
+      <p><strong><%= ["The Internet's only complete", "Your one-stop complete", "The world's only complete"].sample %> homophone list</strong>.</p>
       <%= random_btn %>
+      <%= browse_btn %>
       <%= define_btn %>
 
       <!-- TODO: A/B test search box here -->

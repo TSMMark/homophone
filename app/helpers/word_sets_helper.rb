@@ -9,11 +9,11 @@ module WordSetsHelper
   end
 
   def browse_btn
-    link_to raw("Browse homophones #{plain_icon("book")}"), browse_path, class: "btn btn-primary btn-lg btn-xs-full"
+    link_to raw("Homophones by Letter #{plain_icon("book")}"), browse_path, class: "btn btn-primary btn-lg btn-xs-full"
   end
 
   def random_btn
-    link_to raw("Random homophones #{plain_icon("random")}"), random_homophone_path, class: "btn btn-info btn-lg btn-xs-full"
+    link_to raw("Explore homophones #{plain_icon("random")}"), random_homophone_path, class: "btn btn-info btn-lg btn-xs-full"
   end
 
   def define_btn

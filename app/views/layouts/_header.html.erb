@@ -20,7 +20,7 @@
         </ul>
       </li>
 
-      <li><%= link_to "Random", random_homophone_path %></li>
+      <li><%= link_to "Explore", random_homophone_path %></li>
 
       <% if can? :create, WordSet %>
         <li><%= link_to(raw("<span class=\"fa fa-plus\"></li>"), new_word_set_path) %></li>
@@ -29,7 +29,7 @@
 
     <form class="navbar-form navbar-right search-form" action="<%= word_sets_path %>">
       <div class="form-group">
-        <label for="search-text">Search Homophones</label>
+        <label for="search-text">Homophone Search</label>
         <div class="input-group">
           <div class="input-group-btn">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span>Includes</span> <span class="caret"></span></button>

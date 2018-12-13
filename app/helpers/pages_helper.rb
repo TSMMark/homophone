@@ -5,7 +5,7 @@ module PagesHelper
   end
 
   def full_page_title
-    tagline = (content_for?(:title) ? content_for(:title) : "Your Complete List of Homophones")
+    tagline = (content_for?(:title) ? content_for(:title) : "Homophones - Complete List of All English Homophones")
     "#{tagline} at Homophone.com"
   end
 
