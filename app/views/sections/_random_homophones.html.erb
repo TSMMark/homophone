@@ -1,18 +1,6 @@
-<section class="block-section" id="more-details" name="more">
+<section class="partner-section">
   <div class="container">
-    <h1>Easy and fun education!</h1>
-    <div class="well">
-      <h4>Spellings, pronunciations, definitions.</h4>
-      <p>
-        We include a definition for each word listed!
-        Hover over a homophone word buttom for definitions.
-      </p>
-      <p>
-        <strong>Try it with the homophones below</strong>
-      </p>
-    </div>
-
-    <h3>Example homophones:</h3>
+    <h1>Examples of homophones</h1>
     <div class="card-set-container">
       <% @word_set = random_word_set %>
       <% if @word_set %>
@@ -33,7 +21,5 @@
         <p>Please add some homophones</p>
       <% end %>
     </div>
-    <%= random_btn %>
-    <%= browse_btn %>
   </div>
 </section>
