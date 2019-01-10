@@ -23,7 +23,7 @@
   </footer>
 
   <div class="dark-background" id="tiny-options">
-    Copyright Alfred Aloisi 2008 - 2014 |
+    &copy; Copyright Alfred Aloisi 2008 - <%= Date.today.year %> |
     <% if signed_in? %>
       <%= link_to "Change Password", edit_user_path(current_user.id) %> |
       <%= link_to "Add Homophones", new_word_set_path %> |
