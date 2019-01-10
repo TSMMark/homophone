@@ -20,14 +20,6 @@
       <% else %>
         <p>Please add some homophones</p>
       <% end %>
-      <% @word_set = random_word_set %>
-      <% if @word_set %>
-        <%= render partial: 'word_sets/card' %>
-      <% else %>
-        <p>Please add some homophones</p>
-      <% end %>
     </div>
-    <%= random_btn %>
-    <%= browse_btn %>
   </div>
 </section>
