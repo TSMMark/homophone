@@ -1,30 +1,32 @@
 <section class="partner-section">
   <div class="container">
     <h1>Examples of homophones</h1>
-    <% @word_set = random_word_set %>
-    <% if @word_set %>
-      <%= render partial: 'word_sets/card' %>
-    <% else %>
-      <p>Please add some homophones</p>
-    <% end %>
-    <% @word_set = random_word_set %>
-    <% if @word_set %>
-      <%= render partial: 'word_sets/card' %>
-    <% else %>
-      <p>Please add some homophones</p>
-    <% end %>
-    <% @word_set = random_word_set %>
-    <% if @word_set %>
-      <%= render partial: 'word_sets/card' %>
-    <% else %>
-      <p>Please add some homophones</p>
-    <% end %>
-    <% @word_set = random_word_set %>
-    <% if @word_set %>
-      <%= render partial: 'word_sets/card' %>
-    <% else %>
-      <p>Please add some homophones</p>
-    <% end %>
+    <div class="card-set-container">
+      <% @word_set = random_word_set %>
+      <% if @word_set %>
+        <%= render partial: 'word_sets/card' %>
+      <% else %>
+        <p>Please add some homophones</p>
+      <% end %>
+      <% @word_set = random_word_set %>
+      <% if @word_set %>
+        <%= render partial: 'word_sets/card' %>
+      <% else %>
+        <p>Please add some homophones</p>
+      <% end %>
+      <% @word_set = random_word_set %>
+      <% if @word_set %>
+        <%= render partial: 'word_sets/card' %>
+      <% else %>
+        <p>Please add some homophones</p>
+      <% end %>
+      <% @word_set = random_word_set %>
+      <% if @word_set %>
+        <%= render partial: 'word_sets/card' %>
+      <% else %>
+        <p>Please add some homophones</p>
+      <% end %>
+    </div>
     <%= random_btn %>
     <%= browse_btn %>
   </div>
