@@ -1,4 +1,4 @@
-# Homophone.com
+# Homophones on Homophone.com
 ## The Internet's only complete homophone list.
 
 **production app:** http://www.homophone.com
