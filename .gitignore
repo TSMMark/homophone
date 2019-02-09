@@ -11,6 +11,13 @@
 /db/*.sqlite3
 /db/*.sqlite3-journal
 
+# Ignore db
+/db_data/
+/docker0
+
+# Yarn
+/yarn-error.log
+
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp

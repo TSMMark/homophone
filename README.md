@@ -20,12 +20,16 @@ $ cp config/application.SAMPLE.yml config/application.yml
 $ vim config/application.yml
 ```
 
+### Docker
+
+```
+$ yarn docker-build
+$ yarn docker-ssh
+```
+
 ### Database
 
-Install and start postgresql. http://postgresapp.com is fine but you can use
-whatever.
-
-Once postgresql is installed anr running setup the database.
+In docker:
 
 ```
 $ rake db:setup
@@ -47,8 +51,20 @@ Add a line that looks like
 
 ### Web server
 
+In docker:
+
 ```
 $ rails s
+```
+
+Or from host OS:
+
+```
+$ yarn server
+```
+
+```
+$ yarn console
 ```
 
 # Deploying

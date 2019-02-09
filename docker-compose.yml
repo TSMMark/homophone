@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:9.6
+    ports:
+      - 5432:5432
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=39ng98rhg248hfo218
+      - POSTGRES_USER=postgres_root
+    volumes:
+      - ./db_data:/var/lib/postgresql/data
+  web:
+    build: .
+    ports:
+      - 5000:5000
+    environment:
+      - POSTGRES_ROOT_PASSWORD=39ng98rhg248hfo218
+      - POSTGRES_ROOT_USER=postgres_root
+      - DATABASE_HOST=db
+      - REDIS_HOST=redis
+    volumes:
+      - .:/homophone
+      - ./docker_ssh:/root/.ssh
+    tty: true
+    depends_on:
+      - db
+volumes:
+  db_data:
+    external: true

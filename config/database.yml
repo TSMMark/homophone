@@ -5,10 +5,18 @@ default: &default
 
 development:
   <<: *default
-  host: localhost
+  host: db
+  port: 5432
   database: homophone_development
+  password: 39ng98rhg248hfo218
+  user: postgres_root
+  timeout: 15000
 
 test:
   <<: *default
-  host: localhost
+  host: db
+  port: 5432
   database: homophone_test
+  password: 39ng98rhg248hfo218
+  user: postgres_root
+  timeout: 15000
