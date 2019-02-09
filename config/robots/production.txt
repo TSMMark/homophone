@@ -1,2 +1,2 @@
 User-Agent: *
-Sitemap: http://www.homophone.com/sitemap.xml
+Sitemap: https://www.homophone.com/sitemap.xml

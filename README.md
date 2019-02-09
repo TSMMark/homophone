@@ -1,9 +1,9 @@
 # Homophones on Homophone.com
 ## The Internet's only complete homophone list.
 
-**production app:** http://www.homophone.com
+**production app:** https://www.homophone.com
 
-**staging app:** http://homophonestaging.herokuapp.com
+**staging app:** https://homophonestaging.herokuapp.com
 
 www.homophone.com Copyright Alfred Aloisi 2017
 
