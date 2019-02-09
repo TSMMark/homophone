@@ -19,7 +19,7 @@ module PagesHelper
 
   def default_page_description
     "A homophone is a word that sounds like another word, but has a different spelling and meaning. " +
-    "Here you can explore and learn more about specific examples of homophones in the English language."
+    "Here you can discover and learn more about specific examples of homophones in the English language."
   end
 
   def page_h

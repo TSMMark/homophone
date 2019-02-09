@@ -106,6 +106,17 @@ RUN apt-get install lsof
 RUN apt-get update && apt-get install -y ssh
 
 ###
+# add git remotes
+###
+RUN git remote add production git@heroku.com:homophone.git
+RUN git remote add staging git@heroku.com:homophonestaging.git
+
+###
+# heroku cli
+###
+RUN curl https://cli-assets.heroku.com/install.sh | sh
+
+###
 # Ruby Gems
 ###
 COPY Gemfile* /tmp/gemfiles/
