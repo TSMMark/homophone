@@ -31,6 +31,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
   bundler \
   curl \
   git \
+  imagemagick \
+  libmagickcore-dev \
+  libmagickwand-dev \
   libpq-dev \
   libxml2 \
   libxml2-dev \
@@ -106,15 +109,19 @@ RUN apt-get install lsof
 RUN apt-get update && apt-get install -y ssh
 
 ###
-# add git remotes
-###
-RUN git remote add production git@heroku.com:homophone.git
-RUN git remote add staging git@heroku.com:homophonestaging.git
-
-###
 # heroku cli
 ###
 RUN curl https://cli-assets.heroku.com/install.sh | sh
+
+###
+# add git remotes (TODO: Automate this)
+# fatal: Not a git repository (or any of the parent directories): .git
+# ERROR: Service 'web' failed to build: The command '/bin/sh -c git remote rename homophonestaging staging' returned a non-zero code: 128
+###
+# RUN heroku git:remote -a homophonestaging
+# RUN git remote rename homophonestaging staging
+# RUN heroku git:remote -a homophone
+# RUN git remote rename homophone production
 
 ###
 # Ruby Gems

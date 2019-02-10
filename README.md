@@ -104,3 +104,8 @@ Run the rake task.
 ```
 $ rake db:import
 ```
+
+# Heroku app setup (incomplete)
+
+ - `heroku buildpacks:add heroku/imagemagick -a homophonestaging`
+ - `heroku buildpacks:add heroku/imagemagick -a homophone`
