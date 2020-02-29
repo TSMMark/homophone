@@ -19,3 +19,10 @@
 /config/application.yml
 
 public/sitemap.xml
+
+# Ignore db
+/db_data/
+/docker0
+
+# Yarn
+/yarn-error.log
