@@ -13,7 +13,7 @@ module WordSetsHelper
   end
 
   def random_btn
-    link_to raw("Explore homophones #{plain_icon("random")}"), random_homophone_path, class: "btn btn-info btn-lg btn-xs-full"
+    link_to raw("Discover homophones #{plain_icon("random")}"), random_homophone_path, class: "btn btn-info btn-lg btn-xs-full"
   end
 
   def define_btn

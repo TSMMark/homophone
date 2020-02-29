@@ -1,9 +1,9 @@
 # Homophones on Homophone.com
 ## The Internet's only complete homophone list.
 
-**production app:** http://www.homophone.com
+**production app:** https://www.homophone.com
 
-**staging app:** http://homophonestaging.herokuapp.com
+**staging app:** https://homophonestaging.herokuapp.com
 
 www.homophone.com Copyright Alfred Aloisi 2017
 
@@ -20,12 +20,16 @@ $ cp config/application.SAMPLE.yml config/application.yml
 $ vim config/application.yml
 ```
 
+### Docker
+
+```
+$ yarn docker-build
+$ yarn docker-ssh
+```
+
 ### Database
 
-Install and start postgresql. http://postgresapp.com is fine but you can use
-whatever.
-
-Once postgresql is installed anr running setup the database.
+In docker:
 
 ```
 $ rake db:setup
@@ -47,8 +51,20 @@ Add a line that looks like
 
 ### Web server
 
+In docker:
+
 ```
 $ rails s
+```
+
+Or from host OS:
+
+```
+$ yarn server
+```
+
+```
+$ yarn console
 ```
 
 # Deploying

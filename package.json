@@ -1,0 +1,25 @@
+{
+  "name": "homophone",
+  "version": "1.0.0",
+  "description": "homophone",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/TSMMark/homophone.git"
+  },
+  "engines": {
+    "node": "^10.15.1"
+  },
+  "scripts": {
+    "append-empty-line": "echo \"\" >> ",
+    "console": "yarn docker-exec \"rails c\"",
+    "server": "yarn docker-exec \"foreman s -f Procfile\"",
+    "docker-build": "docker-compose down && docker-compose build",
+    "docker-ensure-start": "if [ -z `docker ps -q --no-trunc | grep $(docker-compose ps -q web)` ]; then docker-compose up -d; fi",
+    "docker-exec": "yarn docker-ensure-start && docker-compose exec web sh -c",
+    "docker-kill": "docker kill $(docker ps -q)",
+    "docker-ssh": "yarn docker-ensure-start && docker-compose exec web bash",
+    "deploy-staging": "git push staging `git branch | grep \\* | cut -d ' ' -f2`:master",
+    "deploy-production": "git push production `git branch | grep \\* | cut -d ' ' -f2`:master",
+    "deploy-staging-and-production": "yarn deploy-staging && yarn deploy-production"
+  }
+}
