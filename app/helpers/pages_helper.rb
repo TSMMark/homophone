@@ -5,7 +5,7 @@ module PagesHelper
   end
 
   def full_page_title
-    tagline = (content_for?(:title) ? content_for(:title) : "Homophones - Complete List of All English Homophones")
+    tagline = (content_for?(:title) ? content_for(:title) : "Homophone Dictionary")
     "#{tagline} at Homophone"
   end
 
@@ -18,8 +18,7 @@ module PagesHelper
   end
 
   def default_page_description
-    "A homophone is a word that sounds like another word, but has a different spelling and meaning. " +
-    "Here you can explore and learn more about specific examples of homophones in the English language."
+    "Homophone definitions – your complete list of homophones with definitions"
   end
 
   def page_h
