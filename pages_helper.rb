@@ -6,7 +6,7 @@ module PagesHelper
 
   def full_page_title
     tagline = (content_for?(:title) ? content_for(:title) : "Homophone Dictionary")
-    "#{tagline} at Homophone"
+    "#{tagline} at Homophone.com"
   end
 
   def page_description
@@ -18,7 +18,7 @@ module PagesHelper
   end
 
   def default_page_description
-    "Homophone definitions – your complete list of homophones with definitions"
+    "Homophone Dictionary – your complete list of homophones with definitions"
   end
 
   def page_h
