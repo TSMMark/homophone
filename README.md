@@ -69,14 +69,31 @@ $ yarn console
 
 # Deploying
 
-Set up heroku git remotes one time. Now you can deploy by pushing to those
-remote branches.
+## Setup heroku CLI locally
 
-### Staging
+https://devcenter.heroku.com/articles/heroku-cli#download-and-install
+
+Make sure to log in to your heroku account that has access to `homophone` app
 
 ```
-$ git push staging master
+$ heroku login
 ```
+
+## Set up heroku git remotes one time. 
+
+Add homophone heroky app as a git remote
+
+```
+$ heroku git:remote -a homophone
+```
+
+Rename the git remote to `production`
+
+```
+$ git remote rename heroku production
+```
+
+Now you can deploy by pushing to that remote branch:
 
 ### Production
 
