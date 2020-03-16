@@ -97,8 +97,24 @@ Now you can deploy by pushing to that remote branch:
 
 ### Production
 
+First, make sure you have checked out master locally so you are deploying the latest.
+
+```
+$ git checkout master
+```
+
+Now push local `master` to remote `master` on the heroku remote called `production`
+
 ```
 $ git push production master
+```
+
+#### Advanced (probably shouldn't do this on production!)
+
+To deploy a local branch other than `master`, push your local branch name to the remote `master`
+
+```
+$ git push production my-local-branch:master
 ```
 
 ### Use figaro to set the environment variables.
