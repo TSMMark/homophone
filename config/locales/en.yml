@@ -20,7 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  site: "Homophones"
+  site: "Homophone Dictionary"
 
   model:
     word_set: "Word Set"
