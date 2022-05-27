@@ -1,9 +1,9 @@
 GIT
-  remote: git://github.com/jumph4x/canonical-rails.git
-  revision: 7c8e44e048faa23de107be7250336a3585e32247
+  remote: https://github.com/jumph4x/canonical-rails.git
+  revision: c062988ccfe2669a12f29bcb615ad9790380bcf7
   specs:
-    canonical-rails (0.0.7)
-      rails (>= 3.1, < 5.0)
+    canonical-rails (0.2.14)
+      rails (>= 4.1, <= 7.1)
 
 GEM
   remote: https://rubygems.org/
@@ -96,7 +96,7 @@ GEM
       coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
-    rack (1.5.2)
+    rack (1.5.5)
     rack-test (0.6.2)
       rack (>= 1.0)
     rack-timeout (0.0.4)
